@@ -1,0 +1,359 @@
+﻿
+namespace QuanLyHocTap
+{
+    partial class SinhVien
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.gbList = new System.Windows.Forms.GroupBox();
+            this.btnSearchStudent = new System.Windows.Forms.Button();
+            this.txtSeachStudent = new System.Windows.Forms.TextBox();
+            this.dgvStudent = new System.Windows.Forms.DataGridView();
+            this.gbItem = new System.Windows.Forms.GroupBox();
+            this.dtpStudentDOB = new System.Windows.Forms.DateTimePicker();
+            this.txtStudentCCCD = new System.Windows.Forms.TextBox();
+            this.txtStudentName = new System.Windows.Forms.TextBox();
+            this.txtStudentAddress = new System.Windows.Forms.TextBox();
+            this.txtStudentPN = new System.Windows.Forms.TextBox();
+            this.txtStudentEmail = new System.Windows.Forms.TextBox();
+            this.lbAddress = new System.Windows.Forms.Label();
+            this.txtStudentID = new System.Windows.Forms.TextBox();
+            this.lbClass = new System.Windows.Forms.Label();
+            this.lbPN = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbCCCD = new System.Windows.Forms.Label();
+            this.lbDOB = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
+            this.lbID = new System.Windows.Forms.Label();
+            this.btnDeleteStudent = new System.Windows.Forms.Button();
+            this.btnSaveStudent = new System.Windows.Forms.Button();
+            this.btnViewScore = new System.Windows.Forms.Button();
+            this.btAddStudent = new System.Windows.Forms.Button();
+            this.cbbClass = new System.Windows.Forms.ComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.gbList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
+            this.gbItem.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // gbList
+            // 
+            this.gbList.Controls.Add(this.btnSearchStudent);
+            this.gbList.Controls.Add(this.txtSeachStudent);
+            this.gbList.Controls.Add(this.dgvStudent);
+            this.gbList.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbList.ForeColor = System.Drawing.Color.Maroon;
+            this.gbList.Location = new System.Drawing.Point(29, 3);
+            this.gbList.Name = "gbList";
+            this.gbList.Size = new System.Drawing.Size(1132, 422);
+            this.gbList.TabIndex = 0;
+            this.gbList.TabStop = false;
+            this.gbList.Text = "Danh sách";
+            // 
+            // btnSearchStudent
+            // 
+            this.btnSearchStudent.Location = new System.Drawing.Point(715, 20);
+            this.btnSearchStudent.Name = "btnSearchStudent";
+            this.btnSearchStudent.Size = new System.Drawing.Size(73, 48);
+            this.btnSearchStudent.TabIndex = 2;
+            this.btnSearchStudent.Text = "Tìm";
+            this.btnSearchStudent.UseVisualStyleBackColor = true;
+            // 
+            // txtSeachStudent
+            // 
+            this.txtSeachStudent.Location = new System.Drawing.Point(379, 32);
+            this.txtSeachStudent.Name = "txtSeachStudent";
+            this.txtSeachStudent.Size = new System.Drawing.Size(295, 25);
+            this.txtSeachStudent.TabIndex = 1;
+            // 
+            // dgvStudent
+            // 
+            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudent.Location = new System.Drawing.Point(13, 78);
+            this.dgvStudent.Name = "dgvStudent";
+            this.dgvStudent.RowHeadersWidth = 51;
+            this.dgvStudent.RowTemplate.Height = 24;
+            this.dgvStudent.Size = new System.Drawing.Size(1100, 324);
+            this.dgvStudent.TabIndex = 0;
+            // 
+            // gbItem
+            // 
+            this.gbItem.Controls.Add(this.cbbClass);
+            this.gbItem.Controls.Add(this.dtpStudentDOB);
+            this.gbItem.Controls.Add(this.txtStudentCCCD);
+            this.gbItem.Controls.Add(this.txtStudentName);
+            this.gbItem.Controls.Add(this.txtStudentAddress);
+            this.gbItem.Controls.Add(this.txtStudentPN);
+            this.gbItem.Controls.Add(this.txtStudentEmail);
+            this.gbItem.Controls.Add(this.lbAddress);
+            this.gbItem.Controls.Add(this.txtStudentID);
+            this.gbItem.Controls.Add(this.lbClass);
+            this.gbItem.Controls.Add(this.lbPN);
+            this.gbItem.Controls.Add(this.label4);
+            this.gbItem.Controls.Add(this.lbCCCD);
+            this.gbItem.Controls.Add(this.lbDOB);
+            this.gbItem.Controls.Add(this.lbName);
+            this.gbItem.Controls.Add(this.lbID);
+            this.gbItem.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbItem.ForeColor = System.Drawing.Color.Maroon;
+            this.gbItem.Location = new System.Drawing.Point(29, 436);
+            this.gbItem.Name = "gbItem";
+            this.gbItem.Size = new System.Drawing.Size(1132, 230);
+            this.gbItem.TabIndex = 1;
+            this.gbItem.TabStop = false;
+            this.gbItem.Text = "Thông tin chi tiết";
+            // 
+            // dtpStudentDOB
+            // 
+            this.dtpStudentDOB.Location = new System.Drawing.Point(227, 134);
+            this.dtpStudentDOB.Name = "dtpStudentDOB";
+            this.dtpStudentDOB.Size = new System.Drawing.Size(310, 25);
+            this.dtpStudentDOB.TabIndex = 2;
+            // 
+            // txtStudentCCCD
+            // 
+            this.txtStudentCCCD.Location = new System.Drawing.Point(227, 179);
+            this.txtStudentCCCD.Name = "txtStudentCCCD";
+            this.txtStudentCCCD.Size = new System.Drawing.Size(310, 25);
+            this.txtStudentCCCD.TabIndex = 1;
+            // 
+            // txtStudentName
+            // 
+            this.txtStudentName.Location = new System.Drawing.Point(227, 90);
+            this.txtStudentName.Name = "txtStudentName";
+            this.txtStudentName.Size = new System.Drawing.Size(310, 25);
+            this.txtStudentName.TabIndex = 1;
+            // 
+            // txtStudentAddress
+            // 
+            this.txtStudentAddress.Location = new System.Drawing.Point(760, 179);
+            this.txtStudentAddress.Name = "txtStudentAddress";
+            this.txtStudentAddress.Size = new System.Drawing.Size(307, 25);
+            this.txtStudentAddress.TabIndex = 1;
+            // 
+            // txtStudentPN
+            // 
+            this.txtStudentPN.Location = new System.Drawing.Point(760, 88);
+            this.txtStudentPN.Name = "txtStudentPN";
+            this.txtStudentPN.Size = new System.Drawing.Size(307, 25);
+            this.txtStudentPN.TabIndex = 1;
+            // 
+            // txtStudentEmail
+            // 
+            this.txtStudentEmail.Location = new System.Drawing.Point(760, 45);
+            this.txtStudentEmail.Name = "txtStudentEmail";
+            this.txtStudentEmail.Size = new System.Drawing.Size(307, 25);
+            this.txtStudentEmail.TabIndex = 1;
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Location = new System.Drawing.Point(621, 182);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(63, 24);
+            this.lbAddress.TabIndex = 0;
+            this.lbAddress.Text = "Địa chỉ:";
+            // 
+            // txtStudentID
+            // 
+            this.txtStudentID.Location = new System.Drawing.Point(227, 50);
+            this.txtStudentID.Name = "txtStudentID";
+            this.txtStudentID.Size = new System.Drawing.Size(310, 25);
+            this.txtStudentID.TabIndex = 1;
+            // 
+            // lbClass
+            // 
+            this.lbClass.AutoSize = true;
+            this.lbClass.Location = new System.Drawing.Point(621, 136);
+            this.lbClass.Name = "lbClass";
+            this.lbClass.Size = new System.Drawing.Size(38, 24);
+            this.lbClass.TabIndex = 0;
+            this.lbClass.Text = "Lớp:";
+            // 
+            // lbPN
+            // 
+            this.lbPN.AutoSize = true;
+            this.lbPN.Location = new System.Drawing.Point(621, 93);
+            this.lbPN.Name = "lbPN";
+            this.lbPN.Size = new System.Drawing.Size(107, 24);
+            this.lbPN.TabIndex = 0;
+            this.lbPN.Text = "Số điện thoại:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(621, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Email:";
+            // 
+            // lbCCCD
+            // 
+            this.lbCCCD.AutoSize = true;
+            this.lbCCCD.Location = new System.Drawing.Point(38, 182);
+            this.lbCCCD.Name = "lbCCCD";
+            this.lbCCCD.Size = new System.Drawing.Size(163, 24);
+            this.lbCCCD.TabIndex = 0;
+            this.lbCCCD.Text = "Số căn cước công dân:";
+            // 
+            // lbDOB
+            // 
+            this.lbDOB.AutoSize = true;
+            this.lbDOB.Location = new System.Drawing.Point(38, 136);
+            this.lbDOB.Name = "lbDOB";
+            this.lbDOB.Size = new System.Drawing.Size(83, 24);
+            this.lbDOB.TabIndex = 0;
+            this.lbDOB.Text = "Ngày sinh:";
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Location = new System.Drawing.Point(38, 93);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(130, 24);
+            this.lbName.TabIndex = 0;
+            this.lbName.Text = "Họ tên sinh viên:";
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.Location = new System.Drawing.Point(38, 51);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(123, 24);
+            this.lbID.TabIndex = 0;
+            this.lbID.Text = "Mã số sinh viên:";
+            // 
+            // btnDeleteStudent
+            // 
+            this.btnDeleteStudent.Location = new System.Drawing.Point(899, 688);
+            this.btnDeleteStudent.Name = "btnDeleteStudent";
+            this.btnDeleteStudent.Size = new System.Drawing.Size(66, 48);
+            this.btnDeleteStudent.TabIndex = 2;
+            this.btnDeleteStudent.Text = "Xóa";
+            this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveStudent
+            // 
+            this.btnSaveStudent.Location = new System.Drawing.Point(983, 688);
+            this.btnSaveStudent.Name = "btnSaveStudent";
+            this.btnSaveStudent.Size = new System.Drawing.Size(66, 48);
+            this.btnSaveStudent.TabIndex = 2;
+            this.btnSaveStudent.Text = "Lưu";
+            this.btnSaveStudent.UseVisualStyleBackColor = true;
+            // 
+            // btnViewScore
+            // 
+            this.btnViewScore.Location = new System.Drawing.Point(699, 688);
+            this.btnViewScore.Name = "btnViewScore";
+            this.btnViewScore.Size = new System.Drawing.Size(94, 48);
+            this.btnViewScore.TabIndex = 2;
+            this.btnViewScore.Text = "Xem điểm";
+            this.btnViewScore.UseVisualStyleBackColor = true;
+            // 
+            // btAddStudent
+            // 
+            this.btAddStudent.Location = new System.Drawing.Point(814, 688);
+            this.btAddStudent.Name = "btAddStudent";
+            this.btAddStudent.Size = new System.Drawing.Size(66, 48);
+            this.btAddStudent.TabIndex = 2;
+            this.btAddStudent.Text = "Thêm";
+            this.btAddStudent.UseVisualStyleBackColor = true;
+            // 
+            // cbbClass
+            // 
+            this.cbbClass.FormattingEnabled = true;
+            this.cbbClass.Location = new System.Drawing.Point(760, 134);
+            this.cbbClass.Name = "cbbClass";
+            this.cbbClass.Size = new System.Drawing.Size(307, 32);
+            this.cbbClass.TabIndex = 3;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(1076, 688);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(66, 48);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // SinhVien
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Azure;
+            this.ClientSize = new System.Drawing.Size(1194, 748);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnSaveStudent);
+            this.Controls.Add(this.btnViewScore);
+            this.Controls.Add(this.btAddStudent);
+            this.Controls.Add(this.btnDeleteStudent);
+            this.Controls.Add(this.gbItem);
+            this.Controls.Add(this.gbList);
+            this.Font = new System.Drawing.Font("iCiel Cucho", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name = "SinhVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sinh viên";
+            this.gbList.ResumeLayout(false);
+            this.gbList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
+            this.gbItem.ResumeLayout(false);
+            this.gbItem.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox gbList;
+        private System.Windows.Forms.DataGridView dgvStudent;
+        private System.Windows.Forms.GroupBox gbItem;
+        private System.Windows.Forms.Label lbPN;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbCCCD;
+        private System.Windows.Forms.Label lbDOB;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.Label lbClass;
+        private System.Windows.Forms.DateTimePicker dtpStudentDOB;
+        private System.Windows.Forms.TextBox txtStudentCCCD;
+        private System.Windows.Forms.TextBox txtStudentName;
+        private System.Windows.Forms.TextBox txtStudentPN;
+        private System.Windows.Forms.TextBox txtStudentEmail;
+        private System.Windows.Forms.TextBox txtStudentID;
+        private System.Windows.Forms.Button btnDeleteStudent;
+        private System.Windows.Forms.Button btnSaveStudent;
+        private System.Windows.Forms.Button btnSearchStudent;
+        private System.Windows.Forms.TextBox txtSeachStudent;
+        private System.Windows.Forms.Button btnViewScore;
+        private System.Windows.Forms.TextBox txtStudentAddress;
+        private System.Windows.Forms.Label lbAddress;
+        private System.Windows.Forms.Button btAddStudent;
+        private System.Windows.Forms.ComboBox cbbClass;
+        private System.Windows.Forms.Button btnExit;
+    }
+}
