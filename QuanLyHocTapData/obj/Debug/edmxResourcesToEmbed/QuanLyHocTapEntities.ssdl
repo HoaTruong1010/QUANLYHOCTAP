@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyHocTapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Classes">
+    <Key>
+      <PropertyRef Name="ClassID" />
+    </Key>
+    <Property Name="ClassID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="ClassName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TotalStudent" Type="int" Nullable="false" />
+    <Property Name="TeacherID" Type="varchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Scores">
+    <Key>
+      <PropertyRef Name="TeachingID" />
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="Registration_Date" />
+    </Key>
+    <Property Name="TeachingID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Registration_Date" Type="date" Nullable="false" />
+    <Property Name="MidtermScore" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="ModifiedDateOfMidtermScore" Type="date" />
+    <Property Name="EndPointScore" Type="decimal" Precision="3" Scale="2" />
+    <Property Name="ModifiedDateOfEndPointScore" Type="date" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DayOfBirth" Type="date" Nullable="false" />
+    <Property Name="ID" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="StudentAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClassID" Type="varchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="SubjectID" />
+    </Key>
+    <Property Name="SubjectID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="SubjectName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Credits" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="TeacherID" />
+    </Key>
+    <Property Name="TeacherID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="TeacherName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DayOfBirth" Type="date" Nullable="false" />
+    <Property Name="ID" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TeacherAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TeacherCertificate" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Teaching">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="SubjectID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="RegisterDate" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Classes__Teacher__2C3393D0">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Classes" Type="Self.Classes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="TeacherID" />
+      </Principal>
+      <Dependent Role="Classes">
+        <PropertyRef Name="TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__ClassI__2F10007B">
+    <End Role="Classes" Type="Self.Classes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classes">
+        <PropertyRef Name="ClassID" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Teaching__Subjec__29572725">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Teaching" Type="Self.Teaching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="SubjectID" />
+      </Principal>
+      <Dependent Role="Teaching">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Teaching__Teache__286302EC">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Teaching" Type="Self.Teaching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="TeacherID" />
+      </Principal>
+      <Dependent Role="Teaching">
+        <PropertyRef Name="TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK1_Score">
+    <End Role="Teaching" Type="Self.Teaching" Multiplicity="1" />
+    <End Role="Scores" Type="Self.Scores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teaching">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Scores">
+        <PropertyRef Name="TeachingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2_Score">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Scores" Type="Self.Scores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Scores">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyHocTapModelStoreContainer">
+    <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scores" EntityType="Self.Scores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teaching" EntityType="Self.Teaching" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Classes__Teacher__2C3393D0" Association="Self.FK__Classes__Teacher__2C3393D0">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Classes" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__ClassI__2F10007B" Association="Self.FK__Students__ClassI__2F10007B">
+      <End Role="Classes" EntitySet="Classes" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Teaching__Subjec__29572725" Association="Self.FK__Teaching__Subjec__29572725">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Teaching" EntitySet="Teaching" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Teaching__Teache__286302EC" Association="Self.FK__Teaching__Teache__286302EC">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Teaching" EntitySet="Teaching" />
+    </AssociationSet>
+    <AssociationSet Name="FK1_Score" Association="Self.FK1_Score">
+      <End Role="Teaching" EntitySet="Teaching" />
+      <End Role="Scores" EntitySet="Scores" />
+    </AssociationSet>
+    <AssociationSet Name="FK2_Score" Association="Self.FK2_Score">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Scores" EntitySet="Scores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

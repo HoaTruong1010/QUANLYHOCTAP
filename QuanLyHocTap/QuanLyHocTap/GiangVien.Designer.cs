@@ -114,6 +114,7 @@ namespace QuanLyHocTap
             // 
             // txtSearchTeacher
             // 
+            this.txtSearchTeacher.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchTeacher.Location = new System.Drawing.Point(379, 32);
             this.txtSearchTeacher.Name = "txtSearchTeacher";
             this.txtSearchTeacher.Size = new System.Drawing.Size(295, 25);
@@ -192,6 +193,7 @@ namespace QuanLyHocTap
             // 
             // btnSearchTeacher
             // 
+            this.btnSearchTeacher.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchTeacher.Location = new System.Drawing.Point(715, 20);
             this.btnSearchTeacher.Name = "btnSearchTeacher";
             this.btnSearchTeacher.Size = new System.Drawing.Size(66, 48);
@@ -263,7 +265,7 @@ namespace QuanLyHocTap
             this.gbList.Controls.Add(this.btnSearchTeacher);
             this.gbList.Controls.Add(this.txtSearchTeacher);
             this.gbList.Controls.Add(this.dgvTeacher);
-            this.gbList.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbList.Font = new System.Drawing.Font("Swis721 BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbList.ForeColor = System.Drawing.Color.Maroon;
             this.gbList.Location = new System.Drawing.Point(29, 11);
             this.gbList.Name = "gbList";
@@ -304,6 +306,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.gbList);
             this.Name = "GiangVien";
             this.Text = "Giảng viên";
+            this.Load += new System.EventHandler(this.GiangVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacher)).EndInit();
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();
