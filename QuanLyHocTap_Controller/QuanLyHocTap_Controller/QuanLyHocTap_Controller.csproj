@@ -54,7 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\Class_Controller.cs" />
+    <Compile Include="BUS\Score_Controller.cs" />
+    <Compile Include="BUS\Student_Controller.cs" />
+    <Compile Include="BUS\Subject_Controller.cs" />
     <Compile Include="BUS\Teacher_Controller.cs" />
+    <Compile Include="BUS\Teaching_Controller.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -58,7 +58,7 @@
     <Compile Include="Class.cs">
       <DependentUpon>QuanLyHocTapEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\DAO_Teacher.cs" />
+    <Compile Include="DAO\DAO_Load.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyHocTapEntities.Context.cs">

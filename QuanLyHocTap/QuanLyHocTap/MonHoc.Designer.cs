@@ -30,7 +30,6 @@ namespace QuanLyHocTap
         private void InitializeComponent()
         {
             this.btnSaveSubject = new System.Windows.Forms.Button();
-            this.btTeacherView = new System.Windows.Forms.Button();
             this.btAddSubject = new System.Windows.Forms.Button();
             this.btnDeleteSubject = new System.Windows.Forms.Button();
             this.txtSubjectName = new System.Windows.Forms.TextBox();
@@ -53,45 +52,41 @@ namespace QuanLyHocTap
             // 
             // btnSaveSubject
             // 
-            this.btnSaveSubject.Location = new System.Drawing.Point(1004, 675);
+            this.btnSaveSubject.Location = new System.Drawing.Point(1185, 688);
+            this.btnSaveSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveSubject.Name = "btnSaveSubject";
-            this.btnSaveSubject.Size = new System.Drawing.Size(66, 48);
+            this.btnSaveSubject.Size = new System.Drawing.Size(83, 60);
             this.btnSaveSubject.TabIndex = 5;
             this.btnSaveSubject.Text = "Lưu";
             this.btnSaveSubject.UseVisualStyleBackColor = true;
             // 
-            // btTeacherView
-            // 
-            this.btTeacherView.Location = new System.Drawing.Point(697, 675);
-            this.btTeacherView.Name = "btTeacherView";
-            this.btTeacherView.Size = new System.Drawing.Size(94, 48);
-            this.btTeacherView.TabIndex = 6;
-            this.btTeacherView.Text = "Xem giảng viên phụ trách";
-            this.btTeacherView.UseVisualStyleBackColor = true;
-            // 
             // btAddSubject
             // 
-            this.btAddSubject.Location = new System.Drawing.Point(820, 675);
+            this.btAddSubject.Location = new System.Drawing.Point(957, 688);
+            this.btAddSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btAddSubject.Name = "btAddSubject";
-            this.btAddSubject.Size = new System.Drawing.Size(66, 48);
+            this.btAddSubject.Size = new System.Drawing.Size(83, 60);
             this.btAddSubject.TabIndex = 7;
             this.btAddSubject.Text = "Thêm";
             this.btAddSubject.UseVisualStyleBackColor = true;
             // 
             // btnDeleteSubject
             // 
-            this.btnDeleteSubject.Location = new System.Drawing.Point(915, 675);
+            this.btnDeleteSubject.Location = new System.Drawing.Point(1075, 688);
+            this.btnDeleteSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteSubject.Name = "btnDeleteSubject";
-            this.btnDeleteSubject.Size = new System.Drawing.Size(66, 48);
+            this.btnDeleteSubject.Size = new System.Drawing.Size(83, 60);
             this.btnDeleteSubject.TabIndex = 8;
             this.btnDeleteSubject.Text = "Xóa";
             this.btnDeleteSubject.UseVisualStyleBackColor = true;
             // 
             // txtSubjectName
             // 
-            this.txtSubjectName.Location = new System.Drawing.Point(521, 48);
+            this.txtSubjectName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubjectName.Location = new System.Drawing.Point(651, 60);
+            this.txtSubjectName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(310, 25);
+            this.txtSubjectName.Size = new System.Drawing.Size(387, 27);
             this.txtSubjectName.TabIndex = 1;
             // 
             // dgvSubject
@@ -99,52 +94,63 @@ namespace QuanLyHocTap
             this.dgvSubject.BackgroundColor = System.Drawing.Color.Snow;
             this.dgvSubject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubject.GridColor = System.Drawing.Color.Teal;
-            this.dgvSubject.Location = new System.Drawing.Point(13, 78);
+            this.dgvSubject.Location = new System.Drawing.Point(16, 98);
+            this.dgvSubject.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSubject.Name = "dgvSubject";
             this.dgvSubject.RowHeadersWidth = 51;
             this.dgvSubject.RowTemplate.Height = 24;
-            this.dgvSubject.Size = new System.Drawing.Size(1100, 444);
+            this.dgvSubject.Size = new System.Drawing.Size(1374, 417);
             this.dgvSubject.TabIndex = 0;
+            this.dgvSubject.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubject_CellContentClick);
             // 
             // txtSubjectID
             // 
-            this.txtSubjectID.Location = new System.Drawing.Point(164, 50);
+            this.txtSubjectID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubjectID.Location = new System.Drawing.Point(206, 62);
+            this.txtSubjectID.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubjectID.Name = "txtSubjectID";
-            this.txtSubjectID.Size = new System.Drawing.Size(165, 25);
+            this.txtSubjectID.Size = new System.Drawing.Size(205, 27);
             this.txtSubjectID.TabIndex = 1;
             // 
             // lbCre
             // 
             this.lbCre.AutoSize = true;
-            this.lbCre.Location = new System.Drawing.Point(906, 53);
+            this.lbCre.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCre.Location = new System.Drawing.Point(1133, 66);
+            this.lbCre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCre.Name = "lbCre";
-            this.lbCre.Size = new System.Drawing.Size(82, 24);
+            this.lbCre.Size = new System.Drawing.Size(119, 20);
             this.lbCre.TabIndex = 0;
             this.lbCre.Text = "Số tín chỉ:";
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(395, 51);
+            this.lbName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(494, 64);
+            this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(103, 24);
+            this.lbName.Size = new System.Drawing.Size(129, 20);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Tên môn học:";
             // 
             // lbID
             // 
             this.lbID.AutoSize = true;
-            this.lbID.Location = new System.Drawing.Point(38, 51);
+            this.lbID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Location = new System.Drawing.Point(47, 64);
+            this.lbID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(96, 24);
+            this.lbID.Size = new System.Drawing.Size(119, 20);
             this.lbID.TabIndex = 0;
             this.lbID.Text = "Mã môn học:";
             // 
             // btnSearchSubject
             // 
-            this.btnSearchSubject.Location = new System.Drawing.Point(715, 20);
+            this.btnSearchSubject.Location = new System.Drawing.Point(894, 25);
+            this.btnSearchSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchSubject.Name = "btnSearchSubject";
-            this.btnSearchSubject.Size = new System.Drawing.Size(73, 48);
+            this.btnSearchSubject.Size = new System.Drawing.Size(91, 60);
             this.btnSearchSubject.TabIndex = 2;
             this.btnSearchSubject.Text = "Tìm";
             this.btnSearchSubject.UseVisualStyleBackColor = true;
@@ -152,9 +158,11 @@ namespace QuanLyHocTap
             // txtSearchSubject
             // 
             this.txtSearchSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchSubject.Location = new System.Drawing.Point(379, 32);
+            this.txtSearchSubject.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchSubject.Location = new System.Drawing.Point(474, 40);
+            this.txtSearchSubject.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchSubject.Name = "txtSearchSubject";
-            this.txtSearchSubject.Size = new System.Drawing.Size(295, 25);
+            this.txtSearchSubject.Size = new System.Drawing.Size(368, 27);
             this.txtSearchSubject.TabIndex = 1;
             // 
             // gbItem
@@ -165,20 +173,24 @@ namespace QuanLyHocTap
             this.gbItem.Controls.Add(this.lbCre);
             this.gbItem.Controls.Add(this.lbName);
             this.gbItem.Controls.Add(this.lbID);
-            this.gbItem.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbItem.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbItem.ForeColor = System.Drawing.Color.Maroon;
-            this.gbItem.Location = new System.Drawing.Point(27, 542);
+            this.gbItem.Location = new System.Drawing.Point(34, 540);
+            this.gbItem.Margin = new System.Windows.Forms.Padding(4);
             this.gbItem.Name = "gbItem";
-            this.gbItem.Size = new System.Drawing.Size(1132, 112);
+            this.gbItem.Padding = new System.Windows.Forms.Padding(4);
+            this.gbItem.Size = new System.Drawing.Size(1414, 140);
             this.gbItem.TabIndex = 4;
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Thông tin chi tiết";
             // 
             // nbuSubjectCredit
             // 
-            this.nbuSubjectCredit.Location = new System.Drawing.Point(1009, 49);
+            this.nbuSubjectCredit.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nbuSubjectCredit.Location = new System.Drawing.Point(1261, 61);
+            this.nbuSubjectCredit.Margin = new System.Windows.Forms.Padding(4);
             this.nbuSubjectCredit.Name = "nbuSubjectCredit";
-            this.nbuSubjectCredit.Size = new System.Drawing.Size(63, 25);
+            this.nbuSubjectCredit.Size = new System.Drawing.Size(79, 27);
             this.nbuSubjectCredit.TabIndex = 2;
             // 
             // gbList
@@ -186,39 +198,45 @@ namespace QuanLyHocTap
             this.gbList.Controls.Add(this.btnSearchSubject);
             this.gbList.Controls.Add(this.txtSearchSubject);
             this.gbList.Controls.Add(this.dgvSubject);
-            this.gbList.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbList.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbList.ForeColor = System.Drawing.Color.Maroon;
-            this.gbList.Location = new System.Drawing.Point(27, 8);
+            this.gbList.Location = new System.Drawing.Point(34, 9);
+            this.gbList.Margin = new System.Windows.Forms.Padding(4);
             this.gbList.Name = "gbList";
-            this.gbList.Size = new System.Drawing.Size(1132, 528);
+            this.gbList.Padding = new System.Windows.Forms.Padding(4);
+            this.gbList.Size = new System.Drawing.Size(1414, 523);
             this.gbList.TabIndex = 3;
             this.gbList.TabStop = false;
             this.gbList.Text = "Danh sách";
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1093, 675);
+            this.btnExit.Location = new System.Drawing.Point(1297, 688);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(66, 48);
+            this.btnExit.Size = new System.Drawing.Size(83, 60);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // MonHoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1200, 748);
+            this.ClientSize = new System.Drawing.Size(1481, 760);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSaveSubject);
-            this.Controls.Add(this.btTeacherView);
             this.Controls.Add(this.btAddSubject);
             this.Controls.Add(this.btnDeleteSubject);
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
+            this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MonHoc";
             this.Text = "Môn học";
+            this.Load += new System.EventHandler(this.MonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).EndInit();
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();
@@ -232,7 +250,6 @@ namespace QuanLyHocTap
         #endregion
 
         private System.Windows.Forms.Button btnSaveSubject;
-        private System.Windows.Forms.Button btTeacherView;
         private System.Windows.Forms.Button btAddSubject;
         private System.Windows.Forms.Button btnDeleteSubject;
         private System.Windows.Forms.TextBox txtSubjectName;

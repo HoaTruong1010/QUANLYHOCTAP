@@ -34,6 +34,7 @@ namespace QuanLyHocTap
             this.txtSeachStudent = new System.Windows.Forms.TextBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.gbItem = new System.Windows.Forms.GroupBox();
+            this.cbbClass = new System.Windows.Forms.ComboBox();
             this.dtpStudentDOB = new System.Windows.Forms.DateTimePicker();
             this.txtStudentCCCD = new System.Windows.Forms.TextBox();
             this.txtStudentName = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@ namespace QuanLyHocTap
             this.btnSaveStudent = new System.Windows.Forms.Button();
             this.btnViewScore = new System.Windows.Forms.Button();
             this.btAddStudent = new System.Windows.Forms.Button();
-            this.cbbClass = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.gbList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
@@ -65,40 +65,47 @@ namespace QuanLyHocTap
             this.gbList.Controls.Add(this.btnSearchStudent);
             this.gbList.Controls.Add(this.txtSeachStudent);
             this.gbList.Controls.Add(this.dgvStudent);
-            this.gbList.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbList.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbList.ForeColor = System.Drawing.Color.Maroon;
-            this.gbList.Location = new System.Drawing.Point(29, 3);
+            this.gbList.Location = new System.Drawing.Point(16, 12);
+            this.gbList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbList.Name = "gbList";
-            this.gbList.Size = new System.Drawing.Size(1132, 422);
+            this.gbList.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.gbList.Size = new System.Drawing.Size(1415, 418);
             this.gbList.TabIndex = 0;
             this.gbList.TabStop = false;
             this.gbList.Text = "Danh sách";
             // 
             // btnSearchStudent
             // 
-            this.btnSearchStudent.Location = new System.Drawing.Point(715, 20);
+            this.btnSearchStudent.Location = new System.Drawing.Point(1021, 22);
+            this.btnSearchStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSearchStudent.Name = "btnSearchStudent";
-            this.btnSearchStudent.Size = new System.Drawing.Size(73, 48);
+            this.btnSearchStudent.Size = new System.Drawing.Size(104, 53);
             this.btnSearchStudent.TabIndex = 2;
             this.btnSearchStudent.Text = "Tìm";
             this.btnSearchStudent.UseVisualStyleBackColor = true;
             // 
             // txtSeachStudent
             // 
-            this.txtSeachStudent.Location = new System.Drawing.Point(379, 32);
+            this.txtSeachStudent.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeachStudent.Location = new System.Drawing.Point(541, 36);
+            this.txtSeachStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSeachStudent.Name = "txtSeachStudent";
-            this.txtSeachStudent.Size = new System.Drawing.Size(295, 25);
+            this.txtSeachStudent.Size = new System.Drawing.Size(420, 27);
             this.txtSeachStudent.TabIndex = 1;
             // 
             // dgvStudent
             // 
             this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudent.Location = new System.Drawing.Point(13, 78);
+            this.dgvStudent.Location = new System.Drawing.Point(19, 87);
+            this.dgvStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.RowTemplate.Height = 24;
-            this.dgvStudent.Size = new System.Drawing.Size(1100, 324);
+            this.dgvStudent.Size = new System.Drawing.Size(1388, 321);
             this.dgvStudent.TabIndex = 0;
+            this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
             // 
             // gbItem
             // 
@@ -118,195 +125,236 @@ namespace QuanLyHocTap
             this.gbItem.Controls.Add(this.lbDOB);
             this.gbItem.Controls.Add(this.lbName);
             this.gbItem.Controls.Add(this.lbID);
-            this.gbItem.Font = new System.Drawing.Font("iCiel Cucho", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbItem.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbItem.ForeColor = System.Drawing.Color.Maroon;
-            this.gbItem.Location = new System.Drawing.Point(29, 436);
+            this.gbItem.Location = new System.Drawing.Point(16, 436);
+            this.gbItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbItem.Name = "gbItem";
-            this.gbItem.Size = new System.Drawing.Size(1132, 230);
+            this.gbItem.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.gbItem.Size = new System.Drawing.Size(1415, 256);
             this.gbItem.TabIndex = 1;
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Thông tin chi tiết";
             // 
+            // cbbClass
+            // 
+            this.cbbClass.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbClass.FormattingEnabled = true;
+            this.cbbClass.Location = new System.Drawing.Point(998, 149);
+            this.cbbClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbbClass.Name = "cbbClass";
+            this.cbbClass.Size = new System.Drawing.Size(367, 28);
+            this.cbbClass.TabIndex = 3;
+            // 
             // dtpStudentDOB
             // 
-            this.dtpStudentDOB.Location = new System.Drawing.Point(227, 134);
+            this.dtpStudentDOB.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStudentDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStudentDOB.Location = new System.Drawing.Point(305, 149);
+            this.dtpStudentDOB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dtpStudentDOB.Name = "dtpStudentDOB";
-            this.dtpStudentDOB.Size = new System.Drawing.Size(310, 25);
+            this.dtpStudentDOB.Size = new System.Drawing.Size(371, 27);
             this.dtpStudentDOB.TabIndex = 2;
             // 
             // txtStudentCCCD
             // 
-            this.txtStudentCCCD.Location = new System.Drawing.Point(227, 179);
+            this.txtStudentCCCD.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentCCCD.Location = new System.Drawing.Point(305, 199);
+            this.txtStudentCCCD.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentCCCD.Name = "txtStudentCCCD";
-            this.txtStudentCCCD.Size = new System.Drawing.Size(310, 25);
+            this.txtStudentCCCD.Size = new System.Drawing.Size(371, 27);
             this.txtStudentCCCD.TabIndex = 1;
             // 
             // txtStudentName
             // 
-            this.txtStudentName.Location = new System.Drawing.Point(227, 90);
+            this.txtStudentName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentName.Location = new System.Drawing.Point(305, 100);
+            this.txtStudentName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentName.Name = "txtStudentName";
-            this.txtStudentName.Size = new System.Drawing.Size(310, 25);
+            this.txtStudentName.Size = new System.Drawing.Size(371, 27);
             this.txtStudentName.TabIndex = 1;
             // 
             // txtStudentAddress
             // 
-            this.txtStudentAddress.Location = new System.Drawing.Point(760, 179);
+            this.txtStudentAddress.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentAddress.Location = new System.Drawing.Point(998, 199);
+            this.txtStudentAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentAddress.Name = "txtStudentAddress";
-            this.txtStudentAddress.Size = new System.Drawing.Size(307, 25);
+            this.txtStudentAddress.Size = new System.Drawing.Size(367, 27);
             this.txtStudentAddress.TabIndex = 1;
             // 
             // txtStudentPN
             // 
-            this.txtStudentPN.Location = new System.Drawing.Point(760, 88);
+            this.txtStudentPN.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentPN.Location = new System.Drawing.Point(998, 98);
+            this.txtStudentPN.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentPN.Name = "txtStudentPN";
-            this.txtStudentPN.Size = new System.Drawing.Size(307, 25);
+            this.txtStudentPN.Size = new System.Drawing.Size(367, 27);
             this.txtStudentPN.TabIndex = 1;
             // 
             // txtStudentEmail
             // 
-            this.txtStudentEmail.Location = new System.Drawing.Point(760, 45);
+            this.txtStudentEmail.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentEmail.Location = new System.Drawing.Point(998, 50);
+            this.txtStudentEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentEmail.Name = "txtStudentEmail";
-            this.txtStudentEmail.Size = new System.Drawing.Size(307, 25);
+            this.txtStudentEmail.Size = new System.Drawing.Size(367, 27);
             this.txtStudentEmail.TabIndex = 1;
             // 
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(621, 182);
+            this.lbAddress.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAddress.Location = new System.Drawing.Point(799, 202);
+            this.lbAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(63, 24);
+            this.lbAddress.Size = new System.Drawing.Size(89, 20);
             this.lbAddress.TabIndex = 0;
             this.lbAddress.Text = "Địa chỉ:";
             // 
             // txtStudentID
             // 
-            this.txtStudentID.Location = new System.Drawing.Point(227, 50);
+            this.txtStudentID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentID.Location = new System.Drawing.Point(305, 56);
+            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentID.Name = "txtStudentID";
-            this.txtStudentID.Size = new System.Drawing.Size(310, 25);
+            this.txtStudentID.Size = new System.Drawing.Size(371, 27);
             this.txtStudentID.TabIndex = 1;
             // 
             // lbClass
             // 
             this.lbClass.AutoSize = true;
-            this.lbClass.Location = new System.Drawing.Point(621, 136);
+            this.lbClass.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClass.Location = new System.Drawing.Point(799, 151);
+            this.lbClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClass.Name = "lbClass";
-            this.lbClass.Size = new System.Drawing.Size(38, 24);
+            this.lbClass.Size = new System.Drawing.Size(49, 20);
             this.lbClass.TabIndex = 0;
             this.lbClass.Text = "Lớp:";
             // 
             // lbPN
             // 
             this.lbPN.AutoSize = true;
-            this.lbPN.Location = new System.Drawing.Point(621, 93);
+            this.lbPN.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPN.Location = new System.Drawing.Point(799, 103);
+            this.lbPN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPN.Name = "lbPN";
-            this.lbPN.Size = new System.Drawing.Size(107, 24);
+            this.lbPN.Size = new System.Drawing.Size(149, 20);
             this.lbPN.TabIndex = 0;
             this.lbPN.Text = "Số điện thoại:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(621, 51);
+            this.label4.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(799, 57);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 24);
+            this.label4.Size = new System.Drawing.Size(69, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Email:";
             // 
             // lbCCCD
             // 
             this.lbCCCD.AutoSize = true;
-            this.lbCCCD.Location = new System.Drawing.Point(38, 182);
+            this.lbCCCD.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCCCD.Location = new System.Drawing.Point(35, 202);
+            this.lbCCCD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCCCD.Name = "lbCCCD";
-            this.lbCCCD.Size = new System.Drawing.Size(163, 24);
+            this.lbCCCD.Size = new System.Drawing.Size(219, 20);
             this.lbCCCD.TabIndex = 0;
             this.lbCCCD.Text = "Số căn cước công dân:";
             // 
             // lbDOB
             // 
             this.lbDOB.AutoSize = true;
-            this.lbDOB.Location = new System.Drawing.Point(38, 136);
+            this.lbDOB.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDOB.Location = new System.Drawing.Point(35, 151);
+            this.lbDOB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDOB.Name = "lbDOB";
-            this.lbDOB.Size = new System.Drawing.Size(83, 24);
+            this.lbDOB.Size = new System.Drawing.Size(109, 20);
             this.lbDOB.TabIndex = 0;
             this.lbDOB.Text = "Ngày sinh:";
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(38, 93);
+            this.lbName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(35, 103);
+            this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(130, 24);
+            this.lbName.Size = new System.Drawing.Size(179, 20);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Họ tên sinh viên:";
             // 
             // lbID
             // 
             this.lbID.AutoSize = true;
-            this.lbID.Location = new System.Drawing.Point(38, 51);
+            this.lbID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Location = new System.Drawing.Point(35, 57);
+            this.lbID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(123, 24);
+            this.lbID.Size = new System.Drawing.Size(169, 20);
             this.lbID.TabIndex = 0;
             this.lbID.Text = "Mã số sinh viên:";
             // 
             // btnDeleteStudent
             // 
-            this.btnDeleteStudent.Location = new System.Drawing.Point(899, 688);
+            this.btnDeleteStudent.Location = new System.Drawing.Point(1004, 712);
+            this.btnDeleteStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(66, 48);
+            this.btnDeleteStudent.Size = new System.Drawing.Size(94, 53);
             this.btnDeleteStudent.TabIndex = 2;
             this.btnDeleteStudent.Text = "Xóa";
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
             // 
             // btnSaveStudent
             // 
-            this.btnSaveStudent.Location = new System.Drawing.Point(983, 688);
+            this.btnSaveStudent.Location = new System.Drawing.Point(1124, 712);
+            this.btnSaveStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSaveStudent.Name = "btnSaveStudent";
-            this.btnSaveStudent.Size = new System.Drawing.Size(66, 48);
+            this.btnSaveStudent.Size = new System.Drawing.Size(94, 53);
             this.btnSaveStudent.TabIndex = 2;
             this.btnSaveStudent.Text = "Lưu";
             this.btnSaveStudent.UseVisualStyleBackColor = true;
             // 
             // btnViewScore
             // 
-            this.btnViewScore.Location = new System.Drawing.Point(699, 688);
+            this.btnViewScore.Location = new System.Drawing.Point(730, 712);
+            this.btnViewScore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnViewScore.Name = "btnViewScore";
-            this.btnViewScore.Size = new System.Drawing.Size(94, 48);
+            this.btnViewScore.Size = new System.Drawing.Size(123, 53);
             this.btnViewScore.TabIndex = 2;
             this.btnViewScore.Text = "Xem điểm";
             this.btnViewScore.UseVisualStyleBackColor = true;
             // 
             // btAddStudent
             // 
-            this.btAddStudent.Location = new System.Drawing.Point(814, 688);
+            this.btAddStudent.Location = new System.Drawing.Point(883, 712);
+            this.btAddStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btAddStudent.Name = "btAddStudent";
-            this.btAddStudent.Size = new System.Drawing.Size(66, 48);
+            this.btAddStudent.Size = new System.Drawing.Size(94, 53);
             this.btAddStudent.TabIndex = 2;
             this.btAddStudent.Text = "Thêm";
             this.btAddStudent.UseVisualStyleBackColor = true;
             // 
-            // cbbClass
-            // 
-            this.cbbClass.FormattingEnabled = true;
-            this.cbbClass.Location = new System.Drawing.Point(760, 134);
-            this.cbbClass.Name = "cbbClass";
-            this.cbbClass.Size = new System.Drawing.Size(307, 32);
-            this.cbbClass.TabIndex = 3;
-            // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1076, 688);
+            this.btnExit.Location = new System.Drawing.Point(1257, 712);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(66, 48);
+            this.btnExit.Size = new System.Drawing.Size(94, 53);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // SinhVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1194, 748);
+            this.ClientSize = new System.Drawing.Size(1458, 777);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSaveStudent);
             this.Controls.Add(this.btnViewScore);
@@ -314,10 +362,12 @@ namespace QuanLyHocTap
             this.Controls.Add(this.btnDeleteStudent);
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
-            this.Font = new System.Drawing.Font("iCiel Cucho", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "SinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sinh viên";
+            this.Load += new System.EventHandler(this.SinhVien_Load);
             this.gbList.ResumeLayout(false);
             this.gbList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
