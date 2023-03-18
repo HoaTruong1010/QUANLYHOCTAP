@@ -35,47 +35,39 @@ namespace QuanLyHocTap
         private void qlgvTSMItem_Click(object sender, EventArgs e)
         {
             GiangVien frmGiangVien = new GiangVien();
-            frmGiangVien.MdiParent = this;
-            frmGiangVien.Width = this.Width;
-            frmGiangVien.Height = this.Height - menuStrip1.Height;
+            frmGiangVien.StartPosition = FormStartPosition.CenterScreen;
+            frmGiangVien.Width = 1250;
+            frmGiangVien.Height = 650;
             frmGiangVien.Show();
         }
 
         private void qlmhTSMItem_Click(object sender, EventArgs e)
         {
             MonHoc fromMonHoc = new MonHoc();
-            fromMonHoc.MdiParent = this;
-            fromMonHoc.Width = this.Width;
-            fromMonHoc.Height = this.Height - menuStrip1.Height;
             fromMonHoc.Show();  
         }
 
         private void qllTSMItem_Click(object sender, EventArgs e)
         {
             Lop frmLop = new Lop();
-            frmLop.MdiParent = this;
-            frmLop.Width = this.Width;
-            frmLop.Height = this.Height - menuStrip1.Height;
             frmLop.Show();  
         }
 
         private void qlsvTSMItem_Click(object sender, EventArgs e)
         {
             SinhVien frmSinhVien = new SinhVien();
-            frmSinhVien.MdiParent = this;
-            frmSinhVien.Width = this.Width;
-            frmSinhVien.Height = this.Height - menuStrip1.Height;
             frmSinhVien.Show();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
             FontFamily f = new FontFamily("Courier New");
-            /*lbTitle.Width = ClientRectangle.Width;
-            lbTitle.Height = ClientRectangle.Height - menuTool.Height;
-            lbTitle.Font = new Font(f, 40);*/
-            menuTool.Font = new Font(f, 13);
-            exitTMSItem.Font = new Font(f, 13);
+            lbTitle.Width = ClientRectangle.Width;
+            lbTitle.Height = ClientRectangle.Height - menuStrip1.Height;
+            lbTitle.Location = new Point(0, menuStrip1.Height);
+            lbTitle.Font = new Font(f, 65, FontStyle.Bold);
+            menuTool.Font = new Font(f, 20);
+            exitTMSItem.Font = new Font(f, 20);
         }
     }
 }

@@ -31,14 +31,14 @@ namespace QuanLyHocTap
         private void GiangVien_Load(object sender, EventArgs e)
         {
             ShowTeachers();
-            gbList.Width = ClientRectangle.Width - 50;
-            gbList.Height = ClientRectangle.Height*50/100;
-            gbItem.Width = ClientRectangle.Width - 50;
-            gbItem.Height = ClientRectangle.Height*30/100;
-            gbList.Location = new Point(20, ClientRectangle.Height/40);
-            gbItem.Location = new Point(20, (ClientRectangle.Height/30)*17);
-            groupBox1.Height = ClientRectangle.Height*20/100;
-            groupBox1.Location = new Point(ClientRectangle.Right/2, ClientRectangle.Height*7/8);
+            dgvTeacher.Columns[0].Width = (int) (dgvTeacher.Width * 0.08);
+            dgvTeacher.Columns[1].Width = (int)(dgvTeacher.Width * 0.09);
+            dgvTeacher.Columns[2].Width = (int)(dgvTeacher.Width * 0.09);
+            dgvTeacher.Columns[3].Width = (int)(dgvTeacher.Width * 0.1);
+            dgvTeacher.Columns[4].Width = (int)(dgvTeacher.Width * 0.15);
+            dgvTeacher.Columns[5].Width = (int)(dgvTeacher.Width * 0.09);
+            dgvTeacher.Columns[6].Width = (int)(dgvTeacher.Width * 0.2025);
+            dgvTeacher.Columns[7].Width = (int)(dgvTeacher.Width * 0.14);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
