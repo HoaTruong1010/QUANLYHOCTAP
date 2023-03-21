@@ -10,11 +10,11 @@ namespace QuanLyHocTap_Controller.BUS
 {
     public class Score_Controller
     {
-        DAO_Load daoLoad;
+        Teacher_DAO daoLoad;
 
         public Score_Controller ()
         {
-            daoLoad = new DAO_Load();
+            daoLoad = new Teacher_DAO();
         }
 
         public void GetScores(DataGridView dataGrirdView)

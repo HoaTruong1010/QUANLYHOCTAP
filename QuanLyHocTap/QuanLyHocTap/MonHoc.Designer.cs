@@ -59,6 +59,7 @@ namespace QuanLyHocTap
             this.btnSaveSubject.TabIndex = 5;
             this.btnSaveSubject.Text = "Lưu";
             this.btnSaveSubject.UseVisualStyleBackColor = true;
+            this.btnSaveSubject.Click += new System.EventHandler(this.btnSaveSubject_Click);
             // 
             // btAddSubject
             // 
@@ -69,6 +70,7 @@ namespace QuanLyHocTap
             this.btAddSubject.TabIndex = 7;
             this.btAddSubject.Text = "Thêm";
             this.btAddSubject.UseVisualStyleBackColor = true;
+            this.btAddSubject.Click += new System.EventHandler(this.btAddSubject_Click);
             // 
             // btnDeleteSubject
             // 
@@ -79,6 +81,7 @@ namespace QuanLyHocTap
             this.btnDeleteSubject.TabIndex = 8;
             this.btnDeleteSubject.Text = "Xóa";
             this.btnDeleteSubject.UseVisualStyleBackColor = true;
+            this.btnDeleteSubject.Click += new System.EventHandler(this.btnDeleteSubject_Click);
             // 
             // txtSubjectName
             // 

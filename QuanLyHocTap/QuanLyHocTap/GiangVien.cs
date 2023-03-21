@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyHocTap_Controller.BUS;
 using System.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Net;
 
 namespace QuanLyHocTap
 {
@@ -26,12 +28,7 @@ namespace QuanLyHocTap
         {
             dgvTeacher.DataSource = null;
             getController.GetAllTeachers(dgvTeacher);
-        }
-
-        private void GiangVien_Load(object sender, EventArgs e)
-        {
-            ShowTeachers();
-            dgvTeacher.Columns[0].Width = (int) (dgvTeacher.Width * 0.08);
+            dgvTeacher.Columns[0].Width = (int)(dgvTeacher.Width * 0.08);
             dgvTeacher.Columns[1].Width = (int)(dgvTeacher.Width * 0.09);
             dgvTeacher.Columns[2].Width = (int)(dgvTeacher.Width * 0.09);
             dgvTeacher.Columns[3].Width = (int)(dgvTeacher.Width * 0.1);
@@ -39,6 +36,11 @@ namespace QuanLyHocTap
             dgvTeacher.Columns[5].Width = (int)(dgvTeacher.Width * 0.09);
             dgvTeacher.Columns[6].Width = (int)(dgvTeacher.Width * 0.2025);
             dgvTeacher.Columns[7].Width = (int)(dgvTeacher.Width * 0.14);
+        }
+
+        private void GiangVien_Load(object sender, EventArgs e)
+        {
+            ShowTeachers();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -69,7 +71,67 @@ namespace QuanLyHocTap
         {
             GiangDay frmGiangDay = new GiangDay();
             frmGiangDay.TeacherSelectedId = txtTeacherID.Text;
+            frmGiangDay.StartPosition = FormStartPosition.CenterScreen;
             frmGiangDay.Show();
+        }
+
+        private void btAddTeacher_Click(object sender, EventArgs e)
+        {
+            string teacherId = txtTeacherID.Text;
+            string teacherName = txtTeacherName.Text;
+            DateTime dateOfBirth = dtpTeacherDOB.Value;
+            string id = txtTeacherCCCD.Text;
+            string email = txtTeacherEmail.Text;
+            string phone = txtTeacherPN.Text;
+            string address = txtTeacherAddress.Text;
+            string certificate = txtTeacherCerti.Text;
+
+            if (getController.AddTeacher(teacherId, teacherName, dateOfBirth, id, email, phone, address, certificate)) 
+            {
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowTeachers();
+            }
+            else
+            {
+                MessageBox.Show("Thêm không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }    
+        }
+
+        private void btnSaveTeacher_Click(object sender, EventArgs e)
+        {
+            string teacherId = txtTeacherID.Text;
+            string teacherName = txtTeacherName.Text;
+            DateTime dateOfBirth = dtpTeacherDOB.Value;
+            string id = txtTeacherCCCD.Text;
+            string email = txtTeacherEmail.Text;
+            string phone = txtTeacherPN.Text;
+            string address = txtTeacherAddress.Text;
+            string certificate = txtTeacherCerti.Text;
+
+            if (getController.EditTeacher(teacherId, teacherName, dateOfBirth, id, email, phone, address, certificate))
+            {
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowTeachers();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeleteTeacher_Click(object sender, EventArgs e)
+        {
+            string teacherId = txtTeacherID.Text;
+
+            if (getController.DeleteTeacher(teacherId))
+            {
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowTeachers();
+            }
+            else
+            {
+                MessageBox.Show("Xóa không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

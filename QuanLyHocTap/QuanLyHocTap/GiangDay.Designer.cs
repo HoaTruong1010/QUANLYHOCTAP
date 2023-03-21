@@ -31,6 +31,7 @@ namespace QuanLyHocTap
         {
             this.btnExit = new System.Windows.Forms.Button();
             this.gbItem = new System.Windows.Forms.GroupBox();
+            this.gbTeacherInfo = new System.Windows.Forms.GroupBox();
             this.dtpRegisterDate = new System.Windows.Forms.DateTimePicker();
             this.cbSubject = new System.Windows.Forms.ComboBox();
             this.lbRegisterDate = new System.Windows.Forms.Label();
@@ -42,20 +43,21 @@ namespace QuanLyHocTap
             this.btAddTeaching = new System.Windows.Forms.Button();
             this.btnDeleteTeaching = new System.Windows.Forms.Button();
             this.btnSaveTeaching = new System.Windows.Forms.Button();
-            this.dgvTeacherInfo = new System.Windows.Forms.DataGridView();
-            this.gbTeacherInfo = new System.Windows.Forms.GroupBox();
+            this.txtTeacherID = new System.Windows.Forms.TextBox();
+            this.txtTeacherName = new System.Windows.Forms.TextBox();
+            this.lbTeacherName = new System.Windows.Forms.Label();
+            this.lbTeacherID = new System.Windows.Forms.Label();
             this.gbItem.SuspendLayout();
+            this.gbTeacherInfo.SuspendLayout();
             this.gbList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeaching)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherInfo)).BeginInit();
-            this.gbTeacherInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Courier New", 10.2F);
             this.btnExit.ForeColor = System.Drawing.Color.Maroon;
-            this.btnExit.Location = new System.Drawing.Point(985, 651);
+            this.btnExit.Location = new System.Drawing.Point(1103, 564);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(85, 48);
             this.btnExit.TabIndex = 17;
@@ -79,6 +81,20 @@ namespace QuanLyHocTap
             this.gbItem.TabIndex = 16;
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Thông tin chi tiết";
+            // 
+            // gbTeacherInfo
+            // 
+            this.gbTeacherInfo.Controls.Add(this.txtTeacherName);
+            this.gbTeacherInfo.Controls.Add(this.lbTeacherName);
+            this.gbTeacherInfo.Controls.Add(this.txtTeacherID);
+            this.gbTeacherInfo.Controls.Add(this.lbTeacherID);
+            this.gbTeacherInfo.ForeColor = System.Drawing.Color.Maroon;
+            this.gbTeacherInfo.Location = new System.Drawing.Point(24, 235);
+            this.gbTeacherInfo.Name = "gbTeacherInfo";
+            this.gbTeacherInfo.Size = new System.Drawing.Size(390, 190);
+            this.gbTeacherInfo.TabIndex = 6;
+            this.gbTeacherInfo.TabStop = false;
+            this.gbTeacherInfo.Text = "Thông tin giảng viên";
             // 
             // dtpRegisterDate
             // 
@@ -144,7 +160,7 @@ namespace QuanLyHocTap
             this.gbList.ForeColor = System.Drawing.Color.Maroon;
             this.gbList.Location = new System.Drawing.Point(12, 85);
             this.gbList.Name = "gbList";
-            this.gbList.Size = new System.Drawing.Size(728, 677);
+            this.gbList.Size = new System.Drawing.Size(728, 566);
             this.gbList.TabIndex = 15;
             this.gbList.TabStop = false;
             this.gbList.Text = "Danh sách môn đã đăng ký";
@@ -158,7 +174,7 @@ namespace QuanLyHocTap
             this.dgvTeaching.Name = "dgvTeaching";
             this.dgvTeaching.RowHeadersWidth = 51;
             this.dgvTeaching.RowTemplate.Height = 24;
-            this.dgvTeaching.Size = new System.Drawing.Size(703, 616);
+            this.dgvTeaching.Size = new System.Drawing.Size(703, 514);
             this.dgvTeaching.TabIndex = 0;
             this.dgvTeaching.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeaching_CellClick);
             // 
@@ -166,7 +182,7 @@ namespace QuanLyHocTap
             // 
             this.btAddTeaching.Font = new System.Drawing.Font("Courier New", 10.2F);
             this.btAddTeaching.ForeColor = System.Drawing.Color.Maroon;
-            this.btAddTeaching.Location = new System.Drawing.Point(869, 575);
+            this.btAddTeaching.Location = new System.Drawing.Point(763, 564);
             this.btAddTeaching.Name = "btAddTeaching";
             this.btAddTeaching.Size = new System.Drawing.Size(85, 48);
             this.btAddTeaching.TabIndex = 20;
@@ -178,7 +194,7 @@ namespace QuanLyHocTap
             // 
             this.btnDeleteTeaching.Font = new System.Drawing.Font("Courier New", 10.2F);
             this.btnDeleteTeaching.ForeColor = System.Drawing.Color.Maroon;
-            this.btnDeleteTeaching.Location = new System.Drawing.Point(869, 651);
+            this.btnDeleteTeaching.Location = new System.Drawing.Point(988, 564);
             this.btnDeleteTeaching.Name = "btnDeleteTeaching";
             this.btnDeleteTeaching.Size = new System.Drawing.Size(85, 48);
             this.btnDeleteTeaching.TabIndex = 21;
@@ -190,7 +206,7 @@ namespace QuanLyHocTap
             // 
             this.btnSaveTeaching.Font = new System.Drawing.Font("Courier New", 10.2F);
             this.btnSaveTeaching.ForeColor = System.Drawing.Color.Maroon;
-            this.btnSaveTeaching.Location = new System.Drawing.Point(985, 575);
+            this.btnSaveTeaching.Location = new System.Drawing.Point(874, 564);
             this.btnSaveTeaching.Name = "btnSaveTeaching";
             this.btnSaveTeaching.Size = new System.Drawing.Size(85, 48);
             this.btnSaveTeaching.TabIndex = 18;
@@ -198,34 +214,48 @@ namespace QuanLyHocTap
             this.btnSaveTeaching.UseVisualStyleBackColor = true;
             this.btnSaveTeaching.Click += new System.EventHandler(this.btnSaveTeaching_Click);
             // 
-            // dgvTeacherInfo
+            // txtTeacherID
             // 
-            this.dgvTeacherInfo.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvTeacherInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTeacherInfo.Location = new System.Drawing.Point(6, 35);
-            this.dgvTeacherInfo.Name = "dgvTeacherInfo";
-            this.dgvTeacherInfo.RowHeadersWidth = 51;
-            this.dgvTeacherInfo.RowTemplate.Height = 24;
-            this.dgvTeacherInfo.Size = new System.Drawing.Size(378, 167);
-            this.dgvTeacherInfo.TabIndex = 5;
+            this.txtTeacherID.Enabled = false;
+            this.txtTeacherID.Location = new System.Drawing.Point(27, 64);
+            this.txtTeacherID.Name = "txtTeacherID";
+            this.txtTeacherID.Size = new System.Drawing.Size(324, 27);
+            this.txtTeacherID.TabIndex = 22;
             // 
-            // gbTeacherInfo
+            // txtTeacherName
             // 
-            this.gbTeacherInfo.Controls.Add(this.dgvTeacherInfo);
-            this.gbTeacherInfo.ForeColor = System.Drawing.Color.Maroon;
-            this.gbTeacherInfo.Location = new System.Drawing.Point(24, 235);
-            this.gbTeacherInfo.Name = "gbTeacherInfo";
-            this.gbTeacherInfo.Size = new System.Drawing.Size(390, 208);
-            this.gbTeacherInfo.TabIndex = 6;
-            this.gbTeacherInfo.TabStop = false;
-            this.gbTeacherInfo.Text = "Thông tin giảng viên";
+            this.txtTeacherName.Enabled = false;
+            this.txtTeacherName.Location = new System.Drawing.Point(27, 136);
+            this.txtTeacherName.Name = "txtTeacherName";
+            this.txtTeacherName.Size = new System.Drawing.Size(324, 27);
+            this.txtTeacherName.TabIndex = 22;
+            // 
+            // lbTeacherName
+            // 
+            this.lbTeacherName.AutoSize = true;
+            this.lbTeacherName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTeacherName.Location = new System.Drawing.Point(23, 113);
+            this.lbTeacherName.Name = "lbTeacherName";
+            this.lbTeacherName.Size = new System.Drawing.Size(109, 20);
+            this.lbTeacherName.TabIndex = 0;
+            this.lbTeacherName.Text = "Họ và tên:";
+            // 
+            // lbTeacherID
+            // 
+            this.lbTeacherID.AutoSize = true;
+            this.lbTeacherID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTeacherID.Location = new System.Drawing.Point(23, 41);
+            this.lbTeacherID.Name = "lbTeacherID";
+            this.lbTeacherID.Size = new System.Drawing.Size(179, 20);
+            this.lbTeacherID.TabIndex = 0;
+            this.lbTeacherID.Text = "Mã số giảng viên:";
             // 
             // GiangDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1200, 774);
+            this.ClientSize = new System.Drawing.Size(1223, 661);
             this.Controls.Add(this.btnSearchTeaching);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtSearchTeaching);
@@ -240,10 +270,10 @@ namespace QuanLyHocTap
             this.Load += new System.EventHandler(this.GiangDay_Load);
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();
+            this.gbTeacherInfo.ResumeLayout(false);
+            this.gbTeacherInfo.PerformLayout();
             this.gbList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeaching)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherInfo)).EndInit();
-            this.gbTeacherInfo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,6 +295,9 @@ namespace QuanLyHocTap
         private System.Windows.Forms.ComboBox cbSubject;
         private System.Windows.Forms.DateTimePicker dtpRegisterDate;
         private System.Windows.Forms.GroupBox gbTeacherInfo;
-        private System.Windows.Forms.DataGridView dgvTeacherInfo;
+        private System.Windows.Forms.TextBox txtTeacherID;
+        private System.Windows.Forms.TextBox txtTeacherName;
+        private System.Windows.Forms.Label lbTeacherName;
+        private System.Windows.Forms.Label lbTeacherID;
     }
 }

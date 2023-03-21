@@ -44,18 +44,21 @@ namespace QuanLyHocTap
         private void qlmhTSMItem_Click(object sender, EventArgs e)
         {
             MonHoc fromMonHoc = new MonHoc();
+            fromMonHoc.StartPosition = FormStartPosition.CenterScreen;
             fromMonHoc.Show();  
         }
 
         private void qllTSMItem_Click(object sender, EventArgs e)
         {
             Lop frmLop = new Lop();
+            frmLop.StartPosition = FormStartPosition.CenterScreen;
             frmLop.Show();  
         }
 
         private void qlsvTSMItem_Click(object sender, EventArgs e)
         {
             SinhVien frmSinhVien = new SinhVien();
+            frmSinhVien.StartPosition = FormStartPosition.CenterScreen;
             frmSinhVien.Show();
         }
 

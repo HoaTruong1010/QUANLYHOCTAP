@@ -7,14 +7,13 @@ using System.Configuration;
 
 namespace QuanLyHocTapData.DAO
 {
-    public class DAO_Load
+    public class Teacher_DAO
     {
         QuanLyHocTapEntities db;
 
-        public DAO_Load()
+        public Teacher_DAO()
         {
             db = new QuanLyHocTapEntities();
-
         }
 
         public dynamic LoadTeachers()
@@ -40,19 +39,7 @@ namespace QuanLyHocTapData.DAO
                 {
                     t.TeacherID,
                     t.TeacherName
-                }).ToList();
-        }
-
-
-        public dynamic LoadSubjects()
-        {
-            var listSubject = db.Subjects.Select(s => new
-            {
-                s.SubjectID,
-                s.SubjectName,
-                s.Credits
-            }).ToList();
-            return listSubject;
+                }).ToDictionary( x => x.TeacherID, x => x.TeacherName);
         }
 
         public dynamic LoadClasses()
@@ -84,19 +71,6 @@ namespace QuanLyHocTapData.DAO
             return listStudent;
         }
 
-        public dynamic LoadTeachings(string id)
-        {
-            var listTeaching = db.Teachings.Where(t => t.TeacherID == id)
-                .Select(s => new
-            {
-                s.ID,
-                s.SubjectID,
-                s.Subject.SubjectName,
-                s.RegisterDate
-            }).ToList();
-            return listTeaching;
-        }
-
         public dynamic LoadScores()
         {
             var listScore = db.Scores.Select(s => new
@@ -112,16 +86,6 @@ namespace QuanLyHocTapData.DAO
                 s.ModifiedDateOfEndPointScore
             }).ToList();
             return listScore;
-        }
-
-        public dynamic LoadCBBSubjects()
-        {
-            var listSubject = db.Subjects.Select(s => new
-            {
-                s.SubjectID,
-                s.SubjectName
-            }).ToList();
-            return listSubject;
         }
 
         public dynamic LoadCBBTeachers()
@@ -152,6 +116,57 @@ namespace QuanLyHocTapData.DAO
                 s.ClassName
             }).ToList();
             return listClass;
+        }
+
+        public void AddTeacher(string teacherId, string teacherName,
+            DateTime dateOfBirth, string cccd, string email, string phone,
+            string address, string certificate)
+        {
+            Teacher teacher = new Teacher();
+            teacher.TeacherID = teacherId;
+            teacher.TeacherName = teacherName;
+            teacher.DayOfBirth = dateOfBirth;
+            teacher.ID = cccd;
+            teacher.Email = email;
+            teacher.Phone = phone;
+            teacher.TeacherAddress = address;
+            teacher.TeacherCertificate = certificate;
+
+            db.Teachers.Add(teacher);
+            db.SaveChanges();
+        }
+
+        public bool FindTeacher(string teacherId)
+        {
+            Teacher teacher = db.Teachers.Find(teacherId);
+            if (teacher != null) 
+                return true;
+            else
+                return false;
+        }
+
+        public void EditTeacher(string teacherId, string teacherName,
+            DateTime dateOfBirth, string cccd, string email, string phone,
+            string address, string certificate)
+        {
+            Teacher teacher = db.Teachers.Find(teacherId);
+            teacher.TeacherID = teacherId;
+            teacher.TeacherName = teacherName;
+            teacher.DayOfBirth = dateOfBirth;
+            teacher.ID = cccd;
+            teacher.Email = email;
+            teacher.Phone = phone;
+            teacher.TeacherAddress = address;
+            teacher.TeacherCertificate = certificate;
+
+            db.SaveChanges();
+        }
+
+        public void DeleteTeacher(string teacherId)
+        {
+            Teacher teacher = db.Teachers.Find(teacherId);
+            db.Teachers.Remove(teacher);
+            db.SaveChanges();
         }
     }
 }

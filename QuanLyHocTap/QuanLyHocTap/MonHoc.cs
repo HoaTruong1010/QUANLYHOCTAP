@@ -46,5 +46,54 @@ namespace QuanLyHocTap
                 nbuSubjectCredit.Value = Int32.Parse(dgvSubject.Rows[e.RowIndex].Cells["Credits"].Value.ToString());
             }
         }
+
+        private void btAddSubject_Click(object sender, EventArgs e)
+        {
+            string subjectId = txtSubjectID.Text;
+            string subjectName = txtSubjectName.Text;
+            int credits = (int) nbuSubjectCredit.Value;
+
+            if(controller.AddSubject(subjectId, subjectName, credits))
+            {
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowSubjects();
+            }
+            else
+            {
+                MessageBox.Show("Thêm không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeleteSubject_Click(object sender, EventArgs e)
+        {
+            string subjectId = txtSubjectID.Text;
+
+            if (controller.DeleteSubject(subjectId))
+            {
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowSubjects();
+            }
+            else
+            {
+                MessageBox.Show("Xóa không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSaveSubject_Click(object sender, EventArgs e)
+        {
+            string subjectId = txtSubjectID.Text;
+            string subjectName = txtSubjectName.Text;
+            int credits = (int)nbuSubjectCredit.Value;
+
+            if (controller.EditSubject(subjectId, subjectName, credits))
+            {
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowSubjects();
+            }
+            else
+            {
+                MessageBox.Show("Thêm không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
