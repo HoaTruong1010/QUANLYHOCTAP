@@ -49,6 +49,32 @@ namespace QuanLyHocTapData.DAO
                 return false;
         }
 
+        public dynamic FindTeaching(string subjectId, string teacherId)
+        {
+            return db.Teachings.Where(t => t.SubjectID == subjectId && t.TeacherID == teacherId)
+                .Select(s => new { s.ID, s.Teacher.TeacherName }).ToDictionary(d => d.ID, d => d.TeacherName);
+        }
+
+        public dynamic FindTeacherByTeachingId(int id)
+        {
+            return db.Teachings.Where(t => t.ID == id).Select(
+                s => new
+                {
+                    s.TeacherID,
+                    s.Teacher.TeacherName
+                }).ToDictionary(d => d.TeacherID, d => d.TeacherName);
+        }
+
+        public dynamic FindSubjectByTeachingId(int id)
+        {
+            return db.Teachings.Where(t => t.ID == id).Select(
+                s => new
+                {
+                    s.SubjectID,
+                    s.Subject.SubjectName
+                }).ToDictionary(d => d.SubjectID, d => d.SubjectName);
+        }
+
         public void EditTeaching(int id, string teacherID,
             string subjectID, DateTime registerDate)
         {

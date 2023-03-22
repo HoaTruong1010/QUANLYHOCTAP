@@ -1,7 +1,7 @@
 ﻿
 namespace QuanLyHocTap
 {
-    partial class GiangVien
+    partial class Teacher
     {
         /// <summary>
         /// Required designer variable.
@@ -45,9 +45,8 @@ namespace QuanLyHocTap
             this.lbDOB = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
-            this.btnSearchTeacher = new System.Windows.Forms.Button();
             this.gbItem = new System.Windows.Forms.GroupBox();
-            this.txtTeacherCerti = new System.Windows.Forms.TextBox();
+            this.cbbCertificate = new System.Windows.Forms.ComboBox();
             this.txtTeacherAddress = new System.Windows.Forms.TextBox();
             this.lbAddress = new System.Windows.Forms.Label();
             this.lbCer = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@ namespace QuanLyHocTap
             this.btAddTeacher = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnTeaching = new System.Windows.Forms.Button();
+            this.btnSearchTeacher = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacher)).BeginInit();
             this.gbItem.SuspendLayout();
             this.gbList.SuspendLayout();
@@ -63,9 +63,9 @@ namespace QuanLyHocTap
             // btnSaveTeacher
             // 
             this.btnSaveTeacher.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveTeacher.Location = new System.Drawing.Point(1501, 596);
+            this.btnSaveTeacher.Location = new System.Drawing.Point(1490, 596);
             this.btnSaveTeacher.Name = "btnSaveTeacher";
-            this.btnSaveTeacher.Size = new System.Drawing.Size(80, 50);
+            this.btnSaveTeacher.Size = new System.Drawing.Size(91, 50);
             this.btnSaveTeacher.TabIndex = 5;
             this.btnSaveTeacher.Text = "Lưu";
             this.btnSaveTeacher.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@ namespace QuanLyHocTap
             this.btnDeleteTeacher.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteTeacher.Location = new System.Drawing.Point(1385, 596);
             this.btnDeleteTeacher.Name = "btnDeleteTeacher";
-            this.btnDeleteTeacher.Size = new System.Drawing.Size(80, 50);
+            this.btnDeleteTeacher.Size = new System.Drawing.Size(89, 50);
             this.btnDeleteTeacher.TabIndex = 7;
             this.btnDeleteTeacher.Text = "Xóa";
             this.btnDeleteTeacher.UseVisualStyleBackColor = true;
@@ -85,45 +85,52 @@ namespace QuanLyHocTap
             // dtpTeacherDOB
             // 
             this.dtpTeacherDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTeacherDOB.Location = new System.Drawing.Point(268, 134);
+            this.dtpTeacherDOB.Location = new System.Drawing.Point(279, 134);
             this.dtpTeacherDOB.Name = "dtpTeacherDOB";
-            this.dtpTeacherDOB.Size = new System.Drawing.Size(371, 27);
+            this.dtpTeacherDOB.Size = new System.Drawing.Size(360, 27);
             this.dtpTeacherDOB.TabIndex = 2;
+            this.dtpTeacherDOB.DropDown += new System.EventHandler(this.dtpTeacherDOB_DropDown);
             // 
             // txtTeacherCCCD
             // 
-            this.txtTeacherCCCD.Location = new System.Drawing.Point(268, 179);
+            this.txtTeacherCCCD.Location = new System.Drawing.Point(279, 179);
             this.txtTeacherCCCD.Name = "txtTeacherCCCD";
-            this.txtTeacherCCCD.Size = new System.Drawing.Size(371, 27);
+            this.txtTeacherCCCD.Size = new System.Drawing.Size(360, 27);
             this.txtTeacherCCCD.TabIndex = 1;
+            this.txtTeacherCCCD.Click += new System.EventHandler(this.txtTeacherCCCD_Click);
+            this.txtTeacherCCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeacherCCCD_KeyPress);
             // 
             // txtTeacherName
             // 
-            this.txtTeacherName.Location = new System.Drawing.Point(268, 90);
+            this.txtTeacherName.Location = new System.Drawing.Point(279, 90);
             this.txtTeacherName.Name = "txtTeacherName";
-            this.txtTeacherName.Size = new System.Drawing.Size(371, 27);
+            this.txtTeacherName.Size = new System.Drawing.Size(360, 27);
             this.txtTeacherName.TabIndex = 1;
+            this.txtTeacherName.Click += new System.EventHandler(this.txtTeacherName_Click);
             // 
             // txtTeacherPN
             // 
-            this.txtTeacherPN.Location = new System.Drawing.Point(874, 82);
+            this.txtTeacherPN.Location = new System.Drawing.Point(881, 86);
             this.txtTeacherPN.Name = "txtTeacherPN";
             this.txtTeacherPN.Size = new System.Drawing.Size(368, 27);
             this.txtTeacherPN.TabIndex = 1;
+            this.txtTeacherPN.Click += new System.EventHandler(this.txtTeacherPN_Click);
+            this.txtTeacherPN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeacherCCCD_KeyPress);
             // 
             // txtTeacherEmail
             // 
-            this.txtTeacherEmail.Location = new System.Drawing.Point(874, 44);
+            this.txtTeacherEmail.Location = new System.Drawing.Point(881, 44);
             this.txtTeacherEmail.Name = "txtTeacherEmail";
             this.txtTeacherEmail.Size = new System.Drawing.Size(368, 27);
             this.txtTeacherEmail.TabIndex = 1;
+            this.txtTeacherEmail.Click += new System.EventHandler(this.txtTeacherEmail_Click);
             // 
             // txtSearchTeacher
             // 
-            this.txtSearchTeacher.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchTeacher.Location = new System.Drawing.Point(646, 32);
+            this.txtSearchTeacher.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchTeacher.Location = new System.Drawing.Point(516, 30);
             this.txtSearchTeacher.Name = "txtSearchTeacher";
-            this.txtSearchTeacher.Size = new System.Drawing.Size(295, 27);
+            this.txtSearchTeacher.Size = new System.Drawing.Size(411, 30);
             this.txtSearchTeacher.TabIndex = 1;
             // 
             // dgvTeacher
@@ -141,15 +148,15 @@ namespace QuanLyHocTap
             // 
             // txtTeacherID
             // 
-            this.txtTeacherID.Location = new System.Drawing.Point(268, 44);
+            this.txtTeacherID.Location = new System.Drawing.Point(279, 44);
             this.txtTeacherID.Name = "txtTeacherID";
-            this.txtTeacherID.Size = new System.Drawing.Size(371, 27);
+            this.txtTeacherID.Size = new System.Drawing.Size(360, 27);
             this.txtTeacherID.TabIndex = 1;
             // 
             // lbPN
             // 
             this.lbPN.AutoSize = true;
-            this.lbPN.Location = new System.Drawing.Point(718, 89);
+            this.lbPN.Location = new System.Drawing.Point(708, 93);
             this.lbPN.Name = "lbPN";
             this.lbPN.Size = new System.Drawing.Size(149, 20);
             this.lbPN.TabIndex = 0;
@@ -158,7 +165,7 @@ namespace QuanLyHocTap
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(718, 53);
+            this.lbEmail.Location = new System.Drawing.Point(708, 51);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(69, 20);
             this.lbEmail.TabIndex = 0;
@@ -200,20 +207,10 @@ namespace QuanLyHocTap
             this.lbID.TabIndex = 0;
             this.lbID.Text = "Mã số giảng viên:";
             // 
-            // btnSearchTeacher
-            // 
-            this.btnSearchTeacher.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchTeacher.Location = new System.Drawing.Point(1018, 21);
-            this.btnSearchTeacher.Name = "btnSearchTeacher";
-            this.btnSearchTeacher.Size = new System.Drawing.Size(66, 48);
-            this.btnSearchTeacher.TabIndex = 2;
-            this.btnSearchTeacher.Text = "Tìm";
-            this.btnSearchTeacher.UseVisualStyleBackColor = true;
-            // 
             // gbItem
             // 
+            this.gbItem.Controls.Add(this.cbbCertificate);
             this.gbItem.Controls.Add(this.dtpTeacherDOB);
-            this.gbItem.Controls.Add(this.txtTeacherCerti);
             this.gbItem.Controls.Add(this.txtTeacherCCCD);
             this.gbItem.Controls.Add(this.txtTeacherName);
             this.gbItem.Controls.Add(this.txtTeacherAddress);
@@ -237,24 +234,32 @@ namespace QuanLyHocTap
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Thông tin chi tiết";
             // 
-            // txtTeacherCerti
+            // cbbCertificate
             // 
-            this.txtTeacherCerti.Location = new System.Drawing.Point(874, 175);
-            this.txtTeacherCerti.Name = "txtTeacherCerti";
-            this.txtTeacherCerti.Size = new System.Drawing.Size(371, 27);
-            this.txtTeacherCerti.TabIndex = 1;
+            this.cbbCertificate.FormattingEnabled = true;
+            this.cbbCertificate.Items.AddRange(new object[] {
+            "THAC SI",
+            "TIEN SI",
+            "PHO GIAO SU",
+            "GIAO SU"});
+            this.cbbCertificate.Location = new System.Drawing.Point(881, 178);
+            this.cbbCertificate.Name = "cbbCertificate";
+            this.cbbCertificate.Size = new System.Drawing.Size(368, 28);
+            this.cbbCertificate.TabIndex = 3;
+            this.cbbCertificate.Click += new System.EventHandler(this.cbbCertificate_Click);
             // 
             // txtTeacherAddress
             // 
-            this.txtTeacherAddress.Location = new System.Drawing.Point(874, 125);
+            this.txtTeacherAddress.Location = new System.Drawing.Point(881, 125);
             this.txtTeacherAddress.Name = "txtTeacherAddress";
             this.txtTeacherAddress.Size = new System.Drawing.Size(368, 27);
             this.txtTeacherAddress.TabIndex = 1;
+            this.txtTeacherAddress.Click += new System.EventHandler(this.txtTeacherAddress_Click);
             // 
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(718, 132);
+            this.lbAddress.Location = new System.Drawing.Point(708, 136);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(89, 20);
             this.lbAddress.TabIndex = 0;
@@ -263,7 +268,7 @@ namespace QuanLyHocTap
             // lbCer
             // 
             this.lbCer.AutoSize = true;
-            this.lbCer.Location = new System.Drawing.Point(718, 178);
+            this.lbCer.Location = new System.Drawing.Point(708, 182);
             this.lbCer.Name = "lbCer";
             this.lbCer.Size = new System.Drawing.Size(79, 20);
             this.lbCer.TabIndex = 0;
@@ -288,7 +293,7 @@ namespace QuanLyHocTap
             this.btAddTeacher.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAddTeacher.Location = new System.Drawing.Point(1385, 680);
             this.btAddTeacher.Name = "btAddTeacher";
-            this.btAddTeacher.Size = new System.Drawing.Size(80, 50);
+            this.btAddTeacher.Size = new System.Drawing.Size(89, 50);
             this.btAddTeacher.TabIndex = 7;
             this.btAddTeacher.Text = "Thêm";
             this.btAddTeacher.UseVisualStyleBackColor = true;
@@ -297,9 +302,9 @@ namespace QuanLyHocTap
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1501, 680);
+            this.btnExit.Location = new System.Drawing.Point(1490, 680);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(80, 50);
+            this.btnExit.Size = new System.Drawing.Size(91, 50);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -309,13 +314,24 @@ namespace QuanLyHocTap
             // 
             this.btnTeaching.Enabled = false;
             this.btnTeaching.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTeaching.Location = new System.Drawing.Point(1399, 506);
+            this.btnTeaching.Location = new System.Drawing.Point(1385, 506);
             this.btnTeaching.Name = "btnTeaching";
-            this.btnTeaching.Size = new System.Drawing.Size(150, 50);
+            this.btnTeaching.Size = new System.Drawing.Size(196, 50);
             this.btnTeaching.TabIndex = 7;
             this.btnTeaching.Text = "Xem lịch dạy";
             this.btnTeaching.UseVisualStyleBackColor = true;
             this.btnTeaching.Click += new System.EventHandler(this.btnTeaching_Click);
+            // 
+            // btnSearchTeacher
+            // 
+            this.btnSearchTeacher.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchTeacher.Location = new System.Drawing.Point(967, 21);
+            this.btnSearchTeacher.Name = "btnSearchTeacher";
+            this.btnSearchTeacher.Size = new System.Drawing.Size(66, 48);
+            this.btnSearchTeacher.TabIndex = 2;
+            this.btnSearchTeacher.Text = "Tìm";
+            this.btnSearchTeacher.UseVisualStyleBackColor = true;
+            this.btnSearchTeacher.Click += new System.EventHandler(this.btnSearchTeacher_Click);
             // 
             // GiangVien
             // 
@@ -334,6 +350,7 @@ namespace QuanLyHocTap
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Giảng viên";
             this.Load += new System.EventHandler(this.GiangVien_Load);
+            this.Click += new System.EventHandler(this.GiangVien_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacher)).EndInit();
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();
@@ -361,15 +378,15 @@ namespace QuanLyHocTap
         private System.Windows.Forms.Label lbDOB;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbID;
-        private System.Windows.Forms.Button btnSearchTeacher;
         private System.Windows.Forms.GroupBox gbItem;
         private System.Windows.Forms.GroupBox gbList;
         private System.Windows.Forms.TextBox txtTeacherAddress;
         private System.Windows.Forms.Label lbAddress;
-        private System.Windows.Forms.TextBox txtTeacherCerti;
         private System.Windows.Forms.Label lbCer;
         private System.Windows.Forms.Button btAddTeacher;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnTeaching;
+        private System.Windows.Forms.ComboBox cbbCertificate;
+        private System.Windows.Forms.Button btnSearchTeacher;
     }
 }

@@ -22,7 +22,7 @@ namespace QuanLyHocTapData
     
         public string SubjectID { get; set; }
         public string SubjectName { get; set; }
-        public int Credits { get; set; }
+        public double Credits { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Teaching> Teachings { get; set; }

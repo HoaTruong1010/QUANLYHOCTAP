@@ -33,7 +33,7 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="StudentName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="27" Nullable="false" />
           <Property Name="DayOfBirth" Type="date" Nullable="false" />
           <Property Name="ID" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
@@ -45,16 +45,16 @@
           <Key>
             <PropertyRef Name="SubjectID" />
           </Key>
-          <Property Name="SubjectID" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="SubjectID" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="SubjectName" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="Credits" Type="int" Nullable="false" />
+          <Property Name="Credits" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Teachers">
           <Key>
             <PropertyRef Name="TeacherID" />
           </Key>
           <Property Name="TeacherID" Type="varchar" MaxLength="8" Nullable="false" />
-          <Property Name="TeacherName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TeacherName" Type="varchar" MaxLength="27" Nullable="false" />
           <Property Name="DayOfBirth" Type="date" Nullable="false" />
           <Property Name="ID" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
@@ -68,7 +68,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TeacherID" Type="varchar" MaxLength="8" Nullable="false" />
-          <Property Name="SubjectID" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="SubjectID" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="RegisterDate" Type="date" Nullable="false" />
         </EntityType>
         <Association Name="FK__Classes__Teacher__2C3393D0">
@@ -220,7 +220,7 @@
             <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="StudentID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="StudentName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentName" Type="String" MaxLength="27" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DayOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
@@ -234,9 +234,9 @@
           <Key>
             <PropertyRef Name="SubjectID" />
           </Key>
-          <Property Name="SubjectID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubjectID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SubjectName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Credits" Type="Int32" Nullable="false" />
+          <Property Name="Credits" Type="Double" Nullable="false" />
           <NavigationProperty Name="Teachings" Relationship="Self.FK__Teaching__Subjec__29572725" FromRole="Subjects" ToRole="Teaching" />
         </EntityType>
         <EntityType Name="Teacher">
@@ -244,7 +244,7 @@
             <PropertyRef Name="TeacherID" />
           </Key>
           <Property Name="TeacherID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TeacherName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="27" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DayOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
@@ -260,7 +260,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TeacherID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SubjectID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubjectID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Scores" Relationship="Self.FK1_Score" FromRole="Teaching" ToRole="Scores" />
           <NavigationProperty Name="Subject" Relationship="Self.FK__Teaching__Subjec__29572725" FromRole="Teaching" ToRole="Subjects" />

@@ -12,12 +12,10 @@ namespace QuanLyHocTap_Controller.BUS
     public class Teaching_Controller
     {
         Teaching_DAO teaching_Dao;
-        Teacher_DAO teacher_Dao;
 
         public Teaching_Controller() 
         {
             teaching_Dao = new Teaching_DAO();
-            teacher_Dao = new Teacher_DAO();
         }
 
         public void GetTeachings(DataGridView dataGrirdView, string teacherId)
@@ -25,14 +23,36 @@ namespace QuanLyHocTap_Controller.BUS
             dataGrirdView.DataSource = teaching_Dao.LoadTeachings(teacherId);
         }
 
-        public void GetTeacher(TextBox txtTeacherID, TextBox txtTeacherName, string teacherId)
+        public void GetTeacherByTeachingId(TextBox txtTeacherID,ComboBox cbbTeacher, int id)
         {
-            Dictionary<string, string> keyValuePairs = teacher_Dao.GetTeacher(teacherId);
-            foreach (KeyValuePair <string, string> item in keyValuePairs)
+            Dictionary<string, string> keyValuePairs = teaching_Dao.FindTeacherByTeachingId(id);
+            foreach (KeyValuePair<string, string> item in keyValuePairs)
             {
                 txtTeacherID.Text = item.Key;
-                txtTeacherName.Text = item.Value;
+                cbbTeacher.Text = item.Value;
             }
+        }
+
+        public void GetSubjectByTeachingId(TextBox txtSubject,ComboBox cbbSubject, int id)
+        {
+            Dictionary<string, string> keyValuePairs = teaching_Dao.FindSubjectByTeachingId(id);
+            foreach (KeyValuePair<string, string> item in keyValuePairs)
+            {
+                txtSubject.Text = item.Key;
+                cbbSubject.Text = item.Value;
+            }
+        }
+
+        public int GetTeaching(string subjectId, string teacherId) 
+        {
+            int id = -1;
+            Dictionary<int, string> teaching = teaching_Dao.FindTeaching(subjectId, teacherId);
+            if (teaching == null)
+                id = 0;
+            else
+                foreach (KeyValuePair<int, string> item in teaching)
+                    id = item.Key;
+            return id;
         }
 
         public bool AddTeaching(string teacherID,

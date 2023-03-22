@@ -1,7 +1,7 @@
 ﻿
 namespace QuanLyHocTap
 {
-    partial class SinhVien
+    partial class Student
     {
         /// <summary>
         /// Required designer variable.
@@ -307,6 +307,7 @@ namespace QuanLyHocTap
             this.btnDeleteStudent.TabIndex = 2;
             this.btnDeleteStudent.Text = "Xóa";
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // btnSaveStudent
             // 
@@ -317,6 +318,7 @@ namespace QuanLyHocTap
             this.btnSaveStudent.TabIndex = 2;
             this.btnSaveStudent.Text = "Lưu";
             this.btnSaveStudent.UseVisualStyleBackColor = true;
+            this.btnSaveStudent.Click += new System.EventHandler(this.btnSaveStudent_Click);
             // 
             // btnViewScore
             // 
@@ -327,6 +329,7 @@ namespace QuanLyHocTap
             this.btnViewScore.TabIndex = 2;
             this.btnViewScore.Text = "Xem điểm";
             this.btnViewScore.UseVisualStyleBackColor = true;
+            this.btnViewScore.Click += new System.EventHandler(this.btnViewScore_Click);
             // 
             // btAddStudent
             // 
@@ -337,6 +340,7 @@ namespace QuanLyHocTap
             this.btAddStudent.TabIndex = 2;
             this.btAddStudent.Text = "Thêm";
             this.btAddStudent.UseVisualStyleBackColor = true;
+            this.btAddStudent.Click += new System.EventHandler(this.btAddStudent_Click);
             // 
             // btnExit
             // 

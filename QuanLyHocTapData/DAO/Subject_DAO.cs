@@ -26,6 +26,18 @@ namespace QuanLyHocTapData.DAO
             return listSubject;
         }
 
+        public dynamic SearchSubject(string kw)
+        {
+            var listSubject = db.Subjects.Where(s=>s.SubjectID.ToLower().Contains(kw.ToLower()) || s.SubjectName.ToLower().Contains(kw.ToLower()))
+                .Select(s => new
+            {
+                s.SubjectID,
+                s.SubjectName,
+                s.Credits
+            }).ToList();
+            return listSubject;
+        }
+
         public dynamic LoadCBBSubjects()
         {
             var listSubject = db.Subjects.Select(s => new
@@ -35,7 +47,7 @@ namespace QuanLyHocTapData.DAO
             }).ToList();
             return listSubject;
         }
-        public void AddSubject(string subjectId, string subjectName, int credits)
+        public void AddSubject(string subjectId, string subjectName, double credits)
         {
             Subject subject = new Subject();
             subject.SubjectID = subjectId;
@@ -55,7 +67,16 @@ namespace QuanLyHocTapData.DAO
                 return false;
         }
 
-        public void EditSubject(string subjectId, string subjectName, int credits)
+        public bool FindSubjectName(string subjectName)
+        {
+            var subject = db.Subjects.Where(s => s.SubjectName == subjectName).Select(s => s.SubjectName).ToList();
+            if (subject != null)
+                return true;
+            else
+                return false;
+        }
+
+        public void EditSubject(string subjectId, string subjectName, double credits)
         {
             Subject subject = db.Subjects.Find(subjectId);
             subject.SubjectID = subjectId;

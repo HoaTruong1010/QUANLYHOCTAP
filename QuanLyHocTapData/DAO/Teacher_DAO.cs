@@ -42,50 +42,20 @@ namespace QuanLyHocTapData.DAO
                 }).ToDictionary( x => x.TeacherID, x => x.TeacherName);
         }
 
-        public dynamic LoadClasses()
+        public dynamic SearchTeacher(string kw)
         {
-            var listClass = db.Classes.Select(s => new
-            {
-                s.ClassID,
-                s.ClassName,
-                s.TotalStudent,
-                s.TeacherID,
-                s.Teacher.TeacherName
-            }).ToList();
-            return listClass;
-        }
-
-        public dynamic LoadStudents()
-        {
-            var listStudent = db.Students.Select(s => new
-            {
-                s.StudentID,
-                s.StudentName,
-                s.DayOfBirth,
-                s.ID,
-                s.Email,
-                s.Phone,
-                s.StudentAddress,
-                s.Class.ClassID, s.Class.ClassName
-            }).ToList();
-            return listStudent;
-        }
-
-        public dynamic LoadScores()
-        {
-            var listScore = db.Scores.Select(s => new
-            {
-                s.Teaching.Teacher.TeacherName, 
-                s.Teaching.Subject.SubjectName,
-                s.StudentID,
-                s.Student.StudentName,
-                s.Registration_Date,
-                s.MidtermScore,
-                s.ModifiedDateOfMidtermScore,
-                s.EndPointScore,
-                s.ModifiedDateOfEndPointScore
-            }).ToList();
-            return listScore;
+            return db.Teachers.Where(t => t.TeacherID.ToLower().Contains(kw.ToLower()) || t.TeacherName.ToLower().Contains(kw.ToLower()))
+                .Select(s => new
+                {
+                    s.TeacherID,
+                    s.TeacherName,
+                    s.DayOfBirth,
+                    s.ID,
+                    s.Email,
+                    s.Phone,
+                    s.TeacherAddress,
+                    s.TeacherCertificate
+                }).ToList();
         }
 
         public dynamic LoadCBBTeachers()
@@ -96,26 +66,6 @@ namespace QuanLyHocTapData.DAO
                 s.TeacherName
             }).ToList();
             return listTeacher;
-        }
-
-        public dynamic LoadCBBStudents()
-        {
-            var listStudent = db.Students.Select(s => new
-            {
-                s.StudentID,
-                s.StudentName
-            }).ToList();
-            return listStudent;
-        }
-
-        public dynamic LoadCBBClasses()
-        {
-            var listClass = db.Classes.Select(s => new
-            {
-                s.ClassID,
-                s.ClassName
-            }).ToList();
-            return listClass;
         }
 
         public void AddTeacher(string teacherId, string teacherName,

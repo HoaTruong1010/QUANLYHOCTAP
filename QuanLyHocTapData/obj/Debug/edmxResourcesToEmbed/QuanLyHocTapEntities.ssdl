@@ -28,7 +28,7 @@
       <PropertyRef Name="StudentID" />
     </Key>
     <Property Name="StudentID" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="StudentName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="27" Nullable="false" />
     <Property Name="DayOfBirth" Type="date" Nullable="false" />
     <Property Name="ID" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
@@ -40,16 +40,16 @@
     <Key>
       <PropertyRef Name="SubjectID" />
     </Key>
-    <Property Name="SubjectID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="SubjectID" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="SubjectName" Type="varchar" MaxLength="25" Nullable="false" />
-    <Property Name="Credits" Type="int" Nullable="false" />
+    <Property Name="Credits" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="Teachers">
     <Key>
       <PropertyRef Name="TeacherID" />
     </Key>
     <Property Name="TeacherID" Type="varchar" MaxLength="8" Nullable="false" />
-    <Property Name="TeacherName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TeacherName" Type="varchar" MaxLength="27" Nullable="false" />
     <Property Name="DayOfBirth" Type="date" Nullable="false" />
     <Property Name="ID" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
@@ -63,7 +63,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TeacherID" Type="varchar" MaxLength="8" Nullable="false" />
-    <Property Name="SubjectID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="SubjectID" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="RegisterDate" Type="date" Nullable="false" />
   </EntityType>
   <Association Name="FK__Classes__Teacher__2C3393D0">

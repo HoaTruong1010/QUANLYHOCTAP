@@ -1,6 +1,5 @@
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.csproj.AssemblyReference.cache
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Properties.Resources.resources
-D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.SinhVien.resources
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.csproj.GenerateResource.cache
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.csproj.CoreCompileInputs.cache
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap.exe.config
@@ -8,16 +7,11 @@ D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap.exe
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap.pdb
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.exe
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.pdb
-D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.GiangVien.resources
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap_Controller.exe
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\EntityFramework.dll
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap_Controller.pdb
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap_Controller.exe.config
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\EntityFramework.xml
-D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.GiangDay.resources
-D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.KetQuaHocTap.resources
-D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Lop.resources
-D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.MonHoc.resources
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.csproj.CopyComplete
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\EntityFramework.SqlServer.dll
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\EntityFramework.SqlServer.xml
@@ -26,3 +20,9 @@ D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTapData
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTapData.exe.config
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.csproj.SuggestedBindingRedirects.cache
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Main.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Teaching.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Teacher.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Score.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Classes.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Subject.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Student.resources

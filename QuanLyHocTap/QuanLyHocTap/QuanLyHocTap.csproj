@@ -57,29 +57,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GiangDay.cs">
+    <Compile Include="Teaching.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GiangDay.Designer.cs">
-      <DependentUpon>GiangDay.cs</DependentUpon>
+    <Compile Include="Teaching.Designer.cs">
+      <DependentUpon>Teaching.cs</DependentUpon>
     </Compile>
-    <Compile Include="GiangVien.cs">
+    <Compile Include="Teacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GiangVien.Designer.cs">
-      <DependentUpon>GiangVien.cs</DependentUpon>
+    <Compile Include="Teacher.Designer.cs">
+      <DependentUpon>Teacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="KetQuaHocTap.cs">
+    <Compile Include="Score.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KetQuaHocTap.Designer.cs">
-      <DependentUpon>KetQuaHocTap.cs</DependentUpon>
+    <Compile Include="Score.Designer.cs">
+      <DependentUpon>Score.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lop.cs">
+    <Compile Include="Classes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Lop.Designer.cs">
-      <DependentUpon>Lop.cs</DependentUpon>
+    <Compile Include="Classes.Designer.cs">
+      <DependentUpon>Classes.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -87,37 +87,38 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="MonHoc.cs">
+    <Compile Include="Message_Error.cs" />
+    <Compile Include="Subject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MonHoc.Designer.cs">
-      <DependentUpon>MonHoc.cs</DependentUpon>
+    <Compile Include="Subject.Designer.cs">
+      <DependentUpon>Subject.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SinhVien.cs">
+    <Compile Include="Student.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SinhVien.Designer.cs">
-      <DependentUpon>SinhVien.cs</DependentUpon>
+    <Compile Include="Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GiangDay.resx">
-      <DependentUpon>GiangDay.cs</DependentUpon>
+    <EmbeddedResource Include="Teaching.resx">
+      <DependentUpon>Teaching.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GiangVien.resx">
-      <DependentUpon>GiangVien.cs</DependentUpon>
+    <EmbeddedResource Include="Teacher.resx">
+      <DependentUpon>Teacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KetQuaHocTap.resx">
-      <DependentUpon>KetQuaHocTap.cs</DependentUpon>
+    <EmbeddedResource Include="Score.resx">
+      <DependentUpon>Score.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lop.resx">
-      <DependentUpon>Lop.cs</DependentUpon>
+    <EmbeddedResource Include="Classes.resx">
+      <DependentUpon>Classes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MonHoc.resx">
-      <DependentUpon>MonHoc.cs</DependentUpon>
+    <EmbeddedResource Include="Subject.resx">
+      <DependentUpon>Subject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,8 +129,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SinhVien.resx">
-      <DependentUpon>SinhVien.cs</DependentUpon>
+    <EmbeddedResource Include="Student.resx">
+      <DependentUpon>Student.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

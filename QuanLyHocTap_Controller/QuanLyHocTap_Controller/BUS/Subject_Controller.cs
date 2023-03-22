@@ -23,6 +23,15 @@ namespace QuanLyHocTap_Controller.BUS
             dataGrirdView.DataSource = subject_Dao.LoadSubjects();
         }
 
+        public int SearchTeacher(DataGridView dataGrirdView, string kw)
+        {
+            dataGrirdView.DataSource = subject_Dao.SearchSubject(kw);
+            if (dataGrirdView.RowCount > 0)
+                return 0;
+            return 10;
+
+        }
+
         public void GetCBBSubjects(ComboBox comboBox)
         {
             comboBox.DataSource = subject_Dao.LoadCBBSubjects();
@@ -30,41 +39,63 @@ namespace QuanLyHocTap_Controller.BUS
             comboBox.ValueMember = "SubjectID";
         }
 
-        public bool AddSubject(string subjectId, string subjectName, int credits)
+        public int AddSubject(string subjectId, string subjectName, double credits)
         {
+            if (subjectId == null || subjectId.Length < 6)
+                return 13;
+            if (subjectId.Length > 6)
+                return 14;
+            if (subject_Dao.FindSubject(subjectId))
+                return 15;
+            if (subjectName == string.Empty)
+                return 16;
+            if (subjectName.Length > 25)
+                return 17;
+            if(subject_Dao.FindSubjectName(subjectName))
+                return 18;
+
             try
             {
                 subject_Dao.AddSubject(subjectId, subjectName, credits);
-                return true;
+                return 0;
             }
             catch (Exception)
             {
-                return false;
+                return -1;
             }
         }
 
-        public bool EditSubject(string subjectId, string subjectName, int credits)
+        public int EditSubject(string subjectId, string subjectName, double credits)
         {
+            if (subjectId == null || subjectId.Length < 6)
+                return 13;
+            if (subjectId.Length > 6)
+                return 14;
+            if (subjectName == string.Empty)
+                return 16;
+            if (subjectName.Length > 25)
+                return 17;
+            if (subject_Dao.FindSubjectName(subjectName))
+                return 18;
 
             if (subject_Dao.FindSubject(subjectId))
             {
                 try
                 {
                     subject_Dao.EditSubject(subjectId, subjectName, credits);
-                    return true;
+                    return 0;
                 }
                 catch (DbUpdateException)
                 {
-                    return false;
+                    return -2;
                 }
             }
             else
-                return false;
+                return -2;
         }
 
         public bool DeleteSubject(string subjectId)
         {
-
             if (subject_Dao.FindSubject(subjectId))
             {
                 try

@@ -58,6 +58,9 @@
     <Compile Include="Class.cs">
       <DependentUpon>QuanLyHocTapEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\Class_DAO.cs" />
+    <Compile Include="DAO\Score_DAO.cs" />
+    <Compile Include="DAO\Student_DAO.cs" />
     <Compile Include="DAO\Subject_DAO.cs" />
     <Compile Include="DAO\Teacher_DAO.cs" />
     <Compile Include="DAO\Teaching_DAO.cs" />
@@ -106,6 +109,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="QuanLyHocTapEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyHocTapEntities.edmx</DependentUpon>
@@ -116,9 +122,6 @@
       <DependentUpon>QuanLyHocTapEntities.edmx</DependentUpon>
       <LastGenOutput>QuanLyHocTapEntities.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

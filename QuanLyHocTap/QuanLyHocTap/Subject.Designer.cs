@@ -1,7 +1,7 @@
 ﻿
 namespace QuanLyHocTap
 {
-    partial class MonHoc
+    partial class Subject
     {
         /// <summary>
         /// Required designer variable.
@@ -41,18 +41,17 @@ namespace QuanLyHocTap
             this.btnSearchSubject = new System.Windows.Forms.Button();
             this.txtSearchSubject = new System.Windows.Forms.TextBox();
             this.gbItem = new System.Windows.Forms.GroupBox();
-            this.nbuSubjectCredit = new System.Windows.Forms.NumericUpDown();
             this.gbList = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cbbCredits = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).BeginInit();
             this.gbItem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbuSubjectCredit)).BeginInit();
             this.gbList.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSaveSubject
             // 
-            this.btnSaveSubject.Location = new System.Drawing.Point(1185, 688);
+            this.btnSaveSubject.Location = new System.Drawing.Point(1025, 430);
             this.btnSaveSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveSubject.Name = "btnSaveSubject";
             this.btnSaveSubject.Size = new System.Drawing.Size(83, 60);
@@ -63,7 +62,7 @@ namespace QuanLyHocTap
             // 
             // btAddSubject
             // 
-            this.btAddSubject.Location = new System.Drawing.Point(957, 688);
+            this.btAddSubject.Location = new System.Drawing.Point(867, 430);
             this.btAddSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btAddSubject.Name = "btAddSubject";
             this.btAddSubject.Size = new System.Drawing.Size(83, 60);
@@ -74,7 +73,7 @@ namespace QuanLyHocTap
             // 
             // btnDeleteSubject
             // 
-            this.btnDeleteSubject.Location = new System.Drawing.Point(1075, 688);
+            this.btnDeleteSubject.Location = new System.Drawing.Point(867, 547);
             this.btnDeleteSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteSubject.Name = "btnDeleteSubject";
             this.btnDeleteSubject.Size = new System.Drawing.Size(83, 60);
@@ -86,10 +85,10 @@ namespace QuanLyHocTap
             // txtSubjectName
             // 
             this.txtSubjectName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubjectName.Location = new System.Drawing.Point(651, 60);
+            this.txtSubjectName.Location = new System.Drawing.Point(31, 167);
             this.txtSubjectName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(387, 27);
+            this.txtSubjectName.Size = new System.Drawing.Size(283, 27);
             this.txtSubjectName.TabIndex = 1;
             // 
             // dgvSubject
@@ -102,24 +101,24 @@ namespace QuanLyHocTap
             this.dgvSubject.Name = "dgvSubject";
             this.dgvSubject.RowHeadersWidth = 51;
             this.dgvSubject.RowTemplate.Height = 24;
-            this.dgvSubject.Size = new System.Drawing.Size(1374, 417);
+            this.dgvSubject.Size = new System.Drawing.Size(733, 568);
             this.dgvSubject.TabIndex = 0;
             this.dgvSubject.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubject_CellContentClick);
             // 
             // txtSubjectID
             // 
             this.txtSubjectID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubjectID.Location = new System.Drawing.Point(206, 62);
+            this.txtSubjectID.Location = new System.Drawing.Point(31, 84);
             this.txtSubjectID.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubjectID.Name = "txtSubjectID";
-            this.txtSubjectID.Size = new System.Drawing.Size(205, 27);
+            this.txtSubjectID.Size = new System.Drawing.Size(283, 27);
             this.txtSubjectID.TabIndex = 1;
             // 
             // lbCre
             // 
             this.lbCre.AutoSize = true;
             this.lbCre.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCre.Location = new System.Drawing.Point(1133, 66);
+            this.lbCre.Location = new System.Drawing.Point(27, 237);
             this.lbCre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCre.Name = "lbCre";
             this.lbCre.Size = new System.Drawing.Size(119, 20);
@@ -130,7 +129,7 @@ namespace QuanLyHocTap
             // 
             this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(494, 64);
+            this.lbName.Location = new System.Drawing.Point(27, 143);
             this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(129, 20);
@@ -141,7 +140,7 @@ namespace QuanLyHocTap
             // 
             this.lbID.AutoSize = true;
             this.lbID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(47, 64);
+            this.lbID.Location = new System.Drawing.Point(27, 54);
             this.lbID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbID.Name = "lbID";
             this.lbID.Size = new System.Drawing.Size(119, 20);
@@ -150,27 +149,28 @@ namespace QuanLyHocTap
             // 
             // btnSearchSubject
             // 
-            this.btnSearchSubject.Location = new System.Drawing.Point(894, 25);
+            this.btnSearchSubject.Location = new System.Drawing.Point(516, 34);
             this.btnSearchSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchSubject.Name = "btnSearchSubject";
-            this.btnSearchSubject.Size = new System.Drawing.Size(91, 60);
+            this.btnSearchSubject.Size = new System.Drawing.Size(86, 42);
             this.btnSearchSubject.TabIndex = 2;
             this.btnSearchSubject.Text = "Tìm";
             this.btnSearchSubject.UseVisualStyleBackColor = true;
+            this.btnSearchSubject.Click += new System.EventHandler(this.btnSearchSubject_Click);
             // 
             // txtSearchSubject
             // 
             this.txtSearchSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchSubject.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchSubject.Location = new System.Drawing.Point(474, 40);
+            this.txtSearchSubject.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchSubject.Location = new System.Drawing.Point(99, 43);
             this.txtSearchSubject.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchSubject.Name = "txtSearchSubject";
-            this.txtSearchSubject.Size = new System.Drawing.Size(368, 27);
+            this.txtSearchSubject.Size = new System.Drawing.Size(368, 28);
             this.txtSearchSubject.TabIndex = 1;
             // 
             // gbItem
             // 
-            this.gbItem.Controls.Add(this.nbuSubjectCredit);
+            this.gbItem.Controls.Add(this.cbbCredits);
             this.gbItem.Controls.Add(this.txtSubjectName);
             this.gbItem.Controls.Add(this.txtSubjectID);
             this.gbItem.Controls.Add(this.lbCre);
@@ -178,23 +178,14 @@ namespace QuanLyHocTap
             this.gbItem.Controls.Add(this.lbID);
             this.gbItem.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbItem.ForeColor = System.Drawing.Color.Maroon;
-            this.gbItem.Location = new System.Drawing.Point(34, 540);
+            this.gbItem.Location = new System.Drawing.Point(809, 13);
             this.gbItem.Margin = new System.Windows.Forms.Padding(4);
             this.gbItem.Name = "gbItem";
             this.gbItem.Padding = new System.Windows.Forms.Padding(4);
-            this.gbItem.Size = new System.Drawing.Size(1414, 140);
+            this.gbItem.Size = new System.Drawing.Size(346, 329);
             this.gbItem.TabIndex = 4;
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Thông tin chi tiết";
-            // 
-            // nbuSubjectCredit
-            // 
-            this.nbuSubjectCredit.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nbuSubjectCredit.Location = new System.Drawing.Point(1261, 61);
-            this.nbuSubjectCredit.Margin = new System.Windows.Forms.Padding(4);
-            this.nbuSubjectCredit.Name = "nbuSubjectCredit";
-            this.nbuSubjectCredit.Size = new System.Drawing.Size(79, 27);
-            this.nbuSubjectCredit.TabIndex = 2;
             // 
             // gbList
             // 
@@ -207,14 +198,14 @@ namespace QuanLyHocTap
             this.gbList.Margin = new System.Windows.Forms.Padding(4);
             this.gbList.Name = "gbList";
             this.gbList.Padding = new System.Windows.Forms.Padding(4);
-            this.gbList.Size = new System.Drawing.Size(1414, 523);
+            this.gbList.Size = new System.Drawing.Size(767, 674);
             this.gbList.TabIndex = 3;
             this.gbList.TabStop = false;
             this.gbList.Text = "Danh sách";
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1297, 688);
+            this.btnExit.Location = new System.Drawing.Point(1025, 547);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(83, 60);
@@ -223,12 +214,26 @@ namespace QuanLyHocTap
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // MonHoc
+            // cbbCredits
+            // 
+            this.cbbCredits.FormattingEnabled = true;
+            this.cbbCredits.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2",
+            "3",
+            "4"});
+            this.cbbCredits.Location = new System.Drawing.Point(31, 260);
+            this.cbbCredits.Name = "cbbCredits";
+            this.cbbCredits.Size = new System.Drawing.Size(110, 28);
+            this.cbbCredits.TabIndex = 2;
+            // 
+            // Subject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1481, 760);
+            this.ClientSize = new System.Drawing.Size(1193, 696);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSaveSubject);
             this.Controls.Add(this.btAddSubject);
@@ -237,13 +242,13 @@ namespace QuanLyHocTap
             this.Controls.Add(this.gbList);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "MonHoc";
+            this.Name = "Subject";
             this.Text = "Môn học";
             this.Load += new System.EventHandler(this.MonHoc_Load);
+            this.Click += new System.EventHandler(this.Subject_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).EndInit();
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbuSubjectCredit)).EndInit();
             this.gbList.ResumeLayout(false);
             this.gbList.PerformLayout();
             this.ResumeLayout(false);
@@ -265,7 +270,7 @@ namespace QuanLyHocTap
         private System.Windows.Forms.TextBox txtSearchSubject;
         private System.Windows.Forms.GroupBox gbItem;
         private System.Windows.Forms.GroupBox gbList;
-        private System.Windows.Forms.NumericUpDown nbuSubjectCredit;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox cbbCredits;
     }
 }

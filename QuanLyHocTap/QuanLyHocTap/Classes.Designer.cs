@@ -1,7 +1,7 @@
 ﻿
 namespace QuanLyHocTap
 {
-    partial class Lop
+    partial class Classes
     {
         /// <summary>
         /// Required designer variable.
@@ -61,6 +61,7 @@ namespace QuanLyHocTap
             this.btnSaveClass.TabIndex = 11;
             this.btnSaveClass.Text = "Lưu";
             this.btnSaveClass.UseVisualStyleBackColor = true;
+            this.btnSaveClass.Click += new System.EventHandler(this.btnSaveClass_Click);
             // 
             // btAddClass
             // 
@@ -71,6 +72,7 @@ namespace QuanLyHocTap
             this.btAddClass.TabIndex = 13;
             this.btAddClass.Text = "Thêm";
             this.btAddClass.UseVisualStyleBackColor = true;
+            this.btAddClass.Click += new System.EventHandler(this.btAddClass_Click);
             // 
             // btnDeleteClass
             // 
@@ -81,6 +83,7 @@ namespace QuanLyHocTap
             this.btnDeleteClass.TabIndex = 14;
             this.btnDeleteClass.Text = "Xóa";
             this.btnDeleteClass.UseVisualStyleBackColor = true;
+            this.btnDeleteClass.Click += new System.EventHandler(this.btnDeleteClass_Click);
             // 
             // txtClassName
             // 

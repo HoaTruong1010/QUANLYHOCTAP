@@ -68,9 +68,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\QuanLyHocTapData\QuanLyHocTapData.csproj">
+    <ProjectReference Include="..\..\QuanLyHocTapData\QuanLyHocTap_Data.csproj">
       <Project>{1f483533-87f8-40b1-9836-e4128ac67ab9}</Project>
-      <Name>QuanLyHocTapData</Name>
+      <Name>QuanLyHocTap_Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

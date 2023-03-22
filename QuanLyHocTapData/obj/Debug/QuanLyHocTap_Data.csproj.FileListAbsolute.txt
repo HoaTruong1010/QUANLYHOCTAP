@@ -1,0 +1,13 @@
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\bin\Debug\QuanLyHocTapData.exe.config
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\bin\Debug\QuanLyHocTapData.exe
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\bin\Debug\QuanLyHocTapData.pdb
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\bin\Debug\EntityFramework.dll
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\bin\Debug\EntityFramework.SqlServer.dll
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\bin\Debug\EntityFramework.xml
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\bin\Debug\EntityFramework.SqlServer.xml
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\obj\Debug\QuanLyHocTap_Data.csproj.AssemblyReference.cache
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\obj\Debug\QuanLyHocTap_Data.csproj.SuggestedBindingRedirects.cache
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\obj\Debug\QuanLyHocTap_Data.csproj.CoreCompileInputs.cache
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\obj\Debug\QuanLyHocTap_Data.csproj.CopyComplete
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\obj\Debug\QuanLyHocTapData.exe
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTapData\obj\Debug\QuanLyHocTapData.pdb

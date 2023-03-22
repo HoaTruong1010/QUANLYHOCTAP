@@ -11,9 +11,10 @@ using System.Windows.Forms;
 
 namespace QuanLyHocTap
 {
-    public partial class GiangDay : Form
+    public partial class Teaching : Form
     {
         Teaching_Controller teachingController;
+        Teacher_Controller teacherController;
         Subject_Controller subjectController;
         private string teacherSelectedId;
         private int teachingID = 0;
@@ -21,11 +22,12 @@ namespace QuanLyHocTap
         public string TeacherSelectedId { get => teacherSelectedId; set => teacherSelectedId = value; }
         public int TeachingID { get => teachingID; set => teachingID = value; }
 
-        public GiangDay()
+        public Teaching()
         {
             InitializeComponent();
             teachingController = new Teaching_Controller();
             subjectController = new Subject_Controller();
+            teacherController = new Teacher_Controller();
         }
 
         private void ShowTeaching(string teacherId)
@@ -40,7 +42,7 @@ namespace QuanLyHocTap
 
         private void GiangDay_Load(object sender, EventArgs e)
         {
-            teachingController.GetTeacher(txtTeacherID, txtTeacherName, TeacherSelectedId);
+            teacherController.GetTeacher(txtTeacherID, txtTeacherName, TeacherSelectedId);
             ShowTeaching(txtTeacherID.Text);
             subjectController.GetCBBSubjects(cbSubject);
         }
