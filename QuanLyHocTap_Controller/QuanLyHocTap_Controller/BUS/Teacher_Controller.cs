@@ -101,12 +101,6 @@ namespace QuanLyHocTap_Controller.BUS
             double age = timeDifference.TotalDays / 365.2425;
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
 
-            if (teacherId == null || teacherId.Length < 8)
-                return 1;
-            if (teacherId.Length > 8)
-                return 2;
-            if (teacherName == null)
-                return 3;
             if (teacherName.Length > 27)
                 return 4;
             if (age < 18)

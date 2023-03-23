@@ -186,6 +186,7 @@ namespace QuanLyHocTap
             // 
             // cbbTeacher
             // 
+            this.cbbTeacher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTeacher.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTeacher.FormattingEnabled = true;
             this.cbbTeacher.Location = new System.Drawing.Point(807, 82);

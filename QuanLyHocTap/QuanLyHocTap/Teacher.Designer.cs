@@ -236,6 +236,7 @@ namespace QuanLyHocTap
             // 
             // cbbCertificate
             // 
+            this.cbbCertificate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCertificate.FormattingEnabled = true;
             this.cbbCertificate.Items.AddRange(new object[] {
             "THAC SI",

@@ -78,21 +78,22 @@ namespace QuanLyHocTap
             // 
             // btnSearchStudent
             // 
-            this.btnSearchStudent.Location = new System.Drawing.Point(1021, 22);
+            this.btnSearchStudent.Location = new System.Drawing.Point(874, 29);
             this.btnSearchStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSearchStudent.Name = "btnSearchStudent";
-            this.btnSearchStudent.Size = new System.Drawing.Size(104, 53);
+            this.btnSearchStudent.Size = new System.Drawing.Size(87, 39);
             this.btnSearchStudent.TabIndex = 2;
             this.btnSearchStudent.Text = "Tìm";
             this.btnSearchStudent.UseVisualStyleBackColor = true;
+            this.btnSearchStudent.Click += new System.EventHandler(this.btnSearchStudent_Click);
             // 
             // txtSeachStudent
             // 
-            this.txtSeachStudent.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeachStudent.Location = new System.Drawing.Point(541, 36);
+            this.txtSeachStudent.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeachStudent.Location = new System.Drawing.Point(417, 40);
             this.txtSeachStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSeachStudent.Name = "txtSeachStudent";
-            this.txtSeachStudent.Size = new System.Drawing.Size(420, 27);
+            this.txtSeachStudent.Size = new System.Drawing.Size(420, 28);
             this.txtSeachStudent.TabIndex = 1;
             // 
             // dgvStudent
@@ -138,13 +139,15 @@ namespace QuanLyHocTap
             // 
             // cbbClass
             // 
+            this.cbbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbClass.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbClass.FormattingEnabled = true;
-            this.cbbClass.Location = new System.Drawing.Point(998, 149);
+            this.cbbClass.Location = new System.Drawing.Point(998, 198);
             this.cbbClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbbClass.Name = "cbbClass";
             this.cbbClass.Size = new System.Drawing.Size(367, 28);
             this.cbbClass.TabIndex = 3;
+            this.cbbClass.Click += new System.EventHandler(this.cbbClass_Click);
             // 
             // dtpStudentDOB
             // 
@@ -155,6 +158,7 @@ namespace QuanLyHocTap
             this.dtpStudentDOB.Name = "dtpStudentDOB";
             this.dtpStudentDOB.Size = new System.Drawing.Size(371, 27);
             this.dtpStudentDOB.TabIndex = 2;
+            this.dtpStudentDOB.DropDown += new System.EventHandler(this.dtpStudentDOB_DropDown);
             // 
             // txtStudentCCCD
             // 
@@ -164,6 +168,8 @@ namespace QuanLyHocTap
             this.txtStudentCCCD.Name = "txtStudentCCCD";
             this.txtStudentCCCD.Size = new System.Drawing.Size(371, 27);
             this.txtStudentCCCD.TabIndex = 1;
+            this.txtStudentCCCD.Click += new System.EventHandler(this.txtStudentCCCD_Click);
+            this.txtStudentCCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentID_KeyPress);
             // 
             // txtStudentName
             // 
@@ -173,15 +179,17 @@ namespace QuanLyHocTap
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.Size = new System.Drawing.Size(371, 27);
             this.txtStudentName.TabIndex = 1;
+            this.txtStudentName.Click += new System.EventHandler(this.txtStudentName_Click);
             // 
             // txtStudentAddress
             // 
             this.txtStudentAddress.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentAddress.Location = new System.Drawing.Point(998, 199);
+            this.txtStudentAddress.Location = new System.Drawing.Point(998, 149);
             this.txtStudentAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentAddress.Name = "txtStudentAddress";
             this.txtStudentAddress.Size = new System.Drawing.Size(367, 27);
             this.txtStudentAddress.TabIndex = 1;
+            this.txtStudentAddress.Click += new System.EventHandler(this.txtStudentAddress_Click);
             // 
             // txtStudentPN
             // 
@@ -191,6 +199,8 @@ namespace QuanLyHocTap
             this.txtStudentPN.Name = "txtStudentPN";
             this.txtStudentPN.Size = new System.Drawing.Size(367, 27);
             this.txtStudentPN.TabIndex = 1;
+            this.txtStudentPN.Click += new System.EventHandler(this.txtStudentPN_Click);
+            this.txtStudentPN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentID_KeyPress);
             // 
             // txtStudentEmail
             // 
@@ -200,12 +210,13 @@ namespace QuanLyHocTap
             this.txtStudentEmail.Name = "txtStudentEmail";
             this.txtStudentEmail.Size = new System.Drawing.Size(367, 27);
             this.txtStudentEmail.TabIndex = 1;
+            this.txtStudentEmail.Click += new System.EventHandler(this.txtStudentEmail_Click);
             // 
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
             this.lbAddress.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAddress.Location = new System.Drawing.Point(799, 202);
+            this.lbAddress.Location = new System.Drawing.Point(799, 156);
             this.lbAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(89, 20);
@@ -220,12 +231,13 @@ namespace QuanLyHocTap
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(371, 27);
             this.txtStudentID.TabIndex = 1;
+            this.txtStudentID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentID_KeyPress);
             // 
             // lbClass
             // 
             this.lbClass.AutoSize = true;
             this.lbClass.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClass.Location = new System.Drawing.Point(799, 151);
+            this.lbClass.Location = new System.Drawing.Point(799, 206);
             this.lbClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClass.Name = "lbClass";
             this.lbClass.Size = new System.Drawing.Size(49, 20);
@@ -322,10 +334,10 @@ namespace QuanLyHocTap
             // 
             // btnViewScore
             // 
-            this.btnViewScore.Location = new System.Drawing.Point(730, 712);
+            this.btnViewScore.Location = new System.Drawing.Point(719, 712);
             this.btnViewScore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnViewScore.Name = "btnViewScore";
-            this.btnViewScore.Size = new System.Drawing.Size(123, 53);
+            this.btnViewScore.Size = new System.Drawing.Size(134, 53);
             this.btnViewScore.TabIndex = 2;
             this.btnViewScore.Text = "Xem điểm";
             this.btnViewScore.UseVisualStyleBackColor = true;
@@ -353,7 +365,7 @@ namespace QuanLyHocTap
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // SinhVien
+            // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -368,10 +380,11 @@ namespace QuanLyHocTap
             this.Controls.Add(this.gbList);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "SinhVien";
+            this.Name = "Student";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sinh viên";
             this.Load += new System.EventHandler(this.SinhVien_Load);
+            this.Click += new System.EventHandler(this.Student_Click);
             this.gbList.ResumeLayout(false);
             this.gbList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();

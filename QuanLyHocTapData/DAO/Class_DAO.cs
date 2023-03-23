@@ -17,14 +17,11 @@ namespace QuanLyHocTapData.DAO
 
         public dynamic LoadClasses()
         {
-            var listClass = db.Classes.GroupJoin(db.Students,
-                c => c.ClassID,
-                s => s.ClassID,
-                (c, s) => new
+            var listClass = db.Classes.Select(c => new
                 {
                     c.ClassID,
                     c.ClassName,
-                    TotalStudent = s.Count(),
+                    c.TotalStudent,
                     c.TeacherID,
                     c.Teacher.TeacherName,
                 }).ToList();
@@ -55,17 +52,14 @@ namespace QuanLyHocTapData.DAO
 
         public dynamic SearchClass(string kw)
         {
-            var classes = db.Classes.GroupJoin(db.Students,
-                c => c.ClassID,
-                s => s.ClassID,
-                (c, s) => new
-                {
-                    c.ClassID,
-                    c.ClassName,
-                    TotalStudent = s.Count(),
-                    c.TeacherID,
-                    c.Teacher.TeacherName,
-                }).Where(c => c.ClassID.ToLower().Contains(kw.ToLower()) || c.ClassName.ToLower().Contains(kw.ToLower())).ToList();
+            var classes = db.Classes.Where(c => c.ClassID.ToLower().Contains(kw.ToLower()) || c.ClassName.ToLower().Contains(kw.ToLower())).Select(c => new
+            {
+                c.ClassID,
+                c.ClassName,
+                c.TotalStudent,
+                c.TeacherID,
+                c.Teacher.TeacherName,
+            }).ToList();
             return classes;
         }
 

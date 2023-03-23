@@ -75,7 +75,7 @@ namespace QuanLyHocTap
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(767, 657);
+            this.btnExit.Location = new System.Drawing.Point(888, 657);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(82, 48);
             this.btnExit.TabIndex = 5;
@@ -86,7 +86,7 @@ namespace QuanLyHocTap
             // btnSaveScore
             // 
             this.btnSaveScore.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveScore.Location = new System.Drawing.Point(636, 657);
+            this.btnSaveScore.Location = new System.Drawing.Point(757, 657);
             this.btnSaveScore.Name = "btnSaveScore";
             this.btnSaveScore.Size = new System.Drawing.Size(82, 48);
             this.btnSaveScore.TabIndex = 6;
@@ -97,7 +97,7 @@ namespace QuanLyHocTap
             // btnCalcScholarship
             // 
             this.btnCalcScholarship.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcScholarship.Location = new System.Drawing.Point(172, 657);
+            this.btnCalcScholarship.Location = new System.Drawing.Point(293, 657);
             this.btnCalcScholarship.Name = "btnCalcScholarship";
             this.btnCalcScholarship.Size = new System.Drawing.Size(154, 48);
             this.btnCalcScholarship.TabIndex = 7;
@@ -107,7 +107,7 @@ namespace QuanLyHocTap
             // btAddScore
             // 
             this.btAddScore.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddScore.Location = new System.Drawing.Point(375, 657);
+            this.btAddScore.Location = new System.Drawing.Point(496, 657);
             this.btAddScore.Name = "btAddScore";
             this.btAddScore.Size = new System.Drawing.Size(82, 48);
             this.btAddScore.TabIndex = 8;
@@ -118,7 +118,7 @@ namespace QuanLyHocTap
             // btnDeleteScore
             // 
             this.btnDeleteScore.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteScore.Location = new System.Drawing.Point(507, 657);
+            this.btnDeleteScore.Location = new System.Drawing.Point(628, 657);
             this.btnDeleteScore.Name = "btnDeleteScore";
             this.btnDeleteScore.Size = new System.Drawing.Size(82, 48);
             this.btnDeleteScore.TabIndex = 9;
@@ -161,7 +161,7 @@ namespace QuanLyHocTap
             this.dgvScore.Name = "dgvScore";
             this.dgvScore.RowHeadersWidth = 51;
             this.dgvScore.RowTemplate.Height = 24;
-            this.dgvScore.Size = new System.Drawing.Size(1080, 551);
+            this.dgvScore.Size = new System.Drawing.Size(1317, 551);
             this.dgvScore.TabIndex = 0;
             this.dgvScore.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvScore_CellClick);
             // 
@@ -179,7 +179,7 @@ namespace QuanLyHocTap
             this.gbItem.Controls.Add(this.gbStudent);
             this.gbItem.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbItem.ForeColor = System.Drawing.Color.Maroon;
-            this.gbItem.Location = new System.Drawing.Point(1131, 14);
+            this.gbItem.Location = new System.Drawing.Point(1368, 14);
             this.gbItem.Name = "gbItem";
             this.gbItem.Size = new System.Drawing.Size(544, 731);
             this.gbItem.TabIndex = 4;
@@ -190,7 +190,7 @@ namespace QuanLyHocTap
             // 
             this.nbuEndPoint.DecimalPlaces = 1;
             this.nbuEndPoint.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nbuEndPoint.Location = new System.Drawing.Point(223, 151);
+            this.nbuEndPoint.Location = new System.Drawing.Point(247, 151);
             this.nbuEndPoint.Name = "nbuEndPoint";
             this.nbuEndPoint.Size = new System.Drawing.Size(120, 27);
             this.nbuEndPoint.TabIndex = 16;
@@ -199,7 +199,7 @@ namespace QuanLyHocTap
             // 
             this.nbuMidScore.DecimalPlaces = 1;
             this.nbuMidScore.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nbuMidScore.Location = new System.Drawing.Point(223, 50);
+            this.nbuMidScore.Location = new System.Drawing.Point(247, 50);
             this.nbuMidScore.Name = "nbuMidScore";
             this.nbuMidScore.Size = new System.Drawing.Size(120, 27);
             this.nbuMidScore.TabIndex = 17;
@@ -209,9 +209,9 @@ namespace QuanLyHocTap
             this.dtpInputDate2.Enabled = false;
             this.dtpInputDate2.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInputDate2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInputDate2.Location = new System.Drawing.Point(223, 193);
+            this.dtpInputDate2.Location = new System.Drawing.Point(247, 193);
             this.dtpInputDate2.Name = "dtpInputDate2";
-            this.dtpInputDate2.Size = new System.Drawing.Size(269, 27);
+            this.dtpInputDate2.Size = new System.Drawing.Size(245, 27);
             this.dtpInputDate2.TabIndex = 14;
             // 
             // dtpInputDate1
@@ -219,9 +219,9 @@ namespace QuanLyHocTap
             this.dtpInputDate1.Enabled = false;
             this.dtpInputDate1.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInputDate1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInputDate1.Location = new System.Drawing.Point(223, 103);
+            this.dtpInputDate1.Location = new System.Drawing.Point(247, 103);
             this.dtpInputDate1.Name = "dtpInputDate1";
-            this.dtpInputDate1.Size = new System.Drawing.Size(269, 27);
+            this.dtpInputDate1.Size = new System.Drawing.Size(245, 27);
             this.dtpInputDate1.TabIndex = 15;
             // 
             // lbInputDate2
@@ -286,36 +286,38 @@ namespace QuanLyHocTap
             // 
             // cbbTeacher
             // 
+            this.cbbTeacher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTeacher.FormattingEnabled = true;
-            this.cbbTeacher.Location = new System.Drawing.Point(211, 237);
+            this.cbbTeacher.Location = new System.Drawing.Point(233, 237);
             this.cbbTeacher.Name = "cbbTeacher";
-            this.cbbTeacher.Size = new System.Drawing.Size(269, 28);
+            this.cbbTeacher.Size = new System.Drawing.Size(247, 28);
             this.cbbTeacher.TabIndex = 9;
             this.cbbTeacher.SelectedIndexChanged += new System.EventHandler(this.cbbTeacher_SelectedIndexChanged);
             // 
             // cbbSubject
             // 
+            this.cbbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSubject.FormattingEnabled = true;
-            this.cbbSubject.Location = new System.Drawing.Point(209, 83);
+            this.cbbSubject.Location = new System.Drawing.Point(233, 83);
             this.cbbSubject.Name = "cbbSubject";
-            this.cbbSubject.Size = new System.Drawing.Size(269, 28);
+            this.cbbSubject.Size = new System.Drawing.Size(245, 28);
             this.cbbSubject.TabIndex = 9;
             this.cbbSubject.SelectedIndexChanged += new System.EventHandler(this.cbbSubject_SelectedIndexChanged);
             // 
             // txtTeacherId
             // 
             this.txtTeacherId.Enabled = false;
-            this.txtTeacherId.Location = new System.Drawing.Point(209, 190);
+            this.txtTeacherId.Location = new System.Drawing.Point(233, 190);
             this.txtTeacherId.Name = "txtTeacherId";
-            this.txtTeacherId.Size = new System.Drawing.Size(269, 27);
+            this.txtTeacherId.Size = new System.Drawing.Size(245, 27);
             this.txtTeacherId.TabIndex = 6;
             // 
             // txtSubjectId
             // 
             this.txtSubjectId.Enabled = false;
-            this.txtSubjectId.Location = new System.Drawing.Point(209, 36);
+            this.txtSubjectId.Location = new System.Drawing.Point(233, 36);
             this.txtSubjectId.Name = "txtSubjectId";
-            this.txtSubjectId.Size = new System.Drawing.Size(269, 27);
+            this.txtSubjectId.Size = new System.Drawing.Size(245, 27);
             this.txtSubjectId.TabIndex = 6;
             // 
             // lbTeacherName
@@ -333,9 +335,9 @@ namespace QuanLyHocTap
             this.dtpRegisterDate.Enabled = false;
             this.dtpRegisterDate.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpRegisterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpRegisterDate.Location = new System.Drawing.Point(209, 137);
+            this.dtpRegisterDate.Location = new System.Drawing.Point(233, 137);
             this.dtpRegisterDate.Name = "dtpRegisterDate";
-            this.dtpRegisterDate.Size = new System.Drawing.Size(269, 27);
+            this.dtpRegisterDate.Size = new System.Drawing.Size(245, 27);
             this.dtpRegisterDate.TabIndex = 8;
             // 
             // lbSubjectName
@@ -395,17 +397,17 @@ namespace QuanLyHocTap
             // txtStudentName
             // 
             this.txtStudentName.Enabled = false;
-            this.txtStudentName.Location = new System.Drawing.Point(206, 64);
+            this.txtStudentName.Location = new System.Drawing.Point(176, 64);
             this.txtStudentName.Name = "txtStudentName";
-            this.txtStudentName.Size = new System.Drawing.Size(269, 27);
+            this.txtStudentName.Size = new System.Drawing.Size(299, 27);
             this.txtStudentName.TabIndex = 6;
             // 
             // txtStudentId
             // 
             this.txtStudentId.Enabled = false;
-            this.txtStudentId.Location = new System.Drawing.Point(206, 31);
+            this.txtStudentId.Location = new System.Drawing.Point(176, 31);
             this.txtStudentId.Name = "txtStudentId";
-            this.txtStudentId.Size = new System.Drawing.Size(269, 27);
+            this.txtStudentId.Size = new System.Drawing.Size(299, 27);
             this.txtStudentId.TabIndex = 7;
             // 
             // lbStudentName
@@ -432,19 +434,19 @@ namespace QuanLyHocTap
             this.gbList.ForeColor = System.Drawing.Color.Maroon;
             this.gbList.Location = new System.Drawing.Point(26, 14);
             this.gbList.Name = "gbList";
-            this.gbList.Size = new System.Drawing.Size(1099, 731);
+            this.gbList.Size = new System.Drawing.Size(1336, 731);
             this.gbList.TabIndex = 3;
             this.gbList.TabStop = false;
             this.gbList.Text = "Danh sách";
             // 
-            // KetQuaHocTap
+            // Score
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1681, 757);
+            this.ClientSize = new System.Drawing.Size(1924, 757);
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
-            this.Name = "KetQuaHocTap";
+            this.Name = "Score";
             this.Text = "Kết quả học tập";
             this.Load += new System.EventHandler(this.KetQuaHocTap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvScore)).EndInit();

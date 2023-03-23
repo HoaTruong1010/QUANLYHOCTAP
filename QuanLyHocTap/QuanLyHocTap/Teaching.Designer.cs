@@ -32,6 +32,10 @@ namespace QuanLyHocTap
             this.btnExit = new System.Windows.Forms.Button();
             this.gbItem = new System.Windows.Forms.GroupBox();
             this.gbTeacherInfo = new System.Windows.Forms.GroupBox();
+            this.txtTeacherName = new System.Windows.Forms.TextBox();
+            this.lbTeacherName = new System.Windows.Forms.Label();
+            this.txtTeacherID = new System.Windows.Forms.TextBox();
+            this.lbTeacherID = new System.Windows.Forms.Label();
             this.dtpRegisterDate = new System.Windows.Forms.DateTimePicker();
             this.cbSubject = new System.Windows.Forms.ComboBox();
             this.lbRegisterDate = new System.Windows.Forms.Label();
@@ -43,10 +47,6 @@ namespace QuanLyHocTap
             this.btAddTeaching = new System.Windows.Forms.Button();
             this.btnDeleteTeaching = new System.Windows.Forms.Button();
             this.btnSaveTeaching = new System.Windows.Forms.Button();
-            this.txtTeacherID = new System.Windows.Forms.TextBox();
-            this.txtTeacherName = new System.Windows.Forms.TextBox();
-            this.lbTeacherName = new System.Windows.Forms.Label();
-            this.lbTeacherID = new System.Windows.Forms.Label();
             this.gbItem.SuspendLayout();
             this.gbTeacherInfo.SuspendLayout();
             this.gbList.SuspendLayout();
@@ -96,6 +96,42 @@ namespace QuanLyHocTap
             this.gbTeacherInfo.TabStop = false;
             this.gbTeacherInfo.Text = "Thông tin giảng viên";
             // 
+            // txtTeacherName
+            // 
+            this.txtTeacherName.Enabled = false;
+            this.txtTeacherName.Location = new System.Drawing.Point(27, 136);
+            this.txtTeacherName.Name = "txtTeacherName";
+            this.txtTeacherName.Size = new System.Drawing.Size(324, 27);
+            this.txtTeacherName.TabIndex = 22;
+            // 
+            // lbTeacherName
+            // 
+            this.lbTeacherName.AutoSize = true;
+            this.lbTeacherName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTeacherName.Location = new System.Drawing.Point(23, 113);
+            this.lbTeacherName.Name = "lbTeacherName";
+            this.lbTeacherName.Size = new System.Drawing.Size(109, 20);
+            this.lbTeacherName.TabIndex = 0;
+            this.lbTeacherName.Text = "Họ và tên:";
+            // 
+            // txtTeacherID
+            // 
+            this.txtTeacherID.Enabled = false;
+            this.txtTeacherID.Location = new System.Drawing.Point(27, 64);
+            this.txtTeacherID.Name = "txtTeacherID";
+            this.txtTeacherID.Size = new System.Drawing.Size(324, 27);
+            this.txtTeacherID.TabIndex = 22;
+            // 
+            // lbTeacherID
+            // 
+            this.lbTeacherID.AutoSize = true;
+            this.lbTeacherID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTeacherID.Location = new System.Drawing.Point(23, 41);
+            this.lbTeacherID.Name = "lbTeacherID";
+            this.lbTeacherID.Size = new System.Drawing.Size(179, 20);
+            this.lbTeacherID.TabIndex = 0;
+            this.lbTeacherID.Text = "Mã số giảng viên:";
+            // 
             // dtpRegisterDate
             // 
             this.dtpRegisterDate.Enabled = false;
@@ -107,6 +143,7 @@ namespace QuanLyHocTap
             // 
             // cbSubject
             // 
+            this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSubject.FormattingEnabled = true;
             this.cbSubject.Location = new System.Drawing.Point(51, 174);
             this.cbSubject.Name = "cbSubject";
@@ -214,43 +251,7 @@ namespace QuanLyHocTap
             this.btnSaveTeaching.UseVisualStyleBackColor = true;
             this.btnSaveTeaching.Click += new System.EventHandler(this.btnSaveTeaching_Click);
             // 
-            // txtTeacherID
-            // 
-            this.txtTeacherID.Enabled = false;
-            this.txtTeacherID.Location = new System.Drawing.Point(27, 64);
-            this.txtTeacherID.Name = "txtTeacherID";
-            this.txtTeacherID.Size = new System.Drawing.Size(324, 27);
-            this.txtTeacherID.TabIndex = 22;
-            // 
-            // txtTeacherName
-            // 
-            this.txtTeacherName.Enabled = false;
-            this.txtTeacherName.Location = new System.Drawing.Point(27, 136);
-            this.txtTeacherName.Name = "txtTeacherName";
-            this.txtTeacherName.Size = new System.Drawing.Size(324, 27);
-            this.txtTeacherName.TabIndex = 22;
-            // 
-            // lbTeacherName
-            // 
-            this.lbTeacherName.AutoSize = true;
-            this.lbTeacherName.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTeacherName.Location = new System.Drawing.Point(23, 113);
-            this.lbTeacherName.Name = "lbTeacherName";
-            this.lbTeacherName.Size = new System.Drawing.Size(109, 20);
-            this.lbTeacherName.TabIndex = 0;
-            this.lbTeacherName.Text = "Họ và tên:";
-            // 
-            // lbTeacherID
-            // 
-            this.lbTeacherID.AutoSize = true;
-            this.lbTeacherID.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTeacherID.Location = new System.Drawing.Point(23, 41);
-            this.lbTeacherID.Name = "lbTeacherID";
-            this.lbTeacherID.Size = new System.Drawing.Size(179, 20);
-            this.lbTeacherID.TabIndex = 0;
-            this.lbTeacherID.Text = "Mã số giảng viên:";
-            // 
-            // GiangDay
+            // Teaching
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -265,7 +266,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.btnDeleteTeaching);
             this.Controls.Add(this.btnSaveTeaching);
             this.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "GiangDay";
+            this.Name = "Teaching";
             this.Text = "Giảng dạy";
             this.Load += new System.EventHandler(this.GiangDay_Load);
             this.gbItem.ResumeLayout(false);

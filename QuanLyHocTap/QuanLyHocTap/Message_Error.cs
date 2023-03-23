@@ -41,6 +41,14 @@ namespace QuanLyHocTapData.DAO
             data.Add(22, "Tên lớp không được trống!");
             data.Add(23, "Tên lớp không quá 20 ký tự!");
             data.Add(24, "Tên lớp đã tồn tại!");
+
+            data.Add(25, "Mã sinh viên chưa đủ 10 ký tự!");
+            data.Add(26, "Mã sinh viên không quá 10 ký tự!");
+            data.Add(27, "Mã sinh viên đã tồn tại!");
+            data.Add(28, "Sinh viên chưa đủ 17 tuổi!");
+            data.Add(29, "Lớp đã đủ số lượng!");
+            data.Add(30, "Họ và tên sinh viên không được trống!");
+            data.Add(31, "Họ và tên sinh viên không quá 27 ký tự!");
         }
 
         public string GetMessage(int key)

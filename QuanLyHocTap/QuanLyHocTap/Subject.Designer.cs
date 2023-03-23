@@ -41,9 +41,9 @@ namespace QuanLyHocTap
             this.btnSearchSubject = new System.Windows.Forms.Button();
             this.txtSearchSubject = new System.Windows.Forms.TextBox();
             this.gbItem = new System.Windows.Forms.GroupBox();
+            this.cbbCredits = new System.Windows.Forms.ComboBox();
             this.gbList = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.cbbCredits = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).BeginInit();
             this.gbItem.SuspendLayout();
             this.gbList.SuspendLayout();
@@ -187,6 +187,21 @@ namespace QuanLyHocTap
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Thông tin chi tiết";
             // 
+            // cbbCredits
+            // 
+            this.cbbCredits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCredits.FormattingEnabled = true;
+            this.cbbCredits.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2",
+            "3",
+            "4"});
+            this.cbbCredits.Location = new System.Drawing.Point(31, 260);
+            this.cbbCredits.Name = "cbbCredits";
+            this.cbbCredits.Size = new System.Drawing.Size(110, 28);
+            this.cbbCredits.TabIndex = 2;
+            // 
             // gbList
             // 
             this.gbList.Controls.Add(this.btnSearchSubject);
@@ -213,20 +228,6 @@ namespace QuanLyHocTap
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // cbbCredits
-            // 
-            this.cbbCredits.FormattingEnabled = true;
-            this.cbbCredits.Items.AddRange(new object[] {
-            "1",
-            "1.5",
-            "2",
-            "3",
-            "4"});
-            this.cbbCredits.Location = new System.Drawing.Point(31, 260);
-            this.cbbCredits.Name = "cbbCredits";
-            this.cbbCredits.Size = new System.Drawing.Size(110, 28);
-            this.cbbCredits.TabIndex = 2;
             // 
             // Subject
             // 

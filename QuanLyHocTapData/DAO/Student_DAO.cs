@@ -41,6 +41,23 @@ namespace QuanLyHocTapData.DAO
                 }).ToDictionary(x => x.StudentID, x => x.StudentName);
         }
 
+        public dynamic SearchStudent(string kw)
+        {
+            return db.Students.Where(t => t.StudentID.ToLower().Contains(kw.ToLower()) || t.StudentName.ToLower().Contains(kw.ToLower()))
+                .Select(s => new
+                {
+                    s.StudentID,
+                    s.StudentName,
+                    s.DayOfBirth,
+                    s.ID,
+                    s.Email,
+                    s.Phone,
+                    s.StudentAddress,
+                    s.Class.ClassID,
+                    s.Class.ClassName
+                }).ToList();
+        }
+
         public dynamic LoadCBBStudents()
         {
             var listStudent = db.Students.Select(s => new
@@ -56,6 +73,7 @@ namespace QuanLyHocTapData.DAO
             string address, string classId)
         {
             Student student = new Student();
+            Class cl = db.Classes.Find(classId);
             student.StudentID = studentId;
             student.StudentName = studentName;
             student.DayOfBirth = dateOfBirth;
@@ -64,6 +82,7 @@ namespace QuanLyHocTapData.DAO
             student.Phone = phone;
             student.StudentAddress = address;
             student.ClassID = classId;
+            cl.TotalStudent += 1;
 
             db.Students.Add(student);
             db.SaveChanges();
@@ -80,9 +99,12 @@ namespace QuanLyHocTapData.DAO
 
         public void EditStudent(string studentId, string studentName,
             DateTime dateOfBirth, string cccd, string email, string phone,
-            string address, string classId)
+            string address, string classIdNew, string classIdOld)
         {
             Student student = db.Students.Find(studentId);
+            Class classOld = db.Classes.Find(classIdOld);
+            Class classNew = db.Classes.Find(classIdNew);
+
             student.StudentID = studentId;
             student.StudentName = studentName;
             student.DayOfBirth = dateOfBirth;
@@ -90,15 +112,27 @@ namespace QuanLyHocTapData.DAO
             student.Email = email;
             student.Phone = phone;
             student.StudentAddress = address;
-            student.ClassID = classId;
+
+            if(classIdOld != classIdNew)
+            {
+                classOld.TotalStudent -= 1;
+                classNew.TotalStudent += 1;
+            }
+            student.ClassID = classIdNew;
 
             db.SaveChanges();
         }
 
-        public void DeleteStudent(string studentId)
+        public void DeleteStudent(string studentId, string classID)
         {
             Student student = db.Students.Find(studentId);
+            Class cl = db.Classes.Find(classID);
+            int totalStudent = cl.TotalStudent ;
+
             db.Students.Remove(student);
+            db.SaveChanges();
+
+            cl.TotalStudent = totalStudent - 1;
             db.SaveChanges();
         }
     }
