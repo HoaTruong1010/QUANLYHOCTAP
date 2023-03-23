@@ -51,10 +51,10 @@ namespace QuanLyHocTap
             this.lbAddress = new System.Windows.Forms.Label();
             this.lbCer = new System.Windows.Forms.Label();
             this.gbList = new System.Windows.Forms.GroupBox();
+            this.btnSearchTeacher = new System.Windows.Forms.Button();
             this.btAddTeacher = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnTeaching = new System.Windows.Forms.Button();
-            this.btnSearchTeacher = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacher)).BeginInit();
             this.gbItem.SuspendLayout();
             this.gbList.SuspendLayout();
@@ -288,6 +288,17 @@ namespace QuanLyHocTap
             this.gbList.TabStop = false;
             this.gbList.Text = "Danh sách";
             // 
+            // btnSearchTeacher
+            // 
+            this.btnSearchTeacher.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchTeacher.Location = new System.Drawing.Point(967, 21);
+            this.btnSearchTeacher.Name = "btnSearchTeacher";
+            this.btnSearchTeacher.Size = new System.Drawing.Size(66, 48);
+            this.btnSearchTeacher.TabIndex = 2;
+            this.btnSearchTeacher.Text = "Tìm";
+            this.btnSearchTeacher.UseVisualStyleBackColor = true;
+            this.btnSearchTeacher.Click += new System.EventHandler(this.btnSearchTeacher_Click);
+            // 
             // btAddTeacher
             // 
             this.btAddTeacher.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -322,18 +333,7 @@ namespace QuanLyHocTap
             this.btnTeaching.UseVisualStyleBackColor = true;
             this.btnTeaching.Click += new System.EventHandler(this.btnTeaching_Click);
             // 
-            // btnSearchTeacher
-            // 
-            this.btnSearchTeacher.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchTeacher.Location = new System.Drawing.Point(967, 21);
-            this.btnSearchTeacher.Name = "btnSearchTeacher";
-            this.btnSearchTeacher.Size = new System.Drawing.Size(66, 48);
-            this.btnSearchTeacher.TabIndex = 2;
-            this.btnSearchTeacher.Text = "Tìm";
-            this.btnSearchTeacher.UseVisualStyleBackColor = true;
-            this.btnSearchTeacher.Click += new System.EventHandler(this.btnSearchTeacher_Click);
-            // 
-            // GiangVien
+            // Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -346,7 +346,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.btnDeleteTeacher);
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
-            this.Name = "GiangVien";
+            this.Name = "Teacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Giảng viên";
             this.Load += new System.EventHandler(this.GiangVien_Load);

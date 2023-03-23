@@ -75,7 +75,7 @@ namespace QuanLyHocTap_Controller.BUS
                 return 16;
             if (subjectName.Length > 25)
                 return 17;
-            if (subject_Dao.FindSubjectName(subjectName))
+            if (subject_Dao.FindSubjectName(subjectId, subjectName))
                 return 18;
 
             if (subject_Dao.FindSubject(subjectId))

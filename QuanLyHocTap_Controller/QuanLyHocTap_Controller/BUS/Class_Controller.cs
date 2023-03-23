@@ -30,38 +30,57 @@ namespace QuanLyHocTap_Controller.BUS
             comboBox.ValueMember = "ClassID";
         }
 
-        public bool AddClass(string classId, string className,
+        public int AddClass(string classId, string className,
             int total, string teacherId)
         {
+            if (classId == String.Empty || classId.Length < 8)
+                return 19;
+            if (classId.Length > 8)
+                return 20;
+            if (class_DAO.FindCLass(classId))
+                return 21;
+            if (className == String.Empty)
+                return 22;
+            if (className.Length > 20)
+                return 23;
+            if (class_DAO.FindCLassName(className))
+                return 24;
+
             try
             {
                 class_DAO.AddClass(classId, className, total, teacherId);
-                return true;
+                return 0;
             }
             catch (Exception)
             {
-                return false;
+                return -1;
             }
         }
 
-        public bool EditCLass(string classId, string className,
+        public int EditCLass(string classId, string className,
             int total, string teacherId)
         {
+            if (className == String.Empty)
+                return 22;
+            if (className.Length > 20)
+                return 23;
+            if (class_DAO.FindCLassName(classId, className))
+                return 24;
 
             if (class_DAO.FindCLass(classId))
             {
                 try
                 {
                     class_DAO.EditClass(classId, className, total, teacherId);
-                    return true;
+                    return 0;
                 }
                 catch (DbUpdateException)
                 {
-                    return false;
+                    return -2;
                 }
             }
             else
-                return false;
+                return -2;
         }
 
         public bool DeleteCLass(string classId)
@@ -81,6 +100,14 @@ namespace QuanLyHocTap_Controller.BUS
             }
             else
                 return false;
+        }
+
+        public int SearchClass(DataGridView dataGridView, string kw)
+        {
+            dataGridView.DataSource = class_DAO.SearchClass(kw);
+            if (dataGridView.Rows.Count > 0)
+                return 0;
+            return 10;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using QuanLyHocTap_Controller.BUS;
+using QuanLyHocTapData.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,25 +16,42 @@ namespace QuanLyHocTap
 {
     public partial class Classes : Form
     {
-        Class_Controller getController; 
-        Teacher_Controller tc;
+        Class_Controller class_Controller; 
+        Teacher_Controller teacher_Controller;
+        Message_Error message_Error;
 
         public Classes()
         {
             InitializeComponent();
-            getController = new Class_Controller();
-            tc = new Teacher_Controller();
+            class_Controller = new Class_Controller();
+            teacher_Controller = new Teacher_Controller();
+            message_Error = new Message_Error();
         }
+
+        private void Reset()
+        {
+            txtSearchClass.Text = txtClassID.Text = txtClassName.Text = string.Empty;
+            txtClassID.Enabled = btAddClass.Enabled = true;
+            btnDeleteClass.Enabled = btnSaveClass.Enabled = false;
+            cbbTeacher.SelectedIndex = 0;
+        }
+
         private void ShowClasses()
         {
             dgvClass.DataSource = null;
-            getController.GetClasses(dgvClass);
+            class_Controller.GetClasses(dgvClass);
+            dgvClass.Columns[0].Width = (int)(dgvClass.Width * 0.16);
+            dgvClass.Columns[1].Width = (int)(dgvClass.Width * 0.16);
+            dgvClass.Columns[2].Width = (int)(dgvClass.Width * 0.25);
+            dgvClass.Columns[3].Width = (int)(dgvClass.Width * 0.16);
+            dgvClass.Columns[4].Width = (int)(dgvClass.Width * 0.16);
         }
 
         private void Lop_Load(object sender, EventArgs e)
         {
             ShowClasses();
-            tc.GetCBBTeachers(cbbTeacher);
+            teacher_Controller.GetCBBTeachers(cbbTeacher);
+            Reset();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -47,9 +65,14 @@ namespace QuanLyHocTap
             {
                 txtClassID.Text = dgvClass.Rows[e.RowIndex].Cells["ClassID"].Value.ToString();
                 txtClassName.Text = dgvClass.Rows[e.RowIndex].Cells["ClassName"].Value.ToString();
-                nbuNumStudent.Value = Int32.Parse(dgvClass.Rows[e.RowIndex].Cells["TotalStudent"].Value.ToString());
-                cbbTeacher.Text = dgvClass.Rows[e.RowIndex].Cells["TeacherName"].Value.ToString(); 
+                nbuNumStudent.Value = (int)dgvClass.Rows[e.RowIndex].Cells["TotalStudent"].Value;
+                cbbTeacher.Text = dgvClass.Rows[e.RowIndex].Cells["TeacherName"].Value.ToString();
+
+                txtClassID.Enabled = btAddClass.Enabled = false;
+                btnDeleteClass.Enabled = btnSaveClass.Enabled = true;
             }
+            else
+                Reset();
         }
 
         private void btAddClass_Click(object sender, EventArgs e)
@@ -58,15 +81,17 @@ namespace QuanLyHocTap
             string className = txtClassName.Text;
             int total = (int) nbuNumStudent.Value;
             string teacherId = cbbTeacher.SelectedValue.ToString();
+            int result = class_Controller.AddClass(classId, className, total, teacherId);
 
-            if (getController.AddClass(classId, className, total, teacherId))
+            if (result == 0)
             {
-                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowClasses();
+                Reset();
             }
             else
             {
-                MessageBox.Show("Thêm không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -74,14 +99,15 @@ namespace QuanLyHocTap
         {
             string classId = txtClassID.Text;
 
-            if (getController.DeleteCLass(classId))
+            if (class_Controller.DeleteCLass(classId))
             {
-                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowClasses();
+                Reset();
             }
             else
             {
-                MessageBox.Show("Xóa không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -92,15 +118,62 @@ namespace QuanLyHocTap
             string className = txtClassName.Text;
             int total = (int)nbuNumStudent.Value;
             string teacherId = cbbTeacher.SelectedValue.ToString();
+            int result = class_Controller.EditCLass(classId, className, total, teacherId);
 
-            if (getController.EditCLass(classId, className, total, teacherId))
+            if (result == 0)
             {
-                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowClasses();
+                Reset();
             }
             else
             {
-                MessageBox.Show("Sửa không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Classes_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void txtClassName_Click(object sender, EventArgs e)
+        {
+            if (txtClassID.Text == String.Empty || txtClassID.Text.Length < 8)
+            {
+                MessageBox.Show(message_Error.GetMessage(19), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtClassID.Focus();
+            }
+            if (txtClassID.Text.Length > 8)
+            {
+                MessageBox.Show(message_Error.GetMessage(20), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtClassID.Focus();
+            }
+        }
+
+        private void cbbTeacher_Click(object sender, EventArgs e)
+        {
+            if (txtClassName.Text == String.Empty)
+            {
+                MessageBox.Show(message_Error.GetMessage(22), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtClassName.Focus();
+            }
+            if (txtClassName.Text.Length > 20)
+            {
+                MessageBox.Show(message_Error.GetMessage(23), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtClassName.Focus();
+            }
+        }
+
+        private void btnSearchClass_Click(object sender, EventArgs e)
+        {
+            string kw = txtSearchClass.Text;
+            int result = class_Controller.SearchClass(dgvClass, kw);
+            if (result != 0)
+            {
+                MessageBox.Show(message_Error.GetMessage(10), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowClasses();
+                Reset();
             }
         }
     }

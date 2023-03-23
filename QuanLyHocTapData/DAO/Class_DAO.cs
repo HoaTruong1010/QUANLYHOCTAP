@@ -17,14 +17,17 @@ namespace QuanLyHocTapData.DAO
 
         public dynamic LoadClasses()
         {
-            var listClass = db.Classes.Select(s => new
-            {
-                s.ClassID,
-                s.ClassName,
-                s.TotalStudent,
-                s.TeacherID,
-                s.Teacher.TeacherName
-            }).ToList();
+            var listClass = db.Classes.GroupJoin(db.Students,
+                c => c.ClassID,
+                s => s.ClassID,
+                (c, s) => new
+                {
+                    c.ClassID,
+                    c.ClassName,
+                    TotalStudent = s.Count(),
+                    c.TeacherID,
+                    c.Teacher.TeacherName,
+                }).ToList();
             return listClass;
         }
 
@@ -48,6 +51,45 @@ namespace QuanLyHocTapData.DAO
 
             db.Classes.Add(cl);
             db.SaveChanges();
+        }
+
+        public dynamic SearchClass(string kw)
+        {
+            var classes = db.Classes.GroupJoin(db.Students,
+                c => c.ClassID,
+                s => s.ClassID,
+                (c, s) => new
+                {
+                    c.ClassID,
+                    c.ClassName,
+                    TotalStudent = s.Count(),
+                    c.TeacherID,
+                    c.Teacher.TeacherName,
+                }).Where(c => c.ClassID.ToLower().Contains(kw.ToLower()) || c.ClassName.ToLower().Contains(kw.ToLower())).ToList();
+            return classes;
+        }
+
+        public bool FindCLassName(string className)
+        {
+            var cl = db.Classes.Where(s => s.ClassName.ToLower() == className.ToLower()).Select(s => s.ClassName).ToList();
+            if (cl.Count > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool FindCLassName(string classID, string className)
+        {
+            var cl = db.Classes.Where(s => s.ClassName.ToLower() == className.ToLower()).Select(s => s.ClassID).ToList();
+            if (cl.Count > 0)
+            {
+                foreach (var c in cl)
+                    if (c.ToString() == classID)
+                        return false;
+                return true;
+            }
+            else
+                return false;
         }
 
         public bool FindCLass(string classId)

@@ -69,9 +69,23 @@ namespace QuanLyHocTapData.DAO
 
         public bool FindSubjectName(string subjectName)
         {
-            var subject = db.Subjects.Where(s => s.SubjectName == subjectName).Select(s => s.SubjectName).ToList();
-            if (subject != null)
+            var subject = db.Subjects.Where(s => s.SubjectName.ToLower() == subjectName.ToLower()).Select(s => s.SubjectName).ToList();
+            if (subject.Count > 0)
                 return true;
+            else
+                return false;
+        }
+
+        public bool FindSubjectName(string subjectID, string subjectName)
+        {
+            var subject = db.Subjects.Where(s => s.SubjectName.ToLower() == subjectName.ToLower()).Select(s => s.SubjectID).ToList();
+            if (subject.Count > 0)
+            {
+                foreach (var s in subject)
+                    if (s.ToString() == subjectID)
+                        return false;
+                return true;
+            }
             else
                 return false;
         }

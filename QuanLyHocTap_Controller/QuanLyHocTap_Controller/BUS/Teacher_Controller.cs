@@ -66,7 +66,7 @@ namespace QuanLyHocTap_Controller.BUS
                 return 2;
             if (teacherName == null)
                 return 3;
-            if (teacherName.Length > 20)
+            if (teacherName.Length > 27)
                 return 4;
             if (age < 18)
                 return 5;
@@ -107,7 +107,7 @@ namespace QuanLyHocTap_Controller.BUS
                 return 2;
             if (teacherName == null)
                 return 3;
-            if (teacherName.Length > 20)
+            if (teacherName.Length > 27)
                 return 4;
             if (age < 18)
                 return 5;

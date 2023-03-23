@@ -189,10 +189,10 @@ namespace QuanLyHocTap
                 MessageBox.Show(message.GetMessage(3), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherName.Focus();
             }
-            if (txtTeacherName.Text.Length > 20)
+            if (txtTeacherName.Text.Length > 27)
             {
                 MessageBox.Show(message.GetMessage(4), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherID.Focus();
+                txtTeacherName.Focus();
             }
         }
 
