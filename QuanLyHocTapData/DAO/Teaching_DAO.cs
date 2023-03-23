@@ -40,6 +40,19 @@ namespace QuanLyHocTapData.DAO
             db.SaveChanges();
         }
 
+        public dynamic SearchTeaching(string kw, string teacherID)
+        {
+            kw = kw.ToLower();
+            return db.Teachings.Where(t => t.TeacherID == teacherID && t.Subject.SubjectName.ToLower().Contains(kw))
+                .Select(s => new
+                {
+                    s.ID,
+                    s.SubjectID,
+                    s.Subject.SubjectName,
+                    s.RegisterDate
+                }).ToList();
+        }
+
         public bool FindTeaching(int id)
         {
             Teaching teaching = db.Teachings.Find(id);
@@ -52,7 +65,7 @@ namespace QuanLyHocTapData.DAO
         public dynamic FindTeaching(string subjectId, string teacherId)
         {
             return db.Teachings.Where(t => t.SubjectID == subjectId && t.TeacherID == teacherId)
-                .Select(s => new { s.ID, s.Teacher.TeacherName }).ToDictionary(d => d.ID, d => d.TeacherName);
+                .Select(s => new { s.ID, s.RegisterDate }).ToDictionary(d => d.ID, d => d.RegisterDate);
         }
 
         public dynamic FindTeacherByTeachingId(int id)

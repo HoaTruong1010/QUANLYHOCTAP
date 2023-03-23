@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyHocTapData;
 using QuanLyHocTapData.DAO;
 
 namespace QuanLyHocTap_Controller.BUS
@@ -46,47 +47,83 @@ namespace QuanLyHocTap_Controller.BUS
         public int GetTeaching(string subjectId, string teacherId) 
         {
             int id = -1;
-            Dictionary<int, string> teaching = teaching_Dao.FindTeaching(subjectId, teacherId);
+            Dictionary<int, DateTime> teaching = teaching_Dao.FindTeaching(subjectId, teacherId);
             if (teaching == null)
                 id = 0;
             else
-                foreach (KeyValuePair<int, string> item in teaching)
+                foreach (KeyValuePair<int, DateTime> item in teaching)
                     id = item.Key;
             return id;
         }
 
-        public bool AddTeaching(string teacherID,
+        public int SearchTeaching(DataGridView dataGridView, string kw, string teacherID)
+        {
+            dataGridView.DataSource = teaching_Dao.SearchTeaching(kw, teacherID);
+            if(dataGridView.RowCount > 0)
+            {
+                return 0;
+            }
+            return 10;
+        }
+
+        public int AddTeaching(string teacherID,
             string subjectID, DateTime registerDate)
         {
+            Dictionary<int, DateTime> teaching = teaching_Dao.FindTeaching(subjectID, teacherID);
+            if (teaching.Count > 0)
+            {
+                DateTime oldRegisterDate = DateTime.Now;
+
+                foreach (KeyValuePair<int, DateTime> item in teaching)
+                    oldRegisterDate = item.Value;
+
+                TimeSpan timeDifference = DateTime.Now - oldRegisterDate;
+                double weeks = timeDifference.TotalDays / 7;
+                if (weeks < 12)
+                    return 32;
+            }    
+
             try
             {
                 teaching_Dao.AddTeaching(teacherID, subjectID, registerDate);
-                return true;
+                return 0;
             }
             catch (Exception)
             {
-                return false;
+                return -1;
             }
         }
 
-        public bool EditTeaching(int id, string teacherID,
+        public int EditTeaching(int id, string teacherID,
             string subjectID, DateTime registerDate)
         {
-
             if (teaching_Dao.FindTeaching(id))
             {
+                Dictionary<int, DateTime> teaching = teaching_Dao.FindTeaching(subjectID, teacherID);
+                if (teaching.Count > 0)
+                {
+                    DateTime oldRegisterDate = DateTime.Now;
+
+                    foreach (KeyValuePair<int, DateTime> item in teaching)
+                        oldRegisterDate = item.Value;
+
+                    TimeSpan timeDifference = DateTime.Now - oldRegisterDate;
+                    double weeks = timeDifference.TotalDays / 7;
+                    if (weeks < 12)
+                        return 32;
+                }
                 try
                 {
                     teaching_Dao.EditTeaching(id, teacherID, subjectID, registerDate);
-                    return true;
+                    return 0;
                 }
                 catch (DbUpdateException)
                 {
-                    return false;
+                    return -2;
                 }
             }
             else
-                return false;
+                return -2;
         }
 
         public bool DeleteTeaching(int id)

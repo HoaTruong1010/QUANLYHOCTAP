@@ -180,14 +180,15 @@ namespace QuanLyHocTap
             this.btnSearchTeaching.TabIndex = 2;
             this.btnSearchTeaching.Text = "Tìm";
             this.btnSearchTeaching.UseVisualStyleBackColor = true;
+            this.btnSearchTeaching.Click += new System.EventHandler(this.btnSearchTeaching_Click);
             // 
             // txtSearchTeaching
             // 
             this.txtSearchTeaching.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchTeaching.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchTeaching.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchTeaching.Location = new System.Drawing.Point(316, 26);
             this.txtSearchTeaching.Name = "txtSearchTeaching";
-            this.txtSearchTeaching.Size = new System.Drawing.Size(374, 27);
+            this.txtSearchTeaching.Size = new System.Drawing.Size(374, 28);
             this.txtSearchTeaching.TabIndex = 1;
             // 
             // gbList
@@ -219,7 +220,7 @@ namespace QuanLyHocTap
             // 
             this.btAddTeaching.Font = new System.Drawing.Font("Courier New", 10.2F);
             this.btAddTeaching.ForeColor = System.Drawing.Color.Maroon;
-            this.btAddTeaching.Location = new System.Drawing.Point(763, 564);
+            this.btAddTeaching.Location = new System.Drawing.Point(759, 564);
             this.btAddTeaching.Name = "btAddTeaching";
             this.btAddTeaching.Size = new System.Drawing.Size(85, 48);
             this.btAddTeaching.TabIndex = 20;
@@ -269,6 +270,7 @@ namespace QuanLyHocTap
             this.Name = "Teaching";
             this.Text = "Giảng dạy";
             this.Load += new System.EventHandler(this.GiangDay_Load);
+            this.Click += new System.EventHandler(this.Teaching_Click);
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();
             this.gbTeacherInfo.ResumeLayout(false);
