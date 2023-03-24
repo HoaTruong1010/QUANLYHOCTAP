@@ -20,7 +20,7 @@
     <Property Name="Registration_Date" Type="date" Nullable="false" />
     <Property Name="MidtermScore" Type="decimal" Precision="4" Scale="2" />
     <Property Name="ModifiedDateOfMidtermScore" Type="date" />
-    <Property Name="EndPointScore" Type="decimal" Precision="3" Scale="2" />
+    <Property Name="EndPointScore" Type="decimal" Precision="4" Scale="2" />
     <Property Name="ModifiedDateOfEndPointScore" Type="date" />
   </EntityType>
   <EntityType Name="Students">

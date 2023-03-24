@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace QuanLyHocTapData.DAO
                 .Select(s => new
             {
                 s.TeachingID,
+                s.Teaching.Subject.SubjectName,
                 s.Registration_Date,
                 s.MidtermScore,
                 s.ModifiedDateOfMidtermScore,
@@ -48,8 +50,9 @@ namespace QuanLyHocTapData.DAO
 
         public bool FindScore(int teachingId, string studentId, DateTime registerDate)
         {
-            Score score = db.Scores.Find(teachingId, studentId, registerDate);
-            if (score != null)
+            var score = db.Scores.Where(s => s.TeachingID == teachingId && s.StudentID == studentId && 
+                                        SqlFunctions.DateDiff("day", s.Registration_Date, registerDate) == 0);
+            if (score.Count() > 0)
                 return true;
             else
                 return false;

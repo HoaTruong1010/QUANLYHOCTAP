@@ -22,7 +22,7 @@
     <Property Name="Registration_Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="MidtermScore" Type="Decimal" Precision="4" Scale="2" />
     <Property Name="ModifiedDateOfMidtermScore" Type="DateTime" Precision="0" />
-    <Property Name="EndPointScore" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="EndPointScore" Type="Decimal" Precision="4" Scale="2" />
     <Property Name="ModifiedDateOfEndPointScore" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Teaching" Relationship="Self.FK1_Score" FromRole="Scores" ToRole="Teaching" />
     <NavigationProperty Name="Student" Relationship="Self.FK2_Score" FromRole="Scores" ToRole="Students" />

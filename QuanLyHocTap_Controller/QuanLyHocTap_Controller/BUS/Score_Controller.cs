@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,36 +23,46 @@ namespace QuanLyHocTap_Controller.BUS
             dataGrirdView.DataSource = score_DAO.LoadScores(selectedStudentId);
         }
 
-        public bool AddScore(int teachingId, string studentId, DateTime registerDate, Decimal midtermScore,
+        public int AddScore(int teachingId, string studentId, DateTime registerDate, Decimal midtermScore,
             DateTime midtermScoreDate, Decimal endPoint, DateTime endPointDate)
         {
+            if (midtermScore > 10 || endPoint > 10)
+                return 33;
+            if (endPoint < 0 || midtermScore < 0)
+                return 34;
+
             try
             {
                 score_DAO.AddScore(teachingId, studentId, registerDate, midtermScore, midtermScoreDate, endPoint, endPointDate);
-                return true;
+                return 0;
             }
             catch (Exception)
             {
-                return false;
+                return -1;
             }
         }
 
-        public bool EditScore(int teachingId, string studentId, DateTime registerDate, Decimal midtermScore,
+        public int EditScore(int teachingId, string studentId, DateTime registerDate, Decimal midtermScore,
             DateTime midtermScoreDate, Decimal endPoint, DateTime endPointDate)
         {
+            if (midtermScore > 10 || endPoint > 10)
+                return 33;
+            if (endPoint < 0 || midtermScore < 0)
+                return 34;
+
             if (score_DAO.FindScore(teachingId,studentId,registerDate))
             {
                 try
                 {
                     score_DAO.EditScore(teachingId, studentId, registerDate, midtermScore, midtermScoreDate, endPoint, endPointDate);
-                    return true;
+                    return 0;
                 }
                 catch (Exception)
                 {
-                    return false;
+                    return -2;
                 } 
             }
-            else { return false; }
+            else { return -2; }
         }
 
         public bool DeleteScore(int teachingId, string studentId, DateTime registerDate)

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,15 @@ namespace QuanLyHocTapData.DAO
                     s.RegisterDate
                 }).ToList();
             return listTeaching;
+        }
+
+        public dynamic LoadCBBTeachersBySubjectID(string subjectID, DateTime today)
+        {
+            return db.Teachings.Where(t => t.SubjectID == subjectID && SqlFunctions.DateDiff("day", t.RegisterDate, today) < 28).Select(s => new
+            {
+                s.TeacherID,
+                s.Teacher.TeacherName
+            }).ToList();
         }
 
         public void AddTeaching(string teacherID,
@@ -86,18 +97,6 @@ namespace QuanLyHocTapData.DAO
                     s.SubjectID,
                     s.Subject.SubjectName
                 }).ToDictionary(d => d.SubjectID, d => d.SubjectName);
-        }
-
-        public void EditTeaching(int id, string teacherID,
-            string subjectID, DateTime registerDate)
-        {
-            Teaching teaching = db.Teachings.Find(id);
-            teaching.ID = id;
-            teaching.TeacherID = teacherID;
-            teaching.SubjectID = subjectID;
-            teaching.RegisterDate = registerDate;
-
-            db.SaveChanges();
         }
 
         public void DeleteTeaching(int id)

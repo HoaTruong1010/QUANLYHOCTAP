@@ -22,7 +22,6 @@ namespace QuanLyHocTap
         private int teachingID = 0;
 
         public string TeacherSelectedId { get => teacherSelectedId; set => teacherSelectedId = value; }
-        public int TeachingID { get => teachingID; set => teachingID = value; }
 
         public Teaching()
         {
@@ -47,7 +46,7 @@ namespace QuanLyHocTap
         {
             txtSearchTeaching.Text = string.Empty;
             btAddTeaching.Enabled = true;
-            btnDeleteTeaching.Enabled = btnSaveTeaching.Enabled = false;
+            btnDeleteTeaching.Enabled = false;
             cbSubject.SelectedIndex = 0;
             dtpRegisterDate.Value = DateTime.Now;
         }
@@ -57,6 +56,7 @@ namespace QuanLyHocTap
             teacherController.GetTeacher(txtTeacherID, txtTeacherName, TeacherSelectedId);
             ShowTeaching(txtTeacherID.Text);
             subjectController.GetCBBSubjects(cbSubject);
+            txtSubjectID.Text = cbSubject.SelectedValue.ToString();
             Reset();
         }
 
@@ -80,26 +80,6 @@ namespace QuanLyHocTap
             }
             else
                 MessageBox.Show("Vui lòng chọn dòng để xóa!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void btnSaveTeaching_Click(object sender, EventArgs e)
-        {
-            if (teachingID != 0)
-            {
-                string subjectID = cbSubject.SelectedValue.ToString();
-                int result = teachingController.EditTeaching(teachingID, teacherSelectedId, subjectID, DateTime.Now);
-
-                if (result == 0)
-                {
-                    MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ShowTeaching(txtTeacherID.Text);
-                    Reset();
-                }
-                else
-                    MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-                MessageBox.Show("Vui lòng chọn dòng để sửa!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btAddTeaching_Click(object sender, EventArgs e)
@@ -126,7 +106,10 @@ namespace QuanLyHocTap
                 teachingID = (int) dgvTeaching.Rows[e.RowIndex].Cells["ID"].Value;
 
                 btAddTeaching.Enabled = false;
-                btnDeleteTeaching.Enabled = btnSaveTeaching.Enabled = true;
+                if ((DateTime.Now - dtpRegisterDate.Value).Days < 10)
+                    btnDeleteTeaching.Enabled = true;
+                else
+                    btnDeleteTeaching.Enabled = false;
             }
             else
                 Reset();
@@ -148,6 +131,11 @@ namespace QuanLyHocTap
                 ShowTeaching(teacherSelectedId);
                 Reset();
             }
+        }
+
+        private void cbSubject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtSubjectID.Text = cbSubject.SelectedValue.ToString();
         }
     }
 }

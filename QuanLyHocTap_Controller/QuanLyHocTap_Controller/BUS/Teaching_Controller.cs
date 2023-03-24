@@ -56,6 +56,13 @@ namespace QuanLyHocTap_Controller.BUS
             return id;
         }
 
+        public void LoadCBBTeacherBySubjectID(ComboBox comboBox, string subjectId, DateTime registerDate)
+        {
+            comboBox.DataSource = teaching_Dao.LoadCBBTeachersBySubjectID(subjectId, registerDate);
+            comboBox.DisplayMember = "TeacherName";
+            comboBox.ValueMember = "TeacherID";
+        }
+
         public int SearchTeaching(DataGridView dataGridView, string kw, string teacherID)
         {
             dataGridView.DataSource = teaching_Dao.SearchTeaching(kw, teacherID);
@@ -92,38 +99,6 @@ namespace QuanLyHocTap_Controller.BUS
             {
                 return -1;
             }
-        }
-
-        public int EditTeaching(int id, string teacherID,
-            string subjectID, DateTime registerDate)
-        {
-            if (teaching_Dao.FindTeaching(id))
-            {
-                Dictionary<int, DateTime> teaching = teaching_Dao.FindTeaching(subjectID, teacherID);
-                if (teaching.Count > 0)
-                {
-                    DateTime oldRegisterDate = DateTime.Now;
-
-                    foreach (KeyValuePair<int, DateTime> item in teaching)
-                        oldRegisterDate = item.Value;
-
-                    TimeSpan timeDifference = DateTime.Now - oldRegisterDate;
-                    double weeks = timeDifference.TotalDays / 7;
-                    if (weeks < 12)
-                        return 32;
-                }
-                try
-                {
-                    teaching_Dao.EditTeaching(id, teacherID, subjectID, registerDate);
-                    return 0;
-                }
-                catch (DbUpdateException)
-                {
-                    return -2;
-                }
-            }
-            else
-                return -2;
         }
 
         public bool DeleteTeaching(int id)

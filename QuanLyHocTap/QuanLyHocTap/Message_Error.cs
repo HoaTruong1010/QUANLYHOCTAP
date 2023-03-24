@@ -51,6 +51,9 @@ namespace QuanLyHocTapData.DAO
             data.Add(31, "Họ và tên sinh viên không quá 27 ký tự!");
 
             data.Add(32, "Môn học đã được đăng ký!\nVui lòng đăng ký lại sau 12 tuần kể từ lần đăng ký trước!");
+
+            data.Add(33, "Điểm không được lớn hơn 10.0!");
+            data.Add(34, "Điểm không được bé hơn 0.0!");
         }
 
         public string GetMessage(int key)
