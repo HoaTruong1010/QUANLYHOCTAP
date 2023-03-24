@@ -80,5 +80,20 @@ namespace QuanLyHocTapData.DAO
             db.Scores.Remove(score);
             db.SaveChanges();
         }
+
+        public dynamic SearchScore(string kw, string studentID)
+        {
+            kw = kw.ToLower();
+            return db.Scores.Where(s => s.Teaching.Subject.SubjectName.ToLower().Contains(kw) && s.StudentID == studentID).Select(s => new
+            {
+                s.TeachingID,
+                s.Teaching.Subject.SubjectName,
+                s.Registration_Date,
+                s.MidtermScore,
+                s.ModifiedDateOfMidtermScore,
+                s.EndPointScore,
+                s.ModifiedDateOfEndPointScore
+            }).ToList();
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using QuanLyHocTap_Controller.BUS;
-using QuanLyHocTapData.DAO;
+using QuanLyHocTap.ultils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +18,8 @@ namespace QuanLyHocTap
         Teacher_Controller teacherController;
         Subject_Controller subjectController;
         Message_Error message_Error;
+        ConvertString convertString;
+
         private string teacherSelectedId;
         private int teachingID = 0;
 
@@ -30,6 +32,7 @@ namespace QuanLyHocTap
             subjectController = new Subject_Controller();
             teacherController = new Teacher_Controller();
             message_Error = new Message_Error();
+            convertString = new ConvertString();
         }
 
         private void ShowTeaching(string teacherId)
@@ -124,7 +127,7 @@ namespace QuanLyHocTap
 
         private void btnSearchTeaching_Click(object sender, EventArgs e)
         {
-            string kw = txtSearchTeaching.Text;
+            string kw = convertString.DeleteSpacing(txtSearchTeaching.Text);
             int result = teachingController.SearchTeaching(dgvTeaching, kw, teacherSelectedId);
 
             if (result != 0)

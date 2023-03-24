@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyHocTap_Controller.BUS;
-using QuanLyHocTapData.DAO;
+using QuanLyHocTap.ultils;
 
 namespace QuanLyHocTap
 {
@@ -16,11 +16,14 @@ namespace QuanLyHocTap
     {
         private Subject_Controller subject_Controller;
         private Message_Error message_Error;
+        private ConvertString convertString;
+
         public Subject()
         {
             InitializeComponent();
             subject_Controller = new Subject_Controller();
             message_Error = new Message_Error();
+            convertString = new ConvertString();
         }
 
         private void ShowSubjects()
@@ -68,8 +71,8 @@ namespace QuanLyHocTap
 
         private void btAddSubject_Click(object sender, EventArgs e)
         {
-            string subjectId = txtSubjectID.Text;
-            string subjectName = txtSubjectName.Text;
+            string subjectId = convertString.DeleteSpacingID(txtSubjectID.Text);
+            string subjectName = convertString.DeleteSpacing(txtSubjectName.Text);
             double credits = Double.Parse(cbbCredits.SelectedItem.ToString());
             int result = subject_Controller.AddSubject(subjectId, subjectName, credits);
 
@@ -101,8 +104,8 @@ namespace QuanLyHocTap
 
         private void btnSaveSubject_Click(object sender, EventArgs e)
         {
-            string subjectId = txtSubjectID.Text;
-            string subjectName = txtSubjectName.Text;
+            string subjectId = convertString.DeleteSpacingID(txtSubjectID.Text);
+            string subjectName = convertString.DeleteSpacing(txtSubjectName.Text);
             double credits = Double.Parse(cbbCredits.SelectedItem.ToString());
             int result = subject_Controller.EditSubject(subjectId, subjectName, credits);
 
@@ -124,7 +127,7 @@ namespace QuanLyHocTap
 
         private void btnSearchSubject_Click(object sender, EventArgs e)
         {
-            string kw = txtSearchSubject.Text;
+            string kw = convertString.DeleteSpacing(txtSearchSubject.Text);
             int result = subject_Controller.SearchTeacher(dgvSubject, kw);
 
             if (result != 0)

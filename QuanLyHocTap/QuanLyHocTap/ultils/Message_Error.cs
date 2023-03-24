@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyHocTapData.DAO
+namespace QuanLyHocTap.ultils
 {
     public class Message_Error
     {

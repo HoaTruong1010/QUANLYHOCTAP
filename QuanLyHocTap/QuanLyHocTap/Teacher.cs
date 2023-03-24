@@ -11,7 +11,7 @@ using QuanLyHocTap_Controller.BUS;
 using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Net;
-using QuanLyHocTapData.DAO;
+using QuanLyHocTap.ultils;
 using System.Text.RegularExpressions;
 
 namespace QuanLyHocTap
@@ -20,12 +20,14 @@ namespace QuanLyHocTap
     {
         Teacher_Controller teacher_controller;
         Message_Error message;
+        ConvertString convertString;
 
         public Teacher()
         {
             InitializeComponent();
             teacher_controller = new Teacher_Controller();
             message = new Message_Error();
+            convertString = new ConvertString();
         }
 
         private void Reset()
@@ -101,13 +103,13 @@ namespace QuanLyHocTap
 
         private void btAddTeacher_Click(object sender, EventArgs e)
         {
-            string teacherId = txtTeacherID.Text;
-            string teacherName = txtTeacherName.Text;
+            string teacherId = convertString.DeleteSpacingID(txtTeacherID.Text);
+            string teacherName = convertString.DeleteSpacing(txtTeacherName.Text);
             DateTime dateOfBirth = dtpTeacherDOB.Value;
-            string id = txtTeacherCCCD.Text;
-            string email = txtTeacherEmail.Text;
-            string phone = txtTeacherPN.Text;
-            string address = txtTeacherAddress.Text;
+            string id = convertString.DeleteSpacing(txtTeacherCCCD.Text);
+            string email = convertString.DeleteSpacing(txtTeacherEmail.Text);
+            string phone = convertString.DeleteSpacing(txtTeacherPN.Text);
+            string address = convertString.DeleteSpacing(txtTeacherAddress.Text);
             string certificate = cbbCertificate.SelectedItem.ToString();
             int msgKey = teacher_controller.AddTeacher(teacherId, teacherName, dateOfBirth, id, email, phone, address, certificate);
 
@@ -125,14 +127,13 @@ namespace QuanLyHocTap
 
         private void btnSaveTeacher_Click(object sender, EventArgs e)
         {
-            string teacherId = txtTeacherID.Text;
-            string teacherName = txtTeacherName.Text;
+            string teacherId = convertString.DeleteSpacingID(txtTeacherID.Text);
+            string teacherName = convertString.DeleteSpacing(txtTeacherName.Text);
             DateTime dateOfBirth = dtpTeacherDOB.Value;
-            string id = txtTeacherCCCD.Text;
-            string email = txtTeacherEmail.Text;
-            string phone = txtTeacherPN.Text;
-            string address = txtTeacherAddress.Text;
-            string certificate = cbbCertificate.SelectedItem.ToString();
+            string id = convertString.DeleteSpacing(txtTeacherCCCD.Text);
+            string email = convertString.DeleteSpacing(txtTeacherEmail.Text);
+            string phone = convertString.DeleteSpacing(txtTeacherPN.Text);
+            string address = convertString.DeleteSpacing(txtTeacherAddress.Text);
             int msgKey = teacher_controller.EditTeacher(teacherId, teacherName, dateOfBirth, id, email, phone, address, certificate);
 
             if (msgKey == 0)
@@ -259,7 +260,7 @@ namespace QuanLyHocTap
 
         private void btnSearchTeacher_Click(object sender, EventArgs e)
         {
-            string kw = txtSearchTeacher.Text;
+            string kw = convertString.DeleteSpacing(txtSearchTeacher.Text);
             int result = teacher_controller.SearchTeacher(dgvTeacher, kw);
 
             if (result != 0)

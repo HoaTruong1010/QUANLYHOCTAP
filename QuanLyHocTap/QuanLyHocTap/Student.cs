@@ -1,5 +1,5 @@
 ﻿using QuanLyHocTap_Controller.BUS;
-using QuanLyHocTapData.DAO;
+using QuanLyHocTap.ultils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,8 @@ namespace QuanLyHocTap
         Student_Controller student_Controller;
         Class_Controller class_Controller;
         Message_Error message_Error;
+        ConvertString convertString;
+
         private string classIDOld;
 
         public Student()
@@ -28,6 +30,7 @@ namespace QuanLyHocTap
             student_Controller = new Student_Controller();
             class_Controller = new Class_Controller();
             message_Error = new Message_Error();
+            convertString = new ConvertString();
         }
 
         private void ShowStudents()
@@ -89,13 +92,13 @@ namespace QuanLyHocTap
 
         private void btAddStudent_Click(object sender, EventArgs e)
         {
-            string studentId = txtStudentID.Text;
-            string studentName = txtStudentName.Text;
+            string studentId = convertString.DeleteSpacingID(txtStudentID.Text);
+            string studentName = convertString.DeleteSpacing(txtStudentName.Text);
             DateTime dateOfBirth = dtpStudentDOB.Value;
-            string id = txtStudentCCCD.Text;
-            string email = txtStudentEmail.Text;
-            string phone = txtStudentPN.Text;
-            string address = txtStudentAddress.Text;
+            string id = convertString.DeleteSpacing(txtStudentCCCD.Text);
+            string email = convertString.DeleteSpacing(txtStudentEmail.Text);
+            string phone = convertString.DeleteSpacing(txtStudentPN.Text);
+            string address = convertString.DeleteSpacing(txtStudentAddress.Text);
             string classId = cbbClass.SelectedValue.ToString();
             int result = student_Controller.AddStudent(studentId, studentName, dateOfBirth, id, email, phone, address, classId);
 
@@ -113,13 +116,13 @@ namespace QuanLyHocTap
 
         private void btnSaveStudent_Click(object sender, EventArgs e)
         {
-            string studentId = txtStudentID.Text;
-            string studentName = txtStudentName.Text;
+            string studentId = convertString.DeleteSpacingID(txtStudentID.Text);
+            string studentName = convertString.DeleteSpacing(txtStudentName.Text);
             DateTime dateOfBirth = dtpStudentDOB.Value;
-            string id = txtStudentCCCD.Text;
-            string email = txtStudentEmail.Text;
-            string phone = txtStudentPN.Text;
-            string address = txtStudentAddress.Text;
+            string id = convertString.DeleteSpacing(txtStudentCCCD.Text);
+            string email = convertString.DeleteSpacing(txtStudentEmail.Text);
+            string phone = convertString.DeleteSpacing(txtStudentPN.Text);
+            string address = convertString.DeleteSpacing(txtStudentAddress.Text);
             string classId = cbbClass.SelectedValue.ToString();
             int result = student_Controller.EditStudent(studentId, studentName, dateOfBirth, id, email, phone, address, classId, classIDOld);
 
@@ -256,7 +259,7 @@ namespace QuanLyHocTap
 
         private void btnSearchStudent_Click(object sender, EventArgs e)
         {
-            string kw = txtSeachStudent.Text;
+            string kw = convertString.DeleteSpacing(txtSeachStudent.Text);
             int result = student_Controller.SearchStudent(dgvStudent, kw);
 
             if(result != 0)

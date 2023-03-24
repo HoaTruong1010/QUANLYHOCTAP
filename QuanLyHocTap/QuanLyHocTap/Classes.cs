@@ -1,5 +1,5 @@
 ﻿using QuanLyHocTap_Controller.BUS;
-using QuanLyHocTapData.DAO;
+using QuanLyHocTap.ultils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +19,7 @@ namespace QuanLyHocTap
         Class_Controller class_Controller; 
         Teacher_Controller teacher_Controller;
         Message_Error message_Error;
+        ConvertString convertString;
 
         public Classes()
         {
@@ -26,6 +27,7 @@ namespace QuanLyHocTap
             class_Controller = new Class_Controller();
             teacher_Controller = new Teacher_Controller();
             message_Error = new Message_Error();
+            convertString = new ConvertString();
         }
 
         private void Reset()
@@ -77,8 +79,8 @@ namespace QuanLyHocTap
 
         private void btAddClass_Click(object sender, EventArgs e)
         {
-            string classId = txtClassID.Text;
-            string className = txtClassName.Text;
+            string classId = convertString.DeleteSpacingID(txtClassID.Text);
+            string className = convertString.DeleteSpacing(txtClassName.Text);
             int total = (int) nbuNumStudent.Value;
             string teacherId = cbbTeacher.SelectedValue.ToString();
             int result = class_Controller.AddClass(classId, className, total, teacherId);
@@ -115,7 +117,7 @@ namespace QuanLyHocTap
         private void btnSaveClass_Click(object sender, EventArgs e)
         {
             string classId = txtClassID.Text;
-            string className = txtClassName.Text;
+            string className = convertString.DeleteSpacing(txtClassName.Text);
             int total = (int)nbuNumStudent.Value;
             string teacherId = cbbTeacher.SelectedValue.ToString();
             int result = class_Controller.EditCLass(classId, className, total, teacherId);
@@ -167,7 +169,7 @@ namespace QuanLyHocTap
 
         private void btnSearchClass_Click(object sender, EventArgs e)
         {
-            string kw = txtSearchClass.Text;
+            string kw = convertString.DeleteSpacing(txtSearchClass.Text);
             int result = class_Controller.SearchClass(dgvClass, kw);
             if (result != 0)
             {

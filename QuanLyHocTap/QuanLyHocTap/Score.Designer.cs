@@ -146,6 +146,7 @@ namespace QuanLyHocTap
             this.btnSearchScore.TabIndex = 2;
             this.btnSearchScore.Text = "Tìm";
             this.btnSearchScore.UseVisualStyleBackColor = true;
+            this.btnSearchScore.Click += new System.EventHandler(this.btnSearchScore_Click);
             // 
             // txtSeachScore
             // 

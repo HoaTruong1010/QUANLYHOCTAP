@@ -81,5 +81,14 @@ namespace QuanLyHocTap_Controller.BUS
             }
             else { return false; }
         }
+
+        public int SearchTeaching(DataGridView dataGridView, string kw, string studentID)
+        {
+            dataGridView.DataSource = score_DAO.SearchScore(kw, studentID);
+
+            if (dataGridView.Rows.Count > 0)
+                return 0;
+            return 10;
+        }
     }
 }

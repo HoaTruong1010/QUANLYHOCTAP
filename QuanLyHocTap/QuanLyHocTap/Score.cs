@@ -1,5 +1,5 @@
 ﻿using QuanLyHocTap_Controller.BUS;
-using QuanLyHocTapData.DAO;
+using QuanLyHocTap.ultils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace QuanLyHocTap
 {
     public partial class Score : Form
@@ -20,8 +21,8 @@ namespace QuanLyHocTap
         Subject_Controller subject_Controller;
         Teaching_Controller teaching_Controller;
         Student_Controller student_Controller;
-        Teacher_Controller teacher_Controller;
         Message_Error message_Error;
+        ConvertString convertString;
 
         private string selectedStudentId;
         private int teachingID = 0;
@@ -35,8 +36,8 @@ namespace QuanLyHocTap
             subject_Controller = new Subject_Controller();
             teaching_Controller = new Teaching_Controller();
             student_Controller = new Student_Controller();
-            teacher_Controller = new Teacher_Controller();
             message_Error = new Message_Error();
+            convertString = new ConvertString();
             dgvScore.MultiSelect = true;
             dgvScore.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
@@ -109,8 +110,8 @@ namespace QuanLyHocTap
 
         private void btAddScore_Click(object sender, EventArgs e)
         {
-            string subjectID = txtSubjectId.Text;
-            string teacherID = txtTeacherId.Text;
+            string subjectID = convertString.DeleteSpacing(txtSubjectId.Text);
+            string teacherID = convertString.DeleteSpacing(txtTeacherId.Text);
             Decimal midtermScore = nbuMidScore.Value;
             Decimal endPointScore = nbuEndPoint.Value;
             int result;
@@ -134,8 +135,6 @@ namespace QuanLyHocTap
 
         private void btnDeleteScore_Click(object sender, EventArgs e)
         {
-            string subjectID = txtSubjectId.Text;
-            string teacherID = txtTeacherId.Text;
             DateTime registerDate = dtpRegisterDate.Value;
 
             if (teachingID > 0 && score_Controller.DeleteScore(teachingID, selectedStudentId, registerDate))
@@ -150,8 +149,6 @@ namespace QuanLyHocTap
 
         private void btnSaveScore_Click(object sender, EventArgs e)
         {
-            string subjectID = txtSubjectId.Text;
-            string teacherID = txtTeacherId.Text;
             DateTime registerDate = dtpRegisterDate.Value;
             Decimal midtermScore = nbuMidScore.Value;
             Decimal endPointScore = nbuEndPoint.Value;
@@ -231,6 +228,20 @@ namespace QuanLyHocTap
                     MessageBox.Show("Xếp loại học bổng: Giỏi!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
 
+        }
+
+        private void btnSearchScore_Click(object sender, EventArgs e)
+        {
+            string kw = convertString.DeleteSpacing(txtSeachScore.Text);
+
+            int result = score_Controller.SearchTeaching(dgvScore, kw, selectedStudentId);
+
+            if (result != 0)
+            {
+                MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowScores();
+                Reset();
+            }
         }
     }
 }
