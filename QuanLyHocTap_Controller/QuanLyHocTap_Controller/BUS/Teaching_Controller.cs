@@ -52,7 +52,10 @@ namespace QuanLyHocTap_Controller.BUS
                 id = 0;
             else
                 foreach (KeyValuePair<int, DateTime> item in teaching)
+                {
+                    Console.WriteLine(item.Key);
                     id = item.Key;
+                }
             return id;
         }
 

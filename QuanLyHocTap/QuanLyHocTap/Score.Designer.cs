@@ -103,6 +103,7 @@ namespace QuanLyHocTap
             this.btnCalcScholarship.TabIndex = 7;
             this.btnCalcScholarship.Text = "Xét học bổng";
             this.btnCalcScholarship.UseVisualStyleBackColor = true;
+            this.btnCalcScholarship.Click += new System.EventHandler(this.btnCalcScholarship_Click);
             // 
             // btAddScore
             // 

@@ -50,7 +50,7 @@ namespace QuanLyHocTap_Controller.BUS
             if (endPoint < 0 || midtermScore < 0)
                 return 34;
 
-            if (score_DAO.FindScore(teachingId,studentId,registerDate))
+            if (score_DAO.FindScore(teachingId,studentId,registerDate).Count > 0)
             {
                 try
                 {
@@ -67,7 +67,7 @@ namespace QuanLyHocTap_Controller.BUS
 
         public bool DeleteScore(int teachingId, string studentId, DateTime registerDate)
         {
-            if (score_DAO.FindScore(teachingId, studentId, registerDate))
+            if (score_DAO.FindScore(teachingId, studentId, registerDate).Count > 0)
             {
                 try
                 {

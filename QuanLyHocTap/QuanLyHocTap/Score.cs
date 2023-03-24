@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.Entity.SqlServer;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,7 @@ namespace QuanLyHocTap
         Message_Error message_Error;
 
         private string selectedStudentId;
+        private int teachingID = 0;
 
         public string SelectedStudentId { get => selectedStudentId; set => selectedStudentId = value; }
 
@@ -35,6 +37,8 @@ namespace QuanLyHocTap
             student_Controller = new Student_Controller();
             teacher_Controller = new Teacher_Controller();
             message_Error = new Message_Error();
+            dgvScore.MultiSelect = true;
+            dgvScore.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void ShowScores()
@@ -50,7 +54,7 @@ namespace QuanLyHocTap
             dtpInputDate1.Value = dtpInputDate2.Value = dtpRegisterDate.Value = DateTime.Now;
             cbbSubject.SelectedIndex = 0;
 
-            cbbSubject.Enabled = cbbTeacher.Enabled = true;
+            cbbSubject.Enabled = btAddScore.Enabled = cbbTeacher.Enabled = true;
             btnDeleteScore.Enabled = btnSaveScore.Enabled = false;
         }
 
@@ -74,8 +78,9 @@ namespace QuanLyHocTap
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvScore.Rows.Count)
             {
-                teaching_Controller.GetSubjectByTeachingId(txtSubjectId, cbbSubject, (int)dgvScore.Rows[e.RowIndex].Cells["TeachingID"].Value);
-                teaching_Controller.GetTeacherByTeachingId(txtTeacherId, cbbTeacher, (int)dgvScore.Rows[e.RowIndex].Cells["TeachingID"].Value);
+                teachingID = (int)dgvScore.Rows[e.RowIndex].Cells["TeachingID"].Value;
+                teaching_Controller.GetSubjectByTeachingId(txtSubjectId, cbbSubject, teachingID);
+                teaching_Controller.GetTeacherByTeachingId(txtTeacherId, cbbTeacher, teachingID);
                 dtpRegisterDate.Text = dgvScore.Rows[e.RowIndex].Cells["Registration_Date"].Value.ToString();
                 dtpInputDate1.Text = dgvScore.Rows[e.RowIndex].Cells["ModifiedDateOfMidtermScore"].Value.ToString();
                 dtpInputDate2.Text = dgvScore.Rows[e.RowIndex].Cells["ModifiedDateOfEndPointScore"].Value.ToString();
@@ -87,9 +92,15 @@ namespace QuanLyHocTap
                 else
                     btnDeleteScore.Enabled= true;
                 if ((DateTime.Now - dtpRegisterDate.Value).Days > 100)
+                {
                     btnSaveScore.Enabled = false;
+                    nbuEndPoint.Enabled = nbuMidScore.Enabled = false;
+                }    
                 else
-                    btnSaveScore.Enabled= true;
+                {
+                    btnSaveScore.Enabled = true;
+                    nbuEndPoint.Enabled = nbuMidScore.Enabled = true;
+                }
                 btAddScore.Enabled = cbbSubject.Enabled = cbbTeacher.Enabled = false;
             }
             else
@@ -127,8 +138,7 @@ namespace QuanLyHocTap
             string teacherID = txtTeacherId.Text;
             DateTime registerDate = dtpRegisterDate.Value;
 
-            int id = teaching_Controller.GetTeaching(subjectID, teacherID);
-            if (id > 0 && score_Controller.DeleteScore(id, selectedStudentId, registerDate))
+            if (teachingID > 0 && score_Controller.DeleteScore(teachingID, selectedStudentId, registerDate))
             {
                 MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowScores();
@@ -146,10 +156,10 @@ namespace QuanLyHocTap
             Decimal midtermScore = nbuMidScore.Value;
             Decimal endPointScore = nbuEndPoint.Value;
 
-            int id = teaching_Controller.GetTeaching(subjectID, teacherID);
-            if (id > 0)
+
+            if (teachingID > 0)
             {
-                int result = score_Controller.EditScore(id, selectedStudentId, registerDate, midtermScore, DateTime.Now, endPointScore, DateTime.Now);
+                int result = score_Controller.EditScore(teachingID, selectedStudentId, registerDate, midtermScore, DateTime.Now, endPointScore, DateTime.Now);
                 if (result == 0)
                 {
                     MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -177,6 +187,50 @@ namespace QuanLyHocTap
         private void Score_Click(object sender, EventArgs e)
         {
             Reset();
+        }
+
+        private void btnCalcScholarship_Click(object sender, EventArgs e)
+        {
+            int selectedCount = dgvScore.SelectedRows.Count;
+            foreach(DataGridViewRow row in dgvScore.SelectedRows) 
+            {
+                Console.WriteLine(row.ToString());
+            }
+            double midTerm = 0, endPoint = 0;
+            double rerult = 0;
+
+            if(selectedCount <= 1)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất 2 môn học để xét!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for(int i = 0; i < selectedCount; i++)
+                {
+                    midTerm = double.Parse(dgvScore.SelectedRows[i].Cells["MidtermScore"].Value.ToString());
+                    endPoint = double.Parse(dgvScore.SelectedRows[i].Cells["EndPointScore"].Value.ToString());
+                    rerult += midTerm * 0.4 + endPoint * 0.6;
+                }
+                rerult /= selectedCount;
+
+                if (rerult < 4)
+                    MessageBox.Show("Xếp loại học bổng: Kém!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (rerult < 5)
+                    MessageBox.Show("Xếp loại học bổng: Yếu!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (rerult < 5.5)
+                    MessageBox.Show("Xếp loại học bổng: Trung bình yếu!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (rerult < 6.5)
+                    MessageBox.Show("Xếp loại học bổng: Trung bình!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (rerult < 7)
+                    MessageBox.Show("Xếp loại học bổng: Trung bình khá!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (rerult < 8)
+                    MessageBox.Show("Xếp loại học bổng: Khá!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (rerult < 8.5)
+                    MessageBox.Show("Xếp loại học bổng: Khá giỏi!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Xếp loại học bổng: Giỏi!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }    
+
         }
     }
 }

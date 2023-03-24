@@ -49,6 +49,7 @@ namespace QuanLyHocTap
             btnDeleteTeaching.Enabled = false;
             cbSubject.SelectedIndex = 0;
             dtpRegisterDate.Value = DateTime.Now;
+            cbSubject.Enabled = true;
         }
 
         private void GiangDay_Load(object sender, EventArgs e)
@@ -106,6 +107,7 @@ namespace QuanLyHocTap
                 teachingID = (int) dgvTeaching.Rows[e.RowIndex].Cells["ID"].Value;
 
                 btAddTeaching.Enabled = false;
+                cbSubject.Enabled = false;
                 if ((DateTime.Now - dtpRegisterDate.Value).Days < 10)
                     btnDeleteTeaching.Enabled = true;
                 else
