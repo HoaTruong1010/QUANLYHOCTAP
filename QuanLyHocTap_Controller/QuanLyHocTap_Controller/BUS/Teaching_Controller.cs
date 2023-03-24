@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyHocTapData;
 using QuanLyHocTapData.DAO;
 
 namespace QuanLyHocTap_Controller.BUS

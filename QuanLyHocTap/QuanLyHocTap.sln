@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocTap", "QuanLyHocTa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocTap_Controller", "..\QuanLyHocTap_Controller\QuanLyHocTap_Controller\QuanLyHocTap_Controller.csproj", "{A0407F3F-5FC0-4333-9CB0-847DCCC74F54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocTapData", "..\QuanLyHocTapData\QuanLyHocTapData.csproj", "{1F483533-87F8-40B1-9836-E4128AC67AB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocTap_Data", "..\QuanLyHocTapData\QuanLyHocTap_Data.csproj", "{1F483533-87F8-40B1-9836-E4128AC67AB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,4 @@
-﻿using QuanLyHocTapData;
-using QuanLyHocTapData.DAO;
+﻿using QuanLyHocTapData.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
