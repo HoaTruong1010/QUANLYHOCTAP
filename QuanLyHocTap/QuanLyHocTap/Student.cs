@@ -80,8 +80,16 @@ namespace QuanLyHocTap
                 txtStudentEmail.Text = dgvStudent.Rows[e.RowIndex].Cells["Email"].Value.ToString();
                 txtStudentPN.Text = dgvStudent.Rows[e.RowIndex].Cells["Phone"].Value.ToString();
                 txtStudentAddress.Text = dgvStudent.Rows[e.RowIndex].Cells["StudentAddress"].Value.ToString();
-                cbbClass.Text = dgvStudent.Rows[e.RowIndex].Cells["ClassName"].Value.ToString();
-                classIDOld = dgvStudent.Rows[e.RowIndex].Cells["ClassID"].Value.ToString();
+                if(dgvStudent.Rows[e.RowIndex].Cells["ClassName"].Value == null)
+                {
+                    cbbClass.SelectedItem = "";
+                    classIDOld = string.Empty;
+                }
+                else
+                {
+                    cbbClass.Text = dgvStudent.Rows[e.RowIndex].Cells["ClassName"].Value.ToString();
+                    classIDOld = dgvStudent.Rows[e.RowIndex].Cells["ClassID"].Value.ToString();
+                }
 
                 txtStudentID.Enabled = btAddStudent.Enabled = false;
                 btnViewScore.Enabled = btnDeleteStudent.Enabled = btnSaveStudent.Enabled = true;

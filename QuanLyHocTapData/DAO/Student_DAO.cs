@@ -113,12 +113,12 @@ namespace QuanLyHocTapData.DAO
             student.Phone = phone;
             student.StudentAddress = address;
 
-            if(classIdOld != classIdNew)
+            if (classIdOld != string.Empty && classIdOld != classIdNew)
             {
                 classOld.TotalStudent -= 1;
                 classNew.TotalStudent += 1;
+                student.ClassID = classIdNew;
             }
-            student.ClassID = classIdNew;
 
             db.SaveChanges();
         }
@@ -126,14 +126,25 @@ namespace QuanLyHocTapData.DAO
         public void DeleteStudent(string studentId, string classID)
         {
             Student student = db.Students.Find(studentId);
-            Class cl = db.Classes.Find(classID);
-            int totalStudent = cl.TotalStudent ;
+
+            if(classID != string.Empty)
+            {
+                Class cl = db.Classes.Find(classID);
+                int totalStudent = cl.TotalStudent;
+
+                cl.TotalStudent = totalStudent - 1;
+                db.SaveChanges();
+            }
+            List<Score> scores = db.Scores.Where(s => s.StudentID == studentId).Select(s => s).ToList();
+
+            foreach (Score score in scores)
+            {
+                db.Scores.Remove(score);
+            }
 
             db.Students.Remove(student);
             db.SaveChanges();
 
-            cl.TotalStudent = totalStudent - 1;
-            db.SaveChanges();
         }
     }
 }

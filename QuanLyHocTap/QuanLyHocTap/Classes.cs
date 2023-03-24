@@ -61,14 +61,21 @@ namespace QuanLyHocTap
             this.Close();
         }
 
-        private void dgvClass_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvClass.RowCount)
             {
                 txtClassID.Text = dgvClass.Rows[e.RowIndex].Cells["ClassID"].Value.ToString();
                 txtClassName.Text = dgvClass.Rows[e.RowIndex].Cells["ClassName"].Value.ToString();
                 nbuNumStudent.Value = (int)dgvClass.Rows[e.RowIndex].Cells["TotalStudent"].Value;
-                cbbTeacher.Text = dgvClass.Rows[e.RowIndex].Cells["TeacherName"].Value.ToString();
+                if (dgvClass.Rows[e.RowIndex].Cells["TeacherName"].Value == null)
+                {
+                    cbbTeacher.SelectedItem = "";
+                }
+                else
+                {
+                    cbbTeacher.Text = dgvClass.Rows[e.RowIndex].Cells["TeacherName"].Value.ToString();
+                }
 
                 txtClassID.Enabled = btAddClass.Enabled = false;
                 btnDeleteClass.Enabled = btnSaveClass.Enabled = true;

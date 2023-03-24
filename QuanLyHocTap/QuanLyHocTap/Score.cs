@@ -46,6 +46,13 @@ namespace QuanLyHocTap
         {
             dgvScore.DataSource = null;
             score_Controller.GetScores(dgvScore, selectedStudentId);
+            dgvScore.Columns[0].Width = (int)(dgvScore.Width * 0.1);
+            dgvScore.Columns[1].Width = (int)(dgvScore.Width * 0.16);
+            dgvScore.Columns[2].Width = (int)(dgvScore.Width * 0.16);
+            dgvScore.Columns[3].Width = (int)(dgvScore.Width * 0.125);
+            dgvScore.Columns[4].Width = (int)(dgvScore.Width * 0.13);
+            dgvScore.Columns[5].Width = (int)(dgvScore.Width * 0.125);
+            dgvScore.Columns[6].Width = (int)(dgvScore.Width * 0.13);
         }
 
         private void Reset()

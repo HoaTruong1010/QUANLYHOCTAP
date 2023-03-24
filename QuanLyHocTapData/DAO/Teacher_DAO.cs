@@ -115,6 +115,22 @@ namespace QuanLyHocTapData.DAO
         public void DeleteTeacher(string teacherId)
         {
             Teacher teacher = db.Teachers.Find(teacherId);
+            List<Class> classes = db.Classes.Where(c => c.TeacherID == teacherId).Select(s => s).ToList();
+            List<Teaching> teachings = db.Teachings.Where(c => c.TeacherID == teacherId).Select(s => s).ToList();
+
+            foreach (Class c in classes)
+            {
+                c.TeacherID = null;
+            }
+
+            foreach (Teaching c in teachings)
+            {
+                List<Score> scores = db.Scores.Where(s => s.TeachingID == c.ID).Select(s => s).ToList();
+                foreach(Score score in scores)
+                    db.Scores.Remove(score);
+                db.Teachings.Remove(c);
+            }
+
             db.Teachers.Remove(teacher);
             db.SaveChanges();
         }

@@ -7,7 +7,7 @@
     <Property Name="ClassID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ClassName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TotalStudent" Type="Int32" Nullable="false" />
-    <Property Name="TeacherID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TeacherID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Teacher" Relationship="Self.FK__Classes__Teacher__2C3393D0" FromRole="Classes" ToRole="Teachers" />
     <NavigationProperty Name="Students" Relationship="Self.FK__Students__ClassI__2F10007B" FromRole="Classes" ToRole="Students" />
   </EntityType>
@@ -38,7 +38,7 @@
     <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="StudentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ClassID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClassID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Class" Relationship="Self.FK__Students__ClassI__2F10007B" FromRole="Students" ToRole="Classes" />
     <NavigationProperty Name="Scores" Relationship="Self.FK2_Score" FromRole="Students" ToRole="Scores" />
   </EntityType>
@@ -79,9 +79,7 @@
     <NavigationProperty Name="Teacher" Relationship="Self.FK__Teaching__Teache__286302EC" FromRole="Teaching" ToRole="Teachers" />
   </EntityType>
   <Association Name="FK__Classes__Teacher__2C3393D0">
-    <End Role="Teachers" Type="Self.Teacher" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Teachers" Type="Self.Teacher" Multiplicity="0..1" />
     <End Role="Classes" Type="Self.Class" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Teachers">
@@ -93,9 +91,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Students__ClassI__2F10007B">
-    <End Role="Classes" Type="Self.Class" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Classes" Type="Self.Class" Multiplicity="0..1" />
     <End Role="Students" Type="Self.Student" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Classes">

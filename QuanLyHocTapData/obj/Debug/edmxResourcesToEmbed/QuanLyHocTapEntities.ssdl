@@ -7,7 +7,7 @@
     <Property Name="ClassID" Type="varchar" MaxLength="8" Nullable="false" />
     <Property Name="ClassName" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="TotalStudent" Type="int" Nullable="false" />
-    <Property Name="TeacherID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="TeacherID" Type="varchar" MaxLength="8" />
   </EntityType>
   <EntityType Name="Scores">
     <Key>
@@ -34,7 +34,7 @@
     <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
     <Property Name="Phone" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="StudentAddress" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="ClassID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="ClassID" Type="varchar" MaxLength="8" />
   </EntityType>
   <EntityType Name="Subjects">
     <Key>
@@ -67,9 +67,7 @@
     <Property Name="RegisterDate" Type="date" Nullable="false" />
   </EntityType>
   <Association Name="FK__Classes__Teacher__2C3393D0">
-    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
     <End Role="Classes" Type="Self.Classes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Teachers">
@@ -81,9 +79,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Students__ClassI__2F10007B">
-    <End Role="Classes" Type="Self.Classes" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Classes" Type="Self.Classes" Multiplicity="0..1" />
     <End Role="Students" Type="Self.Students" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Classes">

@@ -134,6 +134,7 @@ namespace QuanLyHocTap
             string email = convertString.DeleteSpacing(txtTeacherEmail.Text);
             string phone = convertString.DeleteSpacing(txtTeacherPN.Text);
             string address = convertString.DeleteSpacing(txtTeacherAddress.Text);
+            string certificate = cbbCertificate.SelectedItem.ToString();
             int msgKey = teacher_controller.EditTeacher(teacherId, teacherName, dateOfBirth, id, email, phone, address, certificate);
 
             if (msgKey == 0)

@@ -72,5 +72,10 @@ namespace QuanLyHocTap
             menuTool.Font = new Font(f, 20);
             exitTMSItem.Font = new Font(f, 20);
         }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

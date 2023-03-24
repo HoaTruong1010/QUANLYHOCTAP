@@ -103,6 +103,16 @@ namespace QuanLyHocTapData.DAO
         public void DeleteSubject(string subjectId)
         {
             Subject subject = db.Subjects.Find(subjectId);
+            List<Teaching> teachings = db.Teachings.Where(t => t.SubjectID == subjectId).Select(s => s).ToList();
+
+            foreach (Teaching c in teachings)
+            {
+                List<Score> scores = db.Scores.Where(s => s.TeachingID == c.ID).Select(s => s).ToList();
+                foreach (Score score in scores)
+                    db.Scores.Remove(score);
+                db.Teachings.Remove(c);
+            }
+
             db.Subjects.Remove(subject);
             db.SaveChanges();
         }

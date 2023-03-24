@@ -25,6 +25,7 @@ namespace QuanLyHocTap_Controller.BUS
 
         public void GetCBBClasses(ComboBox comboBox)
         {
+            comboBox.Items.Add(" ");
             comboBox.DataSource = class_DAO.LoadCBBClasses();
             comboBox.DisplayMember = "ClassName";
             comboBox.ValueMember = "ClassID";

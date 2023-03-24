@@ -110,6 +110,12 @@ namespace QuanLyHocTapData.DAO
         public void DeleteClass(string classId)
         {
             Class cl = db.Classes.Find(classId);
+            List<Student> students = db.Students.Where(s => s.ClassID == classId).Select(s => s).ToList();
+
+            foreach (Student student in students)
+                student.ClassID = null;
+
+
             db.Classes.Remove(cl);
             db.SaveChanges();
         }
