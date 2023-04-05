@@ -49,6 +49,7 @@ namespace QuanLyHocTap
         {
             txtSearchTeaching.Text = string.Empty;
             btAddTeaching.Enabled = true;
+            btnScore.Enabled = false;
             btnDeleteTeaching.Enabled = false;
             cbSubject.SelectedIndex = 0;
             dtpRegisterDate.Value = DateTime.Now;
@@ -109,6 +110,7 @@ namespace QuanLyHocTap
                 cbSubject.Text = dgvTeaching.Rows[e.RowIndex].Cells["SubjectName"].Value.ToString();
                 teachingID = (int) dgvTeaching.Rows[e.RowIndex].Cells["ID"].Value;
 
+                btnScore.Enabled = true;
                 btAddTeaching.Enabled = false;
                 cbSubject.Enabled = false;
                 if ((DateTime.Now - dtpRegisterDate.Value).Days < 10)
@@ -141,6 +143,15 @@ namespace QuanLyHocTap
         private void cbSubject_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtSubjectID.Text = cbSubject.SelectedValue.ToString();
+        }
+
+        private void btnScore_Click(object sender, EventArgs e)
+        {
+            FillInScore frm = new FillInScore();
+            frm.SelectedTeaching = teachingID;
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Size = new Size(1500, 700);
+            frm.ShowDialog();
         }
     }
 }

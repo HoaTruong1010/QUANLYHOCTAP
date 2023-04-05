@@ -27,3 +27,4 @@ D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Cla
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Subject.resources
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Student.resources
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Login.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.FillInScore.resources

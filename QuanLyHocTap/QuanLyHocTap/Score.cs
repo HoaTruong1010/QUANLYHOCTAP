@@ -17,6 +17,7 @@ namespace QuanLyHocTap
 {
     public partial class Score : Form
     {
+        Teacher_Controller teacher_Controller;
         Score_Controller score_Controller;
         Subject_Controller subject_Controller;
         Teaching_Controller teaching_Controller;
@@ -36,6 +37,7 @@ namespace QuanLyHocTap
             subject_Controller = new Subject_Controller();
             teaching_Controller = new Teaching_Controller();
             student_Controller = new Student_Controller();
+            teacher_Controller = new Teacher_Controller();
             message_Error = new Message_Error();
             convertString = new ConvertString();
             dgvScore.MultiSelect = true;
@@ -61,9 +63,11 @@ namespace QuanLyHocTap
             nbuEndPoint.Value = nbuMidScore.Value = 0;
             dtpInputDate1.Value = dtpInputDate2.Value = dtpRegisterDate.Value = DateTime.Now;
             cbbSubject.SelectedIndex = 0;
+            txtSubjectId.Text = cbbSubject.SelectedValue.ToString();
+            teaching_Controller.LoadCBBTeacherBySubjectID(cbbTeacher, txtSubjectId.Text, DateTime.Now);
 
             cbbSubject.Enabled = btAddScore.Enabled = cbbTeacher.Enabled = true;
-            btnDeleteScore.Enabled = btnSaveScore.Enabled = false;
+            btnDeleteScore.Enabled = false;
         }
 
         private void KetQuaHocTap_Load(object sender, EventArgs e)
@@ -71,8 +75,6 @@ namespace QuanLyHocTap
             student_Controller.GetStudent(txtStudentId, txtStudentName, selectedStudentId);
             ShowScores();
             subject_Controller.GetCBBSubjects(cbbSubject);
-            txtSubjectId.Text = cbbSubject.SelectedValue.ToString();
-            teaching_Controller.LoadCBBTeacherBySubjectID(cbbTeacher, txtSubjectId.Text, DateTime.Now);
 
             Reset();
         }
@@ -88,6 +90,7 @@ namespace QuanLyHocTap
             {
                 teachingID = (int)dgvScore.Rows[e.RowIndex].Cells["TeachingID"].Value;
                 teaching_Controller.GetSubjectByTeachingId(txtSubjectId, cbbSubject, teachingID);
+                teacher_Controller.GetCBBTeachers(cbbTeacher);
                 teaching_Controller.GetTeacherByTeachingId(txtTeacherId, cbbTeacher, teachingID);
                 dtpRegisterDate.Text = dgvScore.Rows[e.RowIndex].Cells["Registration_Date"].Value.ToString();
                 dtpInputDate1.Text = dgvScore.Rows[e.RowIndex].Cells["ModifiedDateOfMidtermScore"].Value.ToString();
@@ -95,20 +98,10 @@ namespace QuanLyHocTap
                 nbuMidScore.Value = Decimal.Parse(dgvScore.Rows[e.RowIndex].Cells["MidtermScore"].Value.ToString());
                 nbuEndPoint.Value = Decimal.Parse(dgvScore.Rows[e.RowIndex].Cells["EndPointScore"].Value.ToString());
 
-                if ((DateTime.Now - dtpRegisterDate.Value).Days > 10) 
+                if ((DateTime.Now - dtpRegisterDate.Value).Days > 10)
                     btnDeleteScore.Enabled = false;
                 else
-                    btnDeleteScore.Enabled= true;
-                if ((DateTime.Now - dtpRegisterDate.Value).Days > 100)
-                {
-                    btnSaveScore.Enabled = false;
-                    nbuEndPoint.Enabled = nbuMidScore.Enabled = false;
-                }    
-                else
-                {
-                    btnSaveScore.Enabled = true;
-                    nbuEndPoint.Enabled = nbuMidScore.Enabled = true;
-                }
+                    btnDeleteScore.Enabled = true;
                 btAddScore.Enabled = cbbSubject.Enabled = cbbTeacher.Enabled = false;
             }
             else

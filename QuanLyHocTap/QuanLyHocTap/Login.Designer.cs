@@ -63,7 +63,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(290, 30);
-            this.txtPassword.TabIndex = 0;
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
             // 
             // lbPassword
@@ -93,7 +93,7 @@
             this.btnExit.Location = new System.Drawing.Point(152, 326);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(116, 43);
-            this.btnExit.TabIndex = 3;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -128,6 +128,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

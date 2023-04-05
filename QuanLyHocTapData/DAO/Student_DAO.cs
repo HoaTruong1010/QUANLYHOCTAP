@@ -119,6 +119,14 @@ namespace QuanLyHocTapData.DAO
                 classNew.TotalStudent += 1;
                 student.ClassID = classIdNew;
             }
+            else
+            {
+                if (classIdOld == string.Empty)
+                {
+                    student.ClassID = classIdNew;
+                    classNew.TotalStudent += 1;
+                }
+            }
 
             db.SaveChanges();
         }

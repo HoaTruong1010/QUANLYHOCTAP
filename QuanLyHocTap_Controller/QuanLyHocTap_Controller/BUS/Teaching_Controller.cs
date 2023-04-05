@@ -23,13 +23,23 @@ namespace QuanLyHocTap_Controller.BUS
             dataGrirdView.DataSource = teaching_Dao.LoadTeachings(teacherId);
         }
 
-        public void GetTeacherByTeachingId(TextBox txtTeacherID,ComboBox cbbTeacher, int id)
+        public void GetTeacherByTeachingId(TextBox txtTeacherID, ComboBox cbbTeacher, int id)
         {
             Dictionary<string, string> keyValuePairs = teaching_Dao.FindTeacherByTeachingId(id);
             foreach (KeyValuePair<string, string> item in keyValuePairs)
             {
                 txtTeacherID.Text = item.Key;
                 cbbTeacher.Text = item.Value;
+            }
+        }
+
+        public void GetTeacherByTeachingId(Label lbTeacherIDText, Label lbTeacherNameText, int id)
+        {
+            Dictionary<string, string> keyValuePairs = teaching_Dao.FindTeacherByTeachingId(id);
+            foreach (KeyValuePair<string, string> item in keyValuePairs)
+            {
+                lbTeacherIDText.Text = item.Key;
+                lbTeacherNameText.Text = item.Value;
             }
         }
 
@@ -40,6 +50,16 @@ namespace QuanLyHocTap_Controller.BUS
             {
                 txtSubject.Text = item.Key;
                 cbbSubject.Text = item.Value;
+            }
+        }
+
+        public void GetSubjectByTeachingId(Label lbSubjectIDText, Label lbSubjectNameText, int id)
+        {
+            Dictionary<string, string> keyValuePairs = teaching_Dao.FindSubjectByTeachingId(id);
+            foreach (KeyValuePair<string, string> item in keyValuePairs)
+            {
+                lbSubjectIDText.Text = item.Key;
+                lbSubjectNameText.Text = item.Value;
             }
         }
 

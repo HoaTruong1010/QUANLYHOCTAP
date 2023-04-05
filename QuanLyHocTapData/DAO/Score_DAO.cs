@@ -32,6 +32,23 @@ namespace QuanLyHocTapData.DAO
             return listScore;
         }
 
+        public dynamic LoadScores(int teachingID)
+        {
+            var listScore = db.Scores.Where(s => s.TeachingID == teachingID)
+                .Select(s => new
+                {
+                    s.StudentID,
+                    s.Student.StudentName,
+                    s.Student.Email,
+                    s.Registration_Date,
+                    s.MidtermScore,
+                    s.ModifiedDateOfMidtermScore,
+                    s.EndPointScore,
+                    s.ModifiedDateOfEndPointScore
+                }).ToList();
+            return listScore;
+        }
+
         public void AddScore(int teachingId, string studentId, DateTime registerDate, Decimal midtermScore,
             DateTime midtermScoreDate, Decimal endPoint, DateTime endPointDate)
         {

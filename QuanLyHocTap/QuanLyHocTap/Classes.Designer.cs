@@ -103,6 +103,7 @@ namespace QuanLyHocTap
             this.dgvClass.Name = "dgvClass";
             this.dgvClass.RowHeadersWidth = 51;
             this.dgvClass.RowTemplate.Height = 24;
+            this.dgvClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClass.Size = new System.Drawing.Size(1100, 405);
             this.dgvClass.TabIndex = 0;
             this.dgvClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClass_CellClick);

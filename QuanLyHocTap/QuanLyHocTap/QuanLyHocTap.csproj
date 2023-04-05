@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FillInScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillInScore.Designer.cs">
+      <DependentUpon>FillInScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FillInScore.resx">
+      <DependentUpon>FillInScore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

@@ -104,6 +104,7 @@ namespace QuanLyHocTap
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.RowTemplate.Height = 24;
+            this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(1388, 321);
             this.dgvStudent.TabIndex = 0;
             this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
@@ -339,7 +340,7 @@ namespace QuanLyHocTap
             this.btnViewScore.Name = "btnViewScore";
             this.btnViewScore.Size = new System.Drawing.Size(134, 53);
             this.btnViewScore.TabIndex = 2;
-            this.btnViewScore.Text = "Xem điểm";
+            this.btnViewScore.Text = "Danh sách môn học";
             this.btnViewScore.UseVisualStyleBackColor = true;
             this.btnViewScore.Click += new System.EventHandler(this.btnViewScore_Click);
             // 

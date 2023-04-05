@@ -12,11 +12,16 @@ namespace QuanLyHocTap
 {
     public partial class Main : Form
     {
+
+        bool _authenticated = false;
+
+        public bool Authenticated { get => _authenticated; set => _authenticated = value; }
+
         public Main()
         {
             InitializeComponent();
         }
-
+           
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (keyData == Keys.Escape)
@@ -38,28 +43,28 @@ namespace QuanLyHocTap
             frmGiangVien.StartPosition = FormStartPosition.CenterScreen;
             frmGiangVien.Width = 1250;
             frmGiangVien.Height = 650;
-            frmGiangVien.Show();
+            frmGiangVien.ShowDialog();
         }
 
         private void qlmhTSMItem_Click(object sender, EventArgs e)
         {
             Subject fromMonHoc = new Subject();
             fromMonHoc.StartPosition = FormStartPosition.CenterScreen;
-            fromMonHoc.Show();  
+            fromMonHoc.ShowDialog();  
         }
 
         private void qllTSMItem_Click(object sender, EventArgs e)
         {
             Classes frmLop = new Classes();
             frmLop.StartPosition = FormStartPosition.CenterScreen;
-            frmLop.Show();  
+            frmLop.ShowDialog();  
         }
 
         private void qlsvTSMItem_Click(object sender, EventArgs e)
         {
             Student frmSinhVien = new Student();
             frmSinhVien.StartPosition = FormStartPosition.CenterScreen;
-            frmSinhVien.Show();
+            frmSinhVien.ShowDialog();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -71,6 +76,12 @@ namespace QuanLyHocTap
             lbTitle.Font = new Font(f, 65, FontStyle.Bold);
             menuTool.Font = new Font(f, 20);
             exitTMSItem.Font = new Font(f, 20);
+            if (!_authenticated)
+            {
+                Login frm = new Login();
+                this.Hide();
+                frm.ShowDialog();
+            }
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)

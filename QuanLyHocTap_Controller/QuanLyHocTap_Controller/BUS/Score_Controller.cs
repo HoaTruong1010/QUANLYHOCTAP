@@ -23,6 +23,11 @@ namespace QuanLyHocTap_Controller.BUS
             dataGrirdView.DataSource = score_DAO.LoadScores(selectedStudentId);
         }
 
+        public void GetScores(DataGridView dataGrirdView, int teachingID)
+        {
+            dataGrirdView.DataSource = score_DAO.LoadScores(teachingID);
+        }
+
         public int AddScore(int teachingId, string studentId, DateTime registerDate, Decimal midtermScore,
             DateTime midtermScoreDate, Decimal endPoint, DateTime endPointDate)
         {

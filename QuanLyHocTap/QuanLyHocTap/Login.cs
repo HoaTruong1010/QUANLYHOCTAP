@@ -15,6 +15,7 @@ namespace QuanLyHocTap
     {
         string _username = "admin";
         string _password = "Admin@123";
+        bool _authenticated = false;
         ConvertString convertString;
 
         public Login()
@@ -36,21 +37,27 @@ namespace QuanLyHocTap
         private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
-                if(CheckLogin(txtUsername.Text, txtPassword.Text))
+            {
+                _authenticated = CheckLogin(txtUsername.Text, txtPassword.Text);
+                if (_authenticated)
                 {
                     Main main = new Main();
+                    main.Authenticated = true;
                     main.Show();
                     this.Hide();
                 }
                 else
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }                
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (CheckLogin(txtUsername.Text, txtPassword.Text))
+            _authenticated = CheckLogin(txtUsername.Text, txtPassword.Text);
+            if (_authenticated)
             {
                 Main main = new Main();
+                main.Authenticated = true;
                 main.Show();
                 this.Hide();
             }
@@ -60,7 +67,15 @@ namespace QuanLyHocTap
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!_authenticated)
+            {
+                Application.Exit();
+            }
         }
     }
 }

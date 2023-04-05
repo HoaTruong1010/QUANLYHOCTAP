@@ -168,7 +168,7 @@ namespace QuanLyHocTap
             frmKQHT.SelectedStudentId = txtStudentID.Text;
             frmKQHT.StartPosition = FormStartPosition.CenterScreen;
             frmKQHT.Width = this.Width;
-            frmKQHT.Show();
+            frmKQHT.ShowDialog();
         }
 
         private void Student_Click(object sender, EventArgs e)

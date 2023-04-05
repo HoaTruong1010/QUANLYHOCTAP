@@ -30,7 +30,6 @@ namespace QuanLyHocTap
         private void InitializeComponent()
         {
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnSaveScore = new System.Windows.Forms.Button();
             this.btnCalcScholarship = new System.Windows.Forms.Button();
             this.btAddScore = new System.Windows.Forms.Button();
             this.btnDeleteScore = new System.Windows.Forms.Button();
@@ -83,21 +82,10 @@ namespace QuanLyHocTap
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnSaveScore
-            // 
-            this.btnSaveScore.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveScore.Location = new System.Drawing.Point(868, 728);
-            this.btnSaveScore.Name = "btnSaveScore";
-            this.btnSaveScore.Size = new System.Drawing.Size(88, 54);
-            this.btnSaveScore.TabIndex = 6;
-            this.btnSaveScore.Text = "Lưu";
-            this.btnSaveScore.UseVisualStyleBackColor = true;
-            this.btnSaveScore.Click += new System.EventHandler(this.btnSaveScore_Click);
-            // 
             // btnCalcScholarship
             // 
             this.btnCalcScholarship.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcScholarship.Location = new System.Drawing.Point(231, 728);
+            this.btnCalcScholarship.Location = new System.Drawing.Point(403, 728);
             this.btnCalcScholarship.Name = "btnCalcScholarship";
             this.btnCalcScholarship.Size = new System.Drawing.Size(176, 54);
             this.btnCalcScholarship.TabIndex = 7;
@@ -108,7 +96,7 @@ namespace QuanLyHocTap
             // btAddScore
             // 
             this.btAddScore.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddScore.Location = new System.Drawing.Point(511, 728);
+            this.btAddScore.Location = new System.Drawing.Point(683, 728);
             this.btAddScore.Name = "btAddScore";
             this.btAddScore.Size = new System.Drawing.Size(88, 54);
             this.btAddScore.TabIndex = 8;
@@ -119,7 +107,7 @@ namespace QuanLyHocTap
             // btnDeleteScore
             // 
             this.btnDeleteScore.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteScore.Location = new System.Drawing.Point(692, 728);
+            this.btnDeleteScore.Location = new System.Drawing.Point(869, 728);
             this.btnDeleteScore.Name = "btnDeleteScore";
             this.btnDeleteScore.Size = new System.Drawing.Size(88, 54);
             this.btnDeleteScore.TabIndex = 9;
@@ -163,6 +151,7 @@ namespace QuanLyHocTap
             this.dgvScore.Name = "dgvScore";
             this.dgvScore.RowHeadersWidth = 51;
             this.dgvScore.RowTemplate.Height = 24;
+            this.dgvScore.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvScore.Size = new System.Drawing.Size(1255, 582);
             this.dgvScore.TabIndex = 0;
             this.dgvScore.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvScore_CellClick);
@@ -191,6 +180,7 @@ namespace QuanLyHocTap
             // nbuEndPoint
             // 
             this.nbuEndPoint.DecimalPlaces = 1;
+            this.nbuEndPoint.Enabled = false;
             this.nbuEndPoint.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nbuEndPoint.Location = new System.Drawing.Point(247, 151);
             this.nbuEndPoint.Name = "nbuEndPoint";
@@ -200,6 +190,7 @@ namespace QuanLyHocTap
             // nbuMidScore
             // 
             this.nbuMidScore.DecimalPlaces = 1;
+            this.nbuMidScore.Enabled = false;
             this.nbuMidScore.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nbuMidScore.Location = new System.Drawing.Point(247, 50);
             this.nbuMidScore.Name = "nbuMidScore";
@@ -443,7 +434,6 @@ namespace QuanLyHocTap
             this.ClientSize = new System.Drawing.Size(1924, 836);
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnSaveScore);
             this.Controls.Add(this.gbList);
             this.Controls.Add(this.btnDeleteScore);
             this.Controls.Add(this.btnCalcScholarship);
@@ -470,7 +460,6 @@ namespace QuanLyHocTap
         #endregion
 
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnSaveScore;
         private System.Windows.Forms.Button btnCalcScholarship;
         private System.Windows.Forms.Button btAddScore;
         private System.Windows.Forms.Button btnDeleteScore;
@@ -493,7 +482,6 @@ namespace QuanLyHocTap
         private System.Windows.Forms.Label lbMidScore;
         private System.Windows.Forms.GroupBox gbSubject;
         private System.Windows.Forms.TextBox txtTeacherId;
-        private System.Windows.Forms.TextBox txtSubjectId;
         private System.Windows.Forms.Label lbTeacherName;
         private System.Windows.Forms.DateTimePicker dtpRegisterDate;
         private System.Windows.Forms.Label lbSubjectName;
@@ -501,7 +489,8 @@ namespace QuanLyHocTap
         private System.Windows.Forms.Label lbRegisterDate;
         private System.Windows.Forms.Label lbSubjectId;
         private System.Windows.Forms.GroupBox gbStudent;
-        private System.Windows.Forms.ComboBox cbbTeacher;
         private System.Windows.Forms.ComboBox cbbSubject;
+        private System.Windows.Forms.TextBox txtSubjectId;
+        private System.Windows.Forms.ComboBox cbbTeacher;
     }
 }

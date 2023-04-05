@@ -54,7 +54,7 @@ namespace QuanLyHocTap
             this.Close();
         }
 
-        private void dgvSubject_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSubject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvSubject.RowCount)
             {
@@ -80,6 +80,7 @@ namespace QuanLyHocTap
             {
                 MessageBox.Show("Thêm thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowSubjects();
+                Reset();
             }
             else
             {
@@ -95,6 +96,7 @@ namespace QuanLyHocTap
             {
                 MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowSubjects();
+                Reset();
             }
             else
             {
@@ -113,6 +115,7 @@ namespace QuanLyHocTap
             {
                 MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowSubjects();
+                Reset();
             }
             else
             {
