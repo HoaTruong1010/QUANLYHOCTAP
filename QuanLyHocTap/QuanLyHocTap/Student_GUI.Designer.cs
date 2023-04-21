@@ -1,7 +1,7 @@
 ﻿
 namespace QuanLyHocTap
 {
-    partial class Student
+    partial class Student_GUI
     {
         /// <summary>
         /// Required designer variable.

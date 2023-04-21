@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyHocTap_Data;
+using QuanLyHocTap_DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLyHocTap_Controller
 {
@@ -52,85 +55,48 @@ namespace QuanLyHocTap_Controller
             comboBox.ValueMember = "TeacherID";
         }
 
-        public int AddTeacher(string teacherId, string teacherName,
-            DateTime dateOfBirth, string cccd, string email, string phone, 
-            string address, string certificate)
+        public int AddTeacher(Teacher teacher)
         {
-            TimeSpan timeDifference = DateTime.Now - dateOfBirth;
-            double age = timeDifference.TotalDays / 365.2425;
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
-
-            if (teacherId == null || teacherId.Length < 8)
-                return 1;
-            if (teacherId.Length > 8)
-                return 2;
-            if (teacherName == null)
-                return 3;
-            if (teacherName.Length > 27)
-                return 4;
-            if (age < 18)
-                return 5;
-            if (cccd.Length != 9 && cccd.Length != 12)
-                return 6;
-            if (!regex.IsMatch(email))
-                return 7;
-            if (address == null)
-                return 8;
-            if (address.Length > 100)
-                return 9;
-            if (phone.Length != 9 && phone.Length != 10)
-                return 11;
-            if(teacher_Dao.FindTeacher(teacherId))
+            if (teacher_Dao.FindTeacher(teacher.TeacherID))
                 return 12;
-            try
-            {
-                teacher_Dao.AddTeacher(teacherId, teacherName, dateOfBirth, cccd, email, phone, address, certificate);
-                return 0;
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
-        }
 
-        public int EditTeacher(string teacherId, string teacherName,
-            DateTime dateOfBirth, string cccd, string email, string phone,
-            string address, string certificate)
-        {
-            TimeSpan timeDifference = DateTime.Now - dateOfBirth;
-            double age = timeDifference.TotalDays / 365.2425;
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
-
-            if (teacherName.Length > 27)
-                return 4;
-            if (age < 18)
-                return 5;
-            if (cccd.Length != 9 && cccd.Length != 12)
-                return 6;
-            if (!regex.IsMatch(email))
-                return 7;
-            if (address == null)
-                return 8;
-            if (address.Length > 100)
-                return 9;
-            if (phone.Length != 9 && phone.Length != 10)
-                return 11;
-
-            if (teacher_Dao.FindTeacher(teacherId))
+            int isValidTeacher = CheckData.IsValidTeacher(teacher);
+            
+            if(isValidTeacher == 0)
             {
                 try
                 {
-                    teacher_Dao.EditTeacher(teacherId, teacherName, dateOfBirth,
-                    cccd, email, phone, address, certificate);
-                    return 0;
+                    teacher_Dao.AddTeacher(teacher);
                 }
-                catch (DbUpdateException)
+                catch (Exception)
                 {
-                    return -2;
+                    return -1;
                 }
             }
-            else 
-                return -2;
+            return isValidTeacher;
+        }
+
+        public int EditTeacher(Teacher teacher)
+        {
+            int isValidTeacher = CheckData.IsValidTeacher(teacher);
+
+            if (isValidTeacher == 0)
+            {
+                if (teacher_Dao.FindTeacher(teacher.TeacherID))
+                {
+                    try
+                    {
+                        teacher_Dao.EditTeacher(teacher);
+                    }
+                    catch (DbUpdateException)
+                    {
+                        return -2;
+                    }
+                }
+                else
+                    return -2;
+            }
+            return isValidTeacher;
         }
 
         public bool DeleteTeacher(string teacherId)

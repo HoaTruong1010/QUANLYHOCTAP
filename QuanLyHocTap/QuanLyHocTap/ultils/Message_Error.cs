@@ -13,6 +13,7 @@ namespace QuanLyHocTap.ultils
         public Message_Error()
         {
             data = new Dictionary<int, string>();
+            data.Add(-3, "Thông tin giảng viên không hợp lệ!");
             data.Add(-2, "Cập nhật thất bại!");
             data.Add(-1, "Thêm thất bại!");
             data.Add(1, "Mã giảng viên chưa đủ 8 ký tự!");
@@ -25,7 +26,7 @@ namespace QuanLyHocTap.ultils
             data.Add(8, "Địa chỉ không được trống!");
             data.Add(9, "Địa chỉ không quá 100 ký tự!");
             data.Add(10, "Không tìm thấy nội dung phù hợp!");
-            data.Add(11, "Số điện thoại không đủ 9 hoặc 10 chữ số!");
+            data.Add(11, "Số điện thoại không đủ 10 chữ số!");
             data.Add(12, "Mã giảng viên đã tồn tại!");
 
             data.Add(13, "Mã môn học chưa đủ 6 ký tự!");
@@ -56,6 +57,8 @@ namespace QuanLyHocTap.ultils
             data.Add(34, "Điểm không được bé hơn 0.0!");
 
             data.Add(35, "Không có phổ điểm cho thời gian này!\nVui lòng chọn lại thời gian!");
+            data.Add(36, "Lưu ý: Khi xóa giảng viên này thì các thông tin liên quan đến giảng viên cũng sẽ bị xóa theo!\n\n" +
+                "Bạn có chắc chắn xóa?");
         }
 
         public string GetMessage(int key)

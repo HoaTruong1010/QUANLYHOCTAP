@@ -12,13 +12,13 @@ using QuanLyHocTap.ultils;
 
 namespace QuanLyHocTap
 {
-    public partial class Subject : Form
+    public partial class Subject_GUI : Form
     {
         private Subject_Controller subject_Controller;
         Message_Error message_Error;
         private ConvertString convertString;
 
-        public Subject()
+        public Subject_GUI()
         {
             InitializeComponent();
             subject_Controller = new Subject_Controller();

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyHocTap
 {
-    partial class FillInScore
+    partial class FillInScore_GUI
     {
         /// <summary>
         /// Required designer variable.

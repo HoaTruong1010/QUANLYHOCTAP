@@ -12,7 +12,7 @@ using QuanLyHocTap_Controller;
 
 namespace QuanLyHocTap
 {
-    public partial class FillInScore : Form
+    public partial class FillInScore_GUI : Form
     {
         private int selectedTeaching;
         private string selectedStudentID;
@@ -23,7 +23,7 @@ namespace QuanLyHocTap
 
         public int SelectedTeaching { get => selectedTeaching; set => selectedTeaching = value; }
 
-        public FillInScore()
+        public FillInScore_GUI()
         {
             InitializeComponent();
             teaching_Controller = new Teaching_Controller();

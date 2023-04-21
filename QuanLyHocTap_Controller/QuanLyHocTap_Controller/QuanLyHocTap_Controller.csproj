@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckData.cs" />
     <Compile Include="Class_Controller.cs" />
     <Compile Include="Score_Controller.cs" />
     <Compile Include="Student_Controller.cs" />

@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLyHocTap
 {
-    public partial class Student : Form
+    public partial class Student_GUI : Form
     {
         Student_Controller student_Controller;
         Class_Controller class_Controller;
@@ -24,7 +24,7 @@ namespace QuanLyHocTap
 
         private string classIDOld;
 
-        public Student()
+        public Student_GUI()
         {
             InitializeComponent();
             student_Controller = new Student_Controller();
@@ -164,7 +164,7 @@ namespace QuanLyHocTap
 
         private void btnViewScore_Click(object sender, EventArgs e)
         {
-            Score frmKQHT = new Score();
+            Score_GUI frmKQHT = new Score_GUI();
             frmKQHT.SelectedStudentId = txtStudentID.Text;
             frmKQHT.StartPosition = FormStartPosition.CenterScreen;
             frmKQHT.Width = this.Width;

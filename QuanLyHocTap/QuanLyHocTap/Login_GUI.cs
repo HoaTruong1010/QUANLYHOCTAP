@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace QuanLyHocTap
 {
-    public partial class Login : Form
+    public partial class Login_GUI : Form
     {
         string _username = "admin";
         string _password = "Admin@123";
         bool _authenticated = false;
         ConvertString convertString;
 
-        public Login()
+        public Login_GUI()
         {
             InitializeComponent();
             convertString = new ConvertString();

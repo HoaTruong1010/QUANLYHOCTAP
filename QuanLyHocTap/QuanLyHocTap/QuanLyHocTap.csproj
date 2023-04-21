@@ -58,17 +58,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FillInScore.cs">
+    <Compile Include="FillInScore_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FillInScore.Designer.cs">
-      <DependentUpon>FillInScore.cs</DependentUpon>
+    <Compile Include="FillInScore_GUI.Designer.cs">
+      <DependentUpon>FillInScore_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Login_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="Login_GUI.Designer.cs">
+      <DependentUpon>Login_GUI.cs</DependentUpon>
     </Compile>
     <Compile Include="RequireInputDate.cs">
       <SubType>Form</SubType>
@@ -82,29 +82,29 @@
     <Compile Include="Statictis.Designer.cs">
       <DependentUpon>Statictis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Teaching.cs">
+    <Compile Include="Teaching_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Teaching.Designer.cs">
-      <DependentUpon>Teaching.cs</DependentUpon>
+    <Compile Include="Teaching_GUI.Designer.cs">
+      <DependentUpon>Teaching_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Teacher.cs">
+    <Compile Include="Teacher_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Teacher.Designer.cs">
-      <DependentUpon>Teacher.cs</DependentUpon>
+    <Compile Include="Teacher_GUI.Designer.cs">
+      <DependentUpon>Teacher_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Score.cs">
+    <Compile Include="Score_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Score.Designer.cs">
-      <DependentUpon>Score.cs</DependentUpon>
+    <Compile Include="Score_GUI.Designer.cs">
+      <DependentUpon>Score_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes.cs">
+    <Compile Include="Classes_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Classes.Designer.cs">
-      <DependentUpon>Classes.cs</DependentUpon>
+    <Compile Include="Classes_GUI.Designer.cs">
+      <DependentUpon>Classes_GUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -114,25 +114,25 @@
     </Compile>
     <Compile Include="ultils\ConvertString.cs" />
     <Compile Include="ultils\Message_Error.cs" />
-    <Compile Include="Subject.cs">
+    <Compile Include="Subject_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Subject.Designer.cs">
-      <DependentUpon>Subject.cs</DependentUpon>
+    <Compile Include="Subject_GUI.Designer.cs">
+      <DependentUpon>Subject_GUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs">
+    <Compile Include="Student_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student.Designer.cs">
-      <DependentUpon>Student.cs</DependentUpon>
+    <Compile Include="Student_GUI.Designer.cs">
+      <DependentUpon>Student_GUI.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FillInScore.resx">
-      <DependentUpon>FillInScore.cs</DependentUpon>
+    <EmbeddedResource Include="FillInScore_GUI.resx">
+      <DependentUpon>FillInScore_GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Login_GUI.resx">
+      <DependentUpon>Login_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RequireInputDate.resx">
       <DependentUpon>RequireInputDate.cs</DependentUpon>
@@ -140,23 +140,23 @@
     <EmbeddedResource Include="Statictis.resx">
       <DependentUpon>Statictis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Teaching.resx">
-      <DependentUpon>Teaching.cs</DependentUpon>
+    <EmbeddedResource Include="Teaching_GUI.resx">
+      <DependentUpon>Teaching_GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Teacher.resx">
-      <DependentUpon>Teacher.cs</DependentUpon>
+    <EmbeddedResource Include="Teacher_GUI.resx">
+      <DependentUpon>Teacher_GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Score.resx">
-      <DependentUpon>Score.cs</DependentUpon>
+    <EmbeddedResource Include="Score_GUI.resx">
+      <DependentUpon>Score_GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes.resx">
-      <DependentUpon>Classes.cs</DependentUpon>
+    <EmbeddedResource Include="Classes_GUI.resx">
+      <DependentUpon>Classes_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Subject.resx">
-      <DependentUpon>Subject.cs</DependentUpon>
+    <EmbeddedResource Include="Subject_GUI.resx">
+      <DependentUpon>Subject_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,8 +167,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Student.resx">
-      <DependentUpon>Student.cs</DependentUpon>
+    <EmbeddedResource Include="Student_GUI.resx">
+      <DependentUpon>Student_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

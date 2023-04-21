@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace QuanLyHocTap
 {
-    public partial class Teaching : Form
+    public partial class Teaching_GUI : Form
     {
         Teaching_Controller teachingController;
         Teacher_Controller teacherController;
@@ -25,7 +25,7 @@ namespace QuanLyHocTap
 
         public string TeacherSelectedId { get => teacherSelectedId; set => teacherSelectedId = value; }
 
-        public Teaching()
+        public Teaching_GUI()
         {
             InitializeComponent();
             teachingController = new Teaching_Controller();
@@ -147,7 +147,7 @@ namespace QuanLyHocTap
 
         private void btnScore_Click(object sender, EventArgs e)
         {
-            FillInScore frm = new FillInScore();
+            FillInScore_GUI frm = new FillInScore_GUI();
             frm.SelectedTeaching = teachingID;
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Size = new Size(1500, 700);

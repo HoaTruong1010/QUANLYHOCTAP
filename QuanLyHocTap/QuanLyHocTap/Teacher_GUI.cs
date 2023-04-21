@@ -13,34 +13,22 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Net;
 using QuanLyHocTap.ultils;
 using System.Text.RegularExpressions;
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap
 {
-    public partial class Teacher : Form
+    public partial class Teacher_GUI : Form
     {
         Teacher_Controller teacher_controller;
         Message_Error message_Error;
         ConvertString convertString;
 
-        public Teacher()
+        public Teacher_GUI()
         {
             InitializeComponent();
             teacher_controller = new Teacher_Controller();
             message_Error = new Message_Error();
             convertString = new ConvertString();
-        }
-
-        private void Reset()
-        {
-            txtTeacherID.Enabled = true;
-            btAddTeacher.Enabled = true;
-            btnDeleteTeacher.Enabled = false;
-            btnSaveTeacher.Enabled = false;
-            btnTeaching.Enabled = false;
-            txtTeacherID.Text = txtTeacherName.Text = txtTeacherCCCD.Text = txtSearchTeacher.Text = "";
-            txtTeacherEmail.Text = txtTeacherPN.Text = txtTeacherAddress.Text = "";
-            cbbCertificate.SelectedIndex = 0;
-            dtpTeacherDOB.Value = DateTime.Now;
         }
 
         private void ShowTeachers()
@@ -57,15 +45,28 @@ namespace QuanLyHocTap
             dgvTeacher.Columns[7].Width = (int)(dgvTeacher.Width * 0.14);
         }
 
+        private void Reset()
+        {
+            txtTeacherID.Enabled = true;
+            btAddTeacher.Enabled = true;
+            btnDeleteTeacher.Enabled = false;
+            btnSaveTeacher.Enabled = false;
+            btnTeaching.Enabled = false;
+            txtTeacherID.Text = txtTeacherName.Text = txtTeacherCCCD.Text = txtSearchTeacher.Text = "";
+            txtTeacherEmail.Text = txtTeacherPN.Text = txtTeacherAddress.Text = "";
+            cbbCertificate.SelectedIndex = 0;
+            dtpTeacherDOB.Value = DateTime.Now;
+        }
+
         private void GiangVien_Load(object sender, EventArgs e)
         {
             ShowTeachers();
             Reset();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void GiangVien_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Reset();
         }
 
         private void dgvTeacher_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -93,9 +94,22 @@ namespace QuanLyHocTap
             }
         }
 
+        private void btnSearchTeacher_Click(object sender, EventArgs e)
+        {
+            string kw = convertString.DeleteSpacing(txtSearchTeacher.Text);
+            int result = teacher_controller.SearchTeacher(dgvTeacher, kw);
+
+            if (result != 0)
+            {
+                MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowTeachers();
+                Reset();
+            }
+        }
+
         private void btnTeaching_Click(object sender, EventArgs e)
         {
-            Teaching frmGiangDay = new Teaching();
+            Teaching_GUI frmGiangDay = new Teaching_GUI();
             frmGiangDay.TeacherSelectedId = txtTeacherID.Text;
             frmGiangDay.StartPosition = FormStartPosition.CenterScreen;
             frmGiangDay.Show();
@@ -111,7 +125,18 @@ namespace QuanLyHocTap
             string phone = convertString.DeleteSpacing(txtTeacherPN.Text);
             string address = convertString.DeleteSpacing(txtTeacherAddress.Text);
             string certificate = cbbCertificate.SelectedItem.ToString();
-            int msgKey = teacher_controller.AddTeacher(teacherId, teacherName, dateOfBirth, id, email, phone, address, certificate);
+
+            Teacher teacher = new Teacher();
+            teacher.TeacherID = teacherId;
+            teacher.TeacherName = teacherName;
+            teacher.DayOfBirth = dateOfBirth;
+            teacher.ID = id;
+            teacher.Email = email;
+            teacher.Phone = phone;
+            teacher.TeacherAddress = address;
+            teacher.TeacherCertificate = certificate;
+            
+            int msgKey = teacher_controller.AddTeacher(teacher);
 
             if (msgKey == 0) 
             {
@@ -135,7 +160,18 @@ namespace QuanLyHocTap
             string phone = convertString.DeleteSpacing(txtTeacherPN.Text);
             string address = convertString.DeleteSpacing(txtTeacherAddress.Text);
             string certificate = cbbCertificate.SelectedItem.ToString();
-            int msgKey = teacher_controller.EditTeacher(teacherId, teacherName, dateOfBirth, id, email, phone, address, certificate);
+
+            Teacher teacher = new Teacher();
+            teacher.TeacherID = teacherId;
+            teacher.TeacherName = teacherName;
+            teacher.DayOfBirth = dateOfBirth;
+            teacher.ID = id;
+            teacher.Email = email;
+            teacher.Phone = phone;
+            teacher.TeacherAddress = address;
+            teacher.TeacherCertificate = certificate;
+
+            int msgKey = teacher_controller.EditTeacher(teacher);
 
             if (msgKey == 0)
             {
@@ -151,105 +187,42 @@ namespace QuanLyHocTap
 
         private void btnDeleteTeacher_Click(object sender, EventArgs e)
         {
-            string teacherId = txtTeacherID.Text;
+            if(MessageBox.Show(message_Error.GetMessage(36), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
+                == DialogResult.Yes)
+            {
+                string teacherId = txtTeacherID.Text;
 
-            if (teacher_controller.DeleteTeacher(teacherId))
-            {
-                MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ShowTeachers();
-                Reset();
-            }
-            else
-            {
-                MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void GiangVien_Click(object sender, EventArgs e)
-        {
-            Reset();
-        }
-
-        private void txtTeacherName_Click(object sender, EventArgs e)
-        {
-            if(txtTeacherID.Text.Length == 0 || txtTeacherID.Text.Length < 8)
-            {
-                MessageBox.Show(message_Error.GetMessage(1), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherID.Focus();
-            }
-            if(txtTeacherID.Text.Length > 8)
-            {
-                MessageBox.Show(message_Error.GetMessage(2), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherID.Focus();
+                if (teacher_controller.DeleteTeacher(teacherId))
+                {
+                    MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowTeachers();
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        private void dtpTeacherDOB_DropDown(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            if (txtTeacherName.Text.Length == 0)
+            this.Close();
+        }
+
+        private void txtTeacherID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                MessageBox.Show(message_Error.GetMessage(3), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherName.Focus();
-            }
-            if (txtTeacherName.Text.Length > 27)
-            {
-                MessageBox.Show(message_Error.GetMessage(4), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherName.Focus();
+                e.Handled = true;
             }
         }
 
-        private void txtTeacherCCCD_Click(object sender, EventArgs e)
+        private void txtTeacherName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TimeSpan timeDifference = DateTime.Now - dtpTeacherDOB.Value;
-            double age = timeDifference.TotalDays / 365.2425;
-
-            if (age < 18)
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
             {
-                MessageBox.Show(message_Error.GetMessage(5), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dtpTeacherDOB.Focus();
-            }
-        }
-
-        private void txtTeacherEmail_Click(object sender, EventArgs e)
-        {
-            if (txtTeacherCCCD.Text.Length != 9 && txtTeacherCCCD.Text.Length != 12)
-            {
-                MessageBox.Show(message_Error.GetMessage(6), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherCCCD.Focus();
-            }
-        }
-
-        private void txtTeacherPN_Click(object sender, EventArgs e)
-        {
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
-
-            if (!regex.IsMatch(txtTeacherEmail.Text))
-            {
-                MessageBox.Show(message_Error.GetMessage(7), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherEmail.Focus();
-            }
-        }
-
-        private void txtTeacherAddress_Click(object sender, EventArgs e)
-        {
-            if(txtTeacherPN.Text.Length != 9 && txtTeacherPN.Text.Length != 10)
-            {
-                MessageBox.Show(message_Error.GetMessage(11), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherPN.Focus();
-            }
-        }
-
-        private void cbbCertificate_Click(object sender, EventArgs e)
-        {
-            if(txtTeacherAddress.Text.Length == 0)
-            {
-                MessageBox.Show(message_Error.GetMessage(8), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherAddress.Focus();
-            }
-            if (txtTeacherAddress.Text.Length > 100)
-            {
-                MessageBox.Show(message_Error.GetMessage(9), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeacherAddress.Focus();
+                e.Handled = true;
             }
         }
 
@@ -257,19 +230,6 @@ namespace QuanLyHocTap
         {
             if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
-        }
-
-        private void btnSearchTeacher_Click(object sender, EventArgs e)
-        {
-            string kw = convertString.DeleteSpacing(txtSearchTeacher.Text);
-            int result = teacher_controller.SearchTeacher(dgvTeacher, kw);
-
-            if (result != 0)
-            {
-                MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ShowTeachers();
-                Reset();
-            }
         }
     }
 }

@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace QuanLyHocTap
 {
-    public partial class Score : Form
+    public partial class Score_GUI : Form
     {
         Teacher_Controller teacher_Controller;
         Score_Controller score_Controller;
@@ -30,7 +30,7 @@ namespace QuanLyHocTap
 
         public string SelectedStudentId { get => selectedStudentId; set => selectedStudentId = value; }
 
-        public Score()
+        public Score_GUI()
         {
             InitializeComponent();
             score_Controller = new Score_Controller();

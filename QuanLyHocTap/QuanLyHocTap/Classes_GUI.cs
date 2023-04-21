@@ -14,14 +14,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLyHocTap
 {
-    public partial class Classes : Form
+    public partial class Classes_GUI : Form
     {
         Class_Controller class_Controller; 
         Message_Error message_Error;
         Teacher_Controller teacher_Controller;
         ConvertString convertString;
 
-        public Classes()
+        public Classes_GUI()
         {
             InitializeComponent();
             class_Controller = new Class_Controller();

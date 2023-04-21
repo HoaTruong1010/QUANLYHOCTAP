@@ -1,7 +1,7 @@
 ﻿
 namespace QuanLyHocTap
 {
-    partial class Teacher
+    partial class Teacher_GUI
     {
         /// <summary>
         /// Required designer variable.
@@ -66,7 +66,7 @@ namespace QuanLyHocTap
             this.btnSaveTeacher.Location = new System.Drawing.Point(1490, 596);
             this.btnSaveTeacher.Name = "btnSaveTeacher";
             this.btnSaveTeacher.Size = new System.Drawing.Size(91, 50);
-            this.btnSaveTeacher.TabIndex = 5;
+            this.btnSaveTeacher.TabIndex = 11;
             this.btnSaveTeacher.Text = "Lưu";
             this.btnSaveTeacher.UseVisualStyleBackColor = true;
             this.btnSaveTeacher.Click += new System.EventHandler(this.btnSaveTeacher_Click);
@@ -77,7 +77,7 @@ namespace QuanLyHocTap
             this.btnDeleteTeacher.Location = new System.Drawing.Point(1385, 596);
             this.btnDeleteTeacher.Name = "btnDeleteTeacher";
             this.btnDeleteTeacher.Size = new System.Drawing.Size(89, 50);
-            this.btnDeleteTeacher.TabIndex = 7;
+            this.btnDeleteTeacher.TabIndex = 12;
             this.btnDeleteTeacher.Text = "Xóa";
             this.btnDeleteTeacher.UseVisualStyleBackColor = true;
             this.btnDeleteTeacher.Click += new System.EventHandler(this.btnDeleteTeacher_Click);
@@ -88,16 +88,14 @@ namespace QuanLyHocTap
             this.dtpTeacherDOB.Location = new System.Drawing.Point(279, 134);
             this.dtpTeacherDOB.Name = "dtpTeacherDOB";
             this.dtpTeacherDOB.Size = new System.Drawing.Size(360, 27);
-            this.dtpTeacherDOB.TabIndex = 2;
-            this.dtpTeacherDOB.DropDown += new System.EventHandler(this.dtpTeacherDOB_DropDown);
+            this.dtpTeacherDOB.TabIndex = 5;
             // 
             // txtTeacherCCCD
             // 
             this.txtTeacherCCCD.Location = new System.Drawing.Point(279, 179);
             this.txtTeacherCCCD.Name = "txtTeacherCCCD";
             this.txtTeacherCCCD.Size = new System.Drawing.Size(360, 27);
-            this.txtTeacherCCCD.TabIndex = 1;
-            this.txtTeacherCCCD.Click += new System.EventHandler(this.txtTeacherCCCD_Click);
+            this.txtTeacherCCCD.TabIndex = 6;
             this.txtTeacherCCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeacherCCCD_KeyPress);
             // 
             // txtTeacherName
@@ -105,16 +103,15 @@ namespace QuanLyHocTap
             this.txtTeacherName.Location = new System.Drawing.Point(279, 90);
             this.txtTeacherName.Name = "txtTeacherName";
             this.txtTeacherName.Size = new System.Drawing.Size(360, 27);
-            this.txtTeacherName.TabIndex = 1;
-            this.txtTeacherName.Click += new System.EventHandler(this.txtTeacherName_Click);
+            this.txtTeacherName.TabIndex = 4;
+            this.txtTeacherName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeacherName_KeyPress);
             // 
             // txtTeacherPN
             // 
             this.txtTeacherPN.Location = new System.Drawing.Point(881, 86);
             this.txtTeacherPN.Name = "txtTeacherPN";
             this.txtTeacherPN.Size = new System.Drawing.Size(368, 27);
-            this.txtTeacherPN.TabIndex = 1;
-            this.txtTeacherPN.Click += new System.EventHandler(this.txtTeacherPN_Click);
+            this.txtTeacherPN.TabIndex = 8;
             this.txtTeacherPN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeacherCCCD_KeyPress);
             // 
             // txtTeacherEmail
@@ -122,8 +119,7 @@ namespace QuanLyHocTap
             this.txtTeacherEmail.Location = new System.Drawing.Point(881, 44);
             this.txtTeacherEmail.Name = "txtTeacherEmail";
             this.txtTeacherEmail.Size = new System.Drawing.Size(368, 27);
-            this.txtTeacherEmail.TabIndex = 1;
-            this.txtTeacherEmail.Click += new System.EventHandler(this.txtTeacherEmail_Click);
+            this.txtTeacherEmail.TabIndex = 7;
             // 
             // txtSearchTeacher
             // 
@@ -144,7 +140,7 @@ namespace QuanLyHocTap
             this.dgvTeacher.RowTemplate.Height = 24;
             this.dgvTeacher.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTeacher.Size = new System.Drawing.Size(1539, 374);
-            this.dgvTeacher.TabIndex = 0;
+            this.dgvTeacher.TabIndex = 15;
             this.dgvTeacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeacher_CellClick);
             // 
             // txtTeacherID
@@ -152,7 +148,8 @@ namespace QuanLyHocTap
             this.txtTeacherID.Location = new System.Drawing.Point(279, 44);
             this.txtTeacherID.Name = "txtTeacherID";
             this.txtTeacherID.Size = new System.Drawing.Size(360, 27);
-            this.txtTeacherID.TabIndex = 1;
+            this.txtTeacherID.TabIndex = 3;
+            this.txtTeacherID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeacherID_KeyPress);
             // 
             // lbPN
             // 
@@ -247,16 +244,14 @@ namespace QuanLyHocTap
             this.cbbCertificate.Location = new System.Drawing.Point(881, 178);
             this.cbbCertificate.Name = "cbbCertificate";
             this.cbbCertificate.Size = new System.Drawing.Size(368, 28);
-            this.cbbCertificate.TabIndex = 3;
-            this.cbbCertificate.Click += new System.EventHandler(this.cbbCertificate_Click);
+            this.cbbCertificate.TabIndex = 10;
             // 
             // txtTeacherAddress
             // 
             this.txtTeacherAddress.Location = new System.Drawing.Point(881, 125);
             this.txtTeacherAddress.Name = "txtTeacherAddress";
             this.txtTeacherAddress.Size = new System.Drawing.Size(368, 27);
-            this.txtTeacherAddress.TabIndex = 1;
-            this.txtTeacherAddress.Click += new System.EventHandler(this.txtTeacherAddress_Click);
+            this.txtTeacherAddress.TabIndex = 9;
             // 
             // lbAddress
             // 
@@ -307,7 +302,7 @@ namespace QuanLyHocTap
             this.btAddTeacher.Location = new System.Drawing.Point(1385, 680);
             this.btAddTeacher.Name = "btAddTeacher";
             this.btAddTeacher.Size = new System.Drawing.Size(89, 50);
-            this.btAddTeacher.TabIndex = 7;
+            this.btAddTeacher.TabIndex = 11;
             this.btAddTeacher.Text = "Thêm";
             this.btAddTeacher.UseVisualStyleBackColor = true;
             this.btAddTeacher.Click += new System.EventHandler(this.btAddTeacher_Click);
@@ -318,7 +313,7 @@ namespace QuanLyHocTap
             this.btnExit.Location = new System.Drawing.Point(1490, 680);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 50);
-            this.btnExit.TabIndex = 5;
+            this.btnExit.TabIndex = 14;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -330,12 +325,12 @@ namespace QuanLyHocTap
             this.btnTeaching.Location = new System.Drawing.Point(1385, 506);
             this.btnTeaching.Name = "btnTeaching";
             this.btnTeaching.Size = new System.Drawing.Size(196, 50);
-            this.btnTeaching.TabIndex = 7;
+            this.btnTeaching.TabIndex = 13;
             this.btnTeaching.Text = "Xem lịch dạy";
             this.btnTeaching.UseVisualStyleBackColor = true;
             this.btnTeaching.Click += new System.EventHandler(this.btnTeaching_Click);
             // 
-            // Teacher
+            // Teacher_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -348,7 +343,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.btnDeleteTeacher);
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
-            this.Name = "Teacher";
+            this.Name = "Teacher_GUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Giảng viên";
             this.Load += new System.EventHandler(this.GiangVien_Load);

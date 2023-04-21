@@ -39,7 +39,7 @@ namespace QuanLyHocTap
 
         private void qlgvTSMItem_Click(object sender, EventArgs e)
         {
-            Teacher frmGiangVien = new Teacher();
+            Teacher_GUI frmGiangVien = new Teacher_GUI();
             frmGiangVien.StartPosition = FormStartPosition.CenterScreen;
             frmGiangVien.Width = 1250;
             frmGiangVien.Height = 650;
@@ -48,21 +48,21 @@ namespace QuanLyHocTap
 
         private void qlmhTSMItem_Click(object sender, EventArgs e)
         {
-            Subject fromMonHoc = new Subject();
+            Subject_GUI fromMonHoc = new Subject_GUI();
             fromMonHoc.StartPosition = FormStartPosition.CenterScreen;
             fromMonHoc.ShowDialog();  
         }
 
         private void qllTSMItem_Click(object sender, EventArgs e)
         {
-            Classes frmLop = new Classes();
+            Classes_GUI frmLop = new Classes_GUI();
             frmLop.StartPosition = FormStartPosition.CenterScreen;
             frmLop.ShowDialog();  
         }
 
         private void qlsvTSMItem_Click(object sender, EventArgs e)
         {
-            Student frmSinhVien = new Student();
+            Student_GUI frmSinhVien = new Student_GUI();
             frmSinhVien.StartPosition = FormStartPosition.CenterScreen;
             frmSinhVien.ShowDialog();
         }
@@ -78,7 +78,7 @@ namespace QuanLyHocTap
             exitTMSItem.Font = new Font(f, 20);
             if (!_authenticated)
             {
-                Login frm = new Login();
+                Login_GUI frm = new Login_GUI();
                 this.Hide();
                 frm.ShowDialog();
             }

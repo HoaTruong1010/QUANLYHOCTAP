@@ -69,20 +69,8 @@ namespace QuanLyHocTap_Data
             return listTeacher;
         }
 
-        public void AddTeacher(string teacherId, string teacherName,
-            DateTime dateOfBirth, string cccd, string email, string phone,
-            string address, string certificate)
-        {
-            Teacher teacher = new Teacher();
-            teacher.TeacherID = teacherId;
-            teacher.TeacherName = teacherName;
-            teacher.DayOfBirth = dateOfBirth;
-            teacher.ID = cccd;
-            teacher.Email = email;
-            teacher.Phone = phone;
-            teacher.TeacherAddress = address;
-            teacher.TeacherCertificate = certificate;
-
+        public void AddTeacher(Teacher teacher)
+        {            
             db.Teachers.Add(teacher);
             db.SaveChanges();
         }
@@ -96,19 +84,17 @@ namespace QuanLyHocTap_Data
                 return false;
         }
 
-        public void EditTeacher(string teacherId, string teacherName,
-            DateTime dateOfBirth, string cccd, string email, string phone,
-            string address, string certificate)
+        public void EditTeacher(Teacher teacher)
         {
-            Teacher teacher = db.Teachers.Find(teacherId);
-            teacher.TeacherID = teacherId;
-            teacher.TeacherName = teacherName;
-            teacher.DayOfBirth = dateOfBirth;
-            teacher.ID = cccd;
-            teacher.Email = email;
-            teacher.Phone = phone;
-            teacher.TeacherAddress = address;
-            teacher.TeacherCertificate = certificate;
+            Teacher selectedTeacher = db.Teachers.Find(teacher.TeacherID);
+            selectedTeacher.TeacherID = teacher.TeacherID;
+            selectedTeacher.TeacherName = teacher.TeacherName;
+            selectedTeacher.DayOfBirth = teacher.DayOfBirth;
+            selectedTeacher.ID = teacher.ID;
+            selectedTeacher.Email = teacher.Email;
+            selectedTeacher.Phone = teacher.Phone;
+            selectedTeacher.TeacherAddress = teacher.TeacherAddress;
+            selectedTeacher.TeacherCertificate = teacher.TeacherCertificate;
 
             db.SaveChanges();
         }
