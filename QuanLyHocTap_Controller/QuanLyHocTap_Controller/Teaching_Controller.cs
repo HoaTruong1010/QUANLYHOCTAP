@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyHocTap_Data;
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap_Controller
 {
@@ -95,15 +96,14 @@ namespace QuanLyHocTap_Controller
             return 10;
         }
 
-        public int AddTeaching(string teacherID,
-            string subjectID, DateTime registerDate)
+        public int AddTeaching(Teaching teaching)
         {
-            Dictionary<int, DateTime> teaching = teaching_Dao.FindTeaching(subjectID, teacherID);
-            if (teaching.Count > 0)
+            Dictionary<int, DateTime> selectedTeaching = teaching_Dao.FindTeaching(teaching.SubjectID, teaching.TeacherID);
+            if (selectedTeaching.Count > 0)
             {
                 DateTime oldRegisterDate = DateTime.Now;
 
-                foreach (KeyValuePair<int, DateTime> item in teaching)
+                foreach (KeyValuePair<int, DateTime> item in selectedTeaching)
                     oldRegisterDate = item.Value;
 
                 TimeSpan timeDifference = DateTime.Now - oldRegisterDate;
@@ -114,7 +114,7 @@ namespace QuanLyHocTap_Controller
 
             try
             {
-                teaching_Dao.AddTeaching(teacherID, subjectID, registerDate);
+                teaching_Dao.AddTeaching(teaching);
                 return 0;
             }
             catch (Exception)

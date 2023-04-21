@@ -51,18 +51,8 @@ namespace QuanLyHocTap_Data
             return listScore;
         }
 
-        public void AddScore(int teachingId, string studentId, DateTime registerDate, Decimal midtermScore,
-            DateTime midtermScoreDate, Decimal endPoint, DateTime endPointDate)
+        public void AddScore(Score score)
         {
-            Score score = new Score();
-            score.TeachingID = teachingId;
-            score.StudentID = studentId;
-            score.Registration_Date = registerDate;
-            score.MidtermScore = midtermScore;
-            score.ModifiedDateOfMidtermScore = midtermScoreDate;
-            score.EndPointScore = endPoint;
-            score.ModifiedDateOfEndPointScore = endPointDate;
-
             db.Scores.Add(score);
             db.SaveChanges();
         }
@@ -74,20 +64,19 @@ namespace QuanLyHocTap_Data
             return scores;
         }
 
-        public void EditScore(int teachingId, string studentId, DateTime registerDate, Decimal midtermScore,
-            DateTime midtermScoreDate, Decimal endPoint, DateTime endPointDate)
+        public void EditScore(Score score)
         {
-            List<Score> scores = FindScore(teachingId, studentId, registerDate);
+            List<Score> scores = FindScore(score.TeachingID, score.StudentID, score.Registration_Date);
             //Score score = db.Scores.Find(teachingId, studentId, registerDate);
-            foreach(Score score in scores)
+            foreach(Score sc in scores)
             {
-                score.TeachingID = teachingId;
-                score.StudentID = studentId;
-                score.Registration_Date = registerDate;
-                score.MidtermScore = midtermScore;
-                score.ModifiedDateOfMidtermScore = midtermScoreDate;
-                score.EndPointScore = endPoint;
-                score.ModifiedDateOfEndPointScore = endPointDate;
+                sc.TeachingID = score.TeachingID;
+                sc.StudentID = score.StudentID;
+                sc.Registration_Date = score.Registration_Date;
+                sc.MidtermScore = score.MidtermScore;
+                sc.ModifiedDateOfMidtermScore = score.ModifiedDateOfMidtermScore;
+                sc.EndPointScore = score.EndPointScore;
+                sc.ModifiedDateOfEndPointScore = score.ModifiedDateOfEndPointScore;
             }
 
             db.SaveChanges();

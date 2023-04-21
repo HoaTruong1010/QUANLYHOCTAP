@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap
 {
@@ -60,7 +61,7 @@ namespace QuanLyHocTap
         {
             teacherController.GetTeacher(txtTeacherID, txtTeacherName, TeacherSelectedId);
             ShowTeaching(txtTeacherID.Text);
-            subjectController.GetCBBSubjects(cbSubject);
+            subjectController.GetCBBSubjects(cbSubject, teacherSelectedId);
             txtSubjectID.Text = cbSubject.SelectedValue.ToString();
             Reset();
         }
@@ -72,25 +73,37 @@ namespace QuanLyHocTap
 
         private void btnDeleteTeaching_Click(object sender, EventArgs e)
         {
-            if (teachingID != 0)
+            if (MessageBox.Show(message_Error.GetMessage(38), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                == DialogResult.Yes)
             {
-                if (teachingController.DeleteTeaching(teachingID))
+                if (teachingID != 0)
                 {
-                    MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ShowTeaching(txtTeacherID.Text);
-                    Reset();
+                    if (teachingController.DeleteTeaching(teachingID))
+                    {
+                        MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ShowTeaching(txtTeacherID.Text);
+                        Reset();
+                    }
+                    else
+                        MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng chọn dòng để xóa!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                MessageBox.Show("Vui lòng chọn dòng để xóa!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btAddTeaching_Click(object sender, EventArgs e)
         {
             string subjectID = cbSubject.SelectedValue.ToString();
-            int result = teachingController.AddTeaching(teacherSelectedId, subjectID, DateTime.Now);
+
+            Teaching teaching = new Teaching
+            {
+                TeacherID = teacherSelectedId,
+                SubjectID = subjectID,
+                RegisterDate = DateTime.Now                
+            };
+
+            int result = teachingController.AddTeaching(teaching);
 
             if (result == 0)
             {

@@ -69,20 +69,9 @@ namespace QuanLyHocTap_Data
             return listStudent;
         }
 
-        public void AddStudent(string studentId, string studentName,
-            DateTime dateOfBirth, string cccd, string email, string phone,
-            string address, string classId)
+        public void AddStudent(Student student)
         {
-            Student student = new Student();
-            Class cl = db.Classes.Find(classId);
-            student.StudentID = studentId;
-            student.StudentName = studentName;
-            student.DayOfBirth = dateOfBirth;
-            student.ID = cccd;
-            student.Email = email;
-            student.Phone = phone;
-            student.StudentAddress = address;
-            student.ClassID = classId;
+            Class cl = db.Classes.Find(student.ClassID);
             cl.TotalStudent += 1;
 
             db.Students.Add(student);
@@ -98,33 +87,31 @@ namespace QuanLyHocTap_Data
                 return false;
         }
 
-        public void EditStudent(string studentId, string studentName,
-            DateTime dateOfBirth, string cccd, string email, string phone,
-            string address, string classIdNew, string classIdOld)
+        public void EditStudent(Student student, string classIdOld)
         {
-            Student student = db.Students.Find(studentId);
+            Student selectedStudent = db.Students.Find(student.StudentID);
             Class classOld = db.Classes.Find(classIdOld);
-            Class classNew = db.Classes.Find(classIdNew);
+            Class classNew = db.Classes.Find(student.ClassID);
 
-            student.StudentID = studentId;
-            student.StudentName = studentName;
-            student.DayOfBirth = dateOfBirth;
-            student.ID = cccd;
-            student.Email = email;
-            student.Phone = phone;
-            student.StudentAddress = address;
+            selectedStudent.StudentID = student.StudentID;
+            selectedStudent.StudentName = student.StudentName;
+            selectedStudent.DayOfBirth = student.DayOfBirth;
+            selectedStudent.ID = student.ID;
+            selectedStudent.Email = student.Email;
+            selectedStudent.Phone = student.Phone;
+            selectedStudent.StudentAddress = student.StudentAddress;
 
-            if (classIdOld != string.Empty && classIdOld != classIdNew)
+            if (classIdOld != string.Empty && classIdOld != student.ClassID)
             {
                 classOld.TotalStudent -= 1;
                 classNew.TotalStudent += 1;
-                student.ClassID = classIdNew;
+                selectedStudent.ClassID = student.ClassID;
             }
             else
             {
                 if (classIdOld == string.Empty)
                 {
-                    student.ClassID = classIdNew;
+                    selectedStudent.ClassID = student.ClassID;
                     classNew.TotalStudent += 1;
                 }
             }

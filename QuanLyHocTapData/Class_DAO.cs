@@ -38,16 +38,9 @@ namespace QuanLyHocTap_Data
             }).ToList();
             return listClass;
         }
-        public void AddClass(string classId, string className,
-            int total, string teacherId)
+        public void AddClass(Class _class)
         {
-            Class cl = new Class();
-            cl.ClassID = classId;
-            cl.ClassName = className;
-            cl.TotalStudent = total;
-            cl.TeacherID = teacherId;
-
-            db.Classes.Add(cl);
+            db.Classes.Add(_class);
             db.SaveChanges();
         }
 
@@ -96,14 +89,12 @@ namespace QuanLyHocTap_Data
                 return false;
         }
 
-        public void EditClass(string classId, string className,
-            int total, string teacherId)
+        public void EditClass(Class _class)
         {
-            Class cl = db.Classes.Find(classId);
-            cl.ClassID = classId;
-            cl.ClassName = className;
-            cl.TotalStudent = total;
-            cl.TeacherID = teacherId;
+            Class cl = db.Classes.Find(_class.ClassID);
+            cl.ClassName = _class.ClassName;
+            cl.TotalStudent = _class.TotalStudent;
+            cl.TeacherID = _class.TeacherID;
 
             db.SaveChanges();
         }

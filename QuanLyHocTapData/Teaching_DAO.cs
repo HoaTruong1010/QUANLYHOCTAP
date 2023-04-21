@@ -40,14 +40,8 @@ namespace QuanLyHocTap_Data
             }).ToList();
         }
 
-        public void AddTeaching(string teacherID,
-            string subjectID, DateTime registerDate)
+        public void AddTeaching(Teaching teaching)
         {
-            Teaching teaching = new Teaching();
-            teaching.TeacherID = teacherID;
-            teaching.SubjectID = subjectID;
-            teaching.RegisterDate = registerDate;
-
             db.Teachings.Add(teaching);
             db.SaveChanges();
         }

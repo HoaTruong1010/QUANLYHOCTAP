@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap
 {
@@ -90,7 +91,16 @@ namespace QuanLyHocTap
             string className = convertString.DeleteSpacing(txtClassName.Text);
             int total = (int) nbuNumStudent.Value;
             string teacherId = cbbTeacher.SelectedValue.ToString();
-            int result = class_Controller.AddClass(classId, className, total, teacherId);
+
+            Class _class = new Class
+            {
+                ClassID = classId,
+                ClassName = className,
+                TotalStudent = total,
+                TeacherID = teacherId
+            };
+
+            int result = class_Controller.AddClass(_class);
 
             if (result == 0)
             {
@@ -106,19 +116,22 @@ namespace QuanLyHocTap
 
         private void btnDeleteClass_Click(object sender, EventArgs e)
         {
-            string classId = txtClassID.Text;
-
-            if (class_Controller.DeleteCLass(classId))
+            if (MessageBox.Show(message_Error.GetMessage(39), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                == DialogResult.Yes)
             {
-                MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ShowClasses();
-                Reset();
-            }
-            else
-            {
-                MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                string classId = txtClassID.Text;
 
+                if (class_Controller.DeleteCLass(classId))
+                {
+                    MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowClasses();
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnSaveClass_Click(object sender, EventArgs e)
@@ -127,7 +140,16 @@ namespace QuanLyHocTap
             string className = convertString.DeleteSpacing(txtClassName.Text);
             int total = (int)nbuNumStudent.Value;
             string teacherId = cbbTeacher.SelectedValue.ToString();
-            int result = class_Controller.EditCLass(classId, className, total, teacherId);
+
+            Class _class = new Class
+            {
+                ClassID = classId,
+                ClassName = className,
+                TotalStudent = total,
+                TeacherID = teacherId
+            };
+
+            int result = class_Controller.EditCLass(_class);
 
             if (result == 0)
             {
@@ -146,34 +168,6 @@ namespace QuanLyHocTap
             Reset();
         }
 
-        private void txtClassName_Click(object sender, EventArgs e)
-        {
-            if (txtClassID.Text == String.Empty || txtClassID.Text.Length < 8)
-            {
-                MessageBox.Show(message_Error.GetMessage(19), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtClassID.Focus();
-            }
-            if (txtClassID.Text.Length > 8)
-            {
-                MessageBox.Show(message_Error.GetMessage(20), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtClassID.Focus();
-            }
-        }
-
-        private void cbbTeacher_Click(object sender, EventArgs e)
-        {
-            if (txtClassName.Text == String.Empty)
-            {
-                MessageBox.Show(message_Error.GetMessage(22), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtClassName.Focus();
-            }
-            if (txtClassName.Text.Length > 20)
-            {
-                MessageBox.Show(message_Error.GetMessage(23), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtClassName.Focus();
-            }
-        }
-
         private void btnSearchClass_Click(object sender, EventArgs e)
         {
             string kw = convertString.DeleteSpacing(txtSearchClass.Text);
@@ -183,6 +177,14 @@ namespace QuanLyHocTap
                 MessageBox.Show(message_Error.GetMessage(10), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ShowClasses();
                 Reset();
+            }
+        }
+
+        private void txtClassName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

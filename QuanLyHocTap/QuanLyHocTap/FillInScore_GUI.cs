@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyHocTap.ultils;
 using QuanLyHocTap_Controller;
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap
 {
@@ -109,7 +110,17 @@ namespace QuanLyHocTap
 
             if (selectedStudentID != String.Empty)
             {
-                int result = score_Controller.EditScore(selectedTeaching, selectedStudentID, registerDate, midtermScore, DateTime.Now, endPointScore, DateTime.Now);
+                Score score = new Score
+                {
+                    TeachingID = selectedTeaching,
+                    StudentID = selectedStudentID,
+                    Registration_Date = registerDate,
+                    MidtermScore = midtermScore,
+                    ModifiedDateOfMidtermScore = DateTime.Now,
+                    EndPointScore = endPointScore,
+                    ModifiedDateOfEndPointScore = DateTime.Now
+                };
+                int result = score_Controller.EditScore(score);
                 if (result == 0)
                 {
                     MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

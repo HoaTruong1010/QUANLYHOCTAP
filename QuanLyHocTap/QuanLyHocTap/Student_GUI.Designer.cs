@@ -147,8 +147,7 @@ namespace QuanLyHocTap
             this.cbbClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbbClass.Name = "cbbClass";
             this.cbbClass.Size = new System.Drawing.Size(367, 28);
-            this.cbbClass.TabIndex = 3;
-            this.cbbClass.Click += new System.EventHandler(this.cbbClass_Click);
+            this.cbbClass.TabIndex = 10;
             // 
             // dtpStudentDOB
             // 
@@ -158,8 +157,7 @@ namespace QuanLyHocTap
             this.dtpStudentDOB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dtpStudentDOB.Name = "dtpStudentDOB";
             this.dtpStudentDOB.Size = new System.Drawing.Size(371, 27);
-            this.dtpStudentDOB.TabIndex = 2;
-            this.dtpStudentDOB.DropDown += new System.EventHandler(this.dtpStudentDOB_DropDown);
+            this.dtpStudentDOB.TabIndex = 5;
             // 
             // txtStudentCCCD
             // 
@@ -168,8 +166,7 @@ namespace QuanLyHocTap
             this.txtStudentCCCD.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentCCCD.Name = "txtStudentCCCD";
             this.txtStudentCCCD.Size = new System.Drawing.Size(371, 27);
-            this.txtStudentCCCD.TabIndex = 1;
-            this.txtStudentCCCD.Click += new System.EventHandler(this.txtStudentCCCD_Click);
+            this.txtStudentCCCD.TabIndex = 6;
             this.txtStudentCCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentID_KeyPress);
             // 
             // txtStudentName
@@ -179,8 +176,8 @@ namespace QuanLyHocTap
             this.txtStudentName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.Size = new System.Drawing.Size(371, 27);
-            this.txtStudentName.TabIndex = 1;
-            this.txtStudentName.Click += new System.EventHandler(this.txtStudentName_Click);
+            this.txtStudentName.TabIndex = 4;
+            this.txtStudentName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentName_KeyPress);
             // 
             // txtStudentAddress
             // 
@@ -189,8 +186,7 @@ namespace QuanLyHocTap
             this.txtStudentAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentAddress.Name = "txtStudentAddress";
             this.txtStudentAddress.Size = new System.Drawing.Size(367, 27);
-            this.txtStudentAddress.TabIndex = 1;
-            this.txtStudentAddress.Click += new System.EventHandler(this.txtStudentAddress_Click);
+            this.txtStudentAddress.TabIndex = 9;
             // 
             // txtStudentPN
             // 
@@ -199,8 +195,7 @@ namespace QuanLyHocTap
             this.txtStudentPN.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentPN.Name = "txtStudentPN";
             this.txtStudentPN.Size = new System.Drawing.Size(367, 27);
-            this.txtStudentPN.TabIndex = 1;
-            this.txtStudentPN.Click += new System.EventHandler(this.txtStudentPN_Click);
+            this.txtStudentPN.TabIndex = 8;
             this.txtStudentPN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentID_KeyPress);
             // 
             // txtStudentEmail
@@ -210,8 +205,7 @@ namespace QuanLyHocTap
             this.txtStudentEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentEmail.Name = "txtStudentEmail";
             this.txtStudentEmail.Size = new System.Drawing.Size(367, 27);
-            this.txtStudentEmail.TabIndex = 1;
-            this.txtStudentEmail.Click += new System.EventHandler(this.txtStudentEmail_Click);
+            this.txtStudentEmail.TabIndex = 7;
             // 
             // lbAddress
             // 
@@ -231,7 +225,7 @@ namespace QuanLyHocTap
             this.txtStudentID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(371, 27);
-            this.txtStudentID.TabIndex = 1;
+            this.txtStudentID.TabIndex = 3;
             this.txtStudentID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentID_KeyPress);
             // 
             // lbClass
@@ -317,7 +311,7 @@ namespace QuanLyHocTap
             this.btnDeleteStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
             this.btnDeleteStudent.Size = new System.Drawing.Size(94, 53);
-            this.btnDeleteStudent.TabIndex = 2;
+            this.btnDeleteStudent.TabIndex = 14;
             this.btnDeleteStudent.Text = "Xóa";
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
             this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
@@ -328,7 +322,7 @@ namespace QuanLyHocTap
             this.btnSaveStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSaveStudent.Name = "btnSaveStudent";
             this.btnSaveStudent.Size = new System.Drawing.Size(94, 53);
-            this.btnSaveStudent.TabIndex = 2;
+            this.btnSaveStudent.TabIndex = 13;
             this.btnSaveStudent.Text = "Lưu";
             this.btnSaveStudent.UseVisualStyleBackColor = true;
             this.btnSaveStudent.Click += new System.EventHandler(this.btnSaveStudent_Click);
@@ -339,7 +333,7 @@ namespace QuanLyHocTap
             this.btnViewScore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnViewScore.Name = "btnViewScore";
             this.btnViewScore.Size = new System.Drawing.Size(134, 53);
-            this.btnViewScore.TabIndex = 2;
+            this.btnViewScore.TabIndex = 11;
             this.btnViewScore.Text = "Danh sách môn học";
             this.btnViewScore.UseVisualStyleBackColor = true;
             this.btnViewScore.Click += new System.EventHandler(this.btnViewScore_Click);
@@ -350,7 +344,7 @@ namespace QuanLyHocTap
             this.btAddStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btAddStudent.Name = "btAddStudent";
             this.btAddStudent.Size = new System.Drawing.Size(94, 53);
-            this.btAddStudent.TabIndex = 2;
+            this.btAddStudent.TabIndex = 12;
             this.btAddStudent.Text = "Thêm";
             this.btAddStudent.UseVisualStyleBackColor = true;
             this.btAddStudent.Click += new System.EventHandler(this.btAddStudent_Click);
@@ -361,12 +355,12 @@ namespace QuanLyHocTap
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(94, 53);
-            this.btnExit.TabIndex = 2;
+            this.btnExit.TabIndex = 15;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // Student
+            // Student_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -381,7 +375,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.gbList);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Student";
+            this.Name = "Student_GUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sinh viên";
             this.Load += new System.EventHandler(this.SinhVien_Load);

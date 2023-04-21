@@ -58,7 +58,7 @@ namespace QuanLyHocTap
             this.btnSaveClass.Location = new System.Drawing.Point(929, 684);
             this.btnSaveClass.Name = "btnSaveClass";
             this.btnSaveClass.Size = new System.Drawing.Size(88, 48);
-            this.btnSaveClass.TabIndex = 11;
+            this.btnSaveClass.TabIndex = 4;
             this.btnSaveClass.Text = "Lưu";
             this.btnSaveClass.UseVisualStyleBackColor = true;
             this.btnSaveClass.Click += new System.EventHandler(this.btnSaveClass_Click);
@@ -69,7 +69,7 @@ namespace QuanLyHocTap
             this.btAddClass.Location = new System.Drawing.Point(661, 684);
             this.btAddClass.Name = "btAddClass";
             this.btAddClass.Size = new System.Drawing.Size(88, 48);
-            this.btAddClass.TabIndex = 13;
+            this.btAddClass.TabIndex = 3;
             this.btAddClass.Text = "Thêm";
             this.btAddClass.UseVisualStyleBackColor = true;
             this.btAddClass.Click += new System.EventHandler(this.btAddClass_Click);
@@ -80,7 +80,7 @@ namespace QuanLyHocTap
             this.btnDeleteClass.Location = new System.Drawing.Point(793, 684);
             this.btnDeleteClass.Name = "btnDeleteClass";
             this.btnDeleteClass.Size = new System.Drawing.Size(88, 48);
-            this.btnDeleteClass.TabIndex = 14;
+            this.btnDeleteClass.TabIndex = 5;
             this.btnDeleteClass.Text = "Xóa";
             this.btnDeleteClass.UseVisualStyleBackColor = true;
             this.btnDeleteClass.Click += new System.EventHandler(this.btnDeleteClass_Click);
@@ -91,8 +91,8 @@ namespace QuanLyHocTap
             this.txtClassName.Location = new System.Drawing.Point(807, 36);
             this.txtClassName.Name = "txtClassName";
             this.txtClassName.Size = new System.Drawing.Size(273, 27);
-            this.txtClassName.TabIndex = 1;
-            this.txtClassName.Click += new System.EventHandler(this.txtClassName_Click);
+            this.txtClassName.TabIndex = 2;
+            this.txtClassName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClassName_KeyPress);
             // 
             // dgvClass
             // 
@@ -115,6 +115,7 @@ namespace QuanLyHocTap
             this.txtClassID.Name = "txtClassID";
             this.txtClassID.Size = new System.Drawing.Size(251, 27);
             this.txtClassID.TabIndex = 1;
+            this.txtClassID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClassName_KeyPress);
             // 
             // lbNumStudent
             // 
@@ -152,7 +153,7 @@ namespace QuanLyHocTap
             this.btnSearchClass.Location = new System.Drawing.Point(715, 20);
             this.btnSearchClass.Name = "btnSearchClass";
             this.btnSearchClass.Size = new System.Drawing.Size(73, 48);
-            this.btnSearchClass.TabIndex = 2;
+            this.btnSearchClass.TabIndex = 8;
             this.btnSearchClass.Text = "Tìm";
             this.btnSearchClass.UseVisualStyleBackColor = true;
             this.btnSearchClass.Click += new System.EventHandler(this.btnSearchClass_Click);
@@ -164,7 +165,7 @@ namespace QuanLyHocTap
             this.txtSearchClass.Location = new System.Drawing.Point(379, 32);
             this.txtSearchClass.Name = "txtSearchClass";
             this.txtSearchClass.Size = new System.Drawing.Size(295, 28);
-            this.txtSearchClass.TabIndex = 1;
+            this.txtSearchClass.TabIndex = 7;
             // 
             // gbItem
             // 
@@ -194,7 +195,6 @@ namespace QuanLyHocTap
             this.cbbTeacher.Name = "cbbTeacher";
             this.cbbTeacher.Size = new System.Drawing.Size(273, 28);
             this.cbbTeacher.TabIndex = 3;
-            this.cbbTeacher.Click += new System.EventHandler(this.cbbTeacher_Click);
             // 
             // nbuNumStudent
             // 
@@ -235,12 +235,12 @@ namespace QuanLyHocTap
             this.btnExit.Location = new System.Drawing.Point(1061, 684);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(107, 48);
-            this.btnExit.TabIndex = 11;
+            this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // Classes
+            // Classes_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -253,7 +253,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Classes";
+            this.Name = "Classes_GUI";
             this.Text = "Lớp";
             this.Load += new System.EventHandler(this.Lop_Load);
             this.Click += new System.EventHandler(this.Classes_Click);

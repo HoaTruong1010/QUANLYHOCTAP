@@ -48,6 +48,17 @@ namespace QuanLyHocTap_Data
             }).ToList();
             return listSubject;
         }
+
+        public dynamic LoadCBBSubjects(string teacherSelectedID)
+        {
+            teacherSelectedID = teacherSelectedID.Substring(2, 2);
+            var listSubject = db.Subjects.Where(s => s.SubjectID.StartsWith(teacherSelectedID)).Select(s => new
+            {
+                s.SubjectID,
+                s.SubjectName
+            }).ToList();
+            return listSubject;
+        }
         public void AddSubject(Subject subject)
         {
             db.Subjects.Add(subject);

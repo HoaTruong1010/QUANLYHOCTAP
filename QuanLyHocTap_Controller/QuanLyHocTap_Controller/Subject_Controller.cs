@@ -41,6 +41,13 @@ namespace QuanLyHocTap_Controller
             comboBox.ValueMember = "SubjectID";
         }
 
+        public void GetCBBSubjects(ComboBox comboBox, string teacherSelectedID)
+        {
+            comboBox.DataSource = subject_Dao.LoadCBBSubjects(teacherSelectedID);
+            comboBox.DisplayMember = "SubjectName";
+            comboBox.ValueMember = "SubjectID";
+        }
+
         public int AddSubject(Subject subject)
         {
             if (subject_Dao.FindSubject(subject.SubjectID))

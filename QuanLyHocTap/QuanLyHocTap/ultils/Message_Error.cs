@@ -13,6 +13,9 @@ namespace QuanLyHocTap.ultils
         public Message_Error()
         {
             data = new Dictionary<int, string>();
+            data.Add(-7, "Thông tin điểm không hợp lệ!");
+            data.Add(-6, "Thông tin sinh viên không hợp lệ!");
+            data.Add(-5, "Thông tin lớp học không hợp lệ!");
             data.Add(-4, "Thông tin môn học không hợp lệ!");
             data.Add(-3, "Thông tin giảng viên không hợp lệ!");
             data.Add(-2, "Cập nhật thất bại!");
@@ -58,9 +61,15 @@ namespace QuanLyHocTap.ultils
             data.Add(34, "Điểm không được bé hơn 0.0!");
 
             data.Add(35, "Không có phổ điểm cho thời gian này!\nVui lòng chọn lại thời gian!");
-            data.Add(36, "Lưu ý: Khi xóa giảng viên này thì các thông tin liên quan đến giảng viên cũng sẽ bị xóa theo!\n\n" +
+
+            data.Add(36, "Lưu ý: Khi xóa giảng viên này thì các thông tin liên quan đến giảng viên này cũng sẽ bị xóa theo!\n\n" +
                 "Bạn có chắc chắn xóa?");
-            data.Add(37, "Lưu ý: Khi xóa môn học này thì các thông tin liên quan đến môn học cũng sẽ bị xóa theo!\n\n" +
+            data.Add(37, "Lưu ý: Khi xóa môn học này thì các thông tin liên quan đến môn học này cũng sẽ bị xóa theo!\n\n" +
+                "Bạn có chắc chắn xóa?");
+            data.Add(38, "Bạn có chắc chắn xóa?");
+            data.Add(39, "Lưu ý: Khi xóa lớp học này thì các thông tin liên quan đến lớp học này cũng sẽ bị xóa theo!\n\n" +
+                "Bạn có chắc chắn xóa?");
+            data.Add(40, "Lưu ý: Khi xóa sinh viên này thì các thông tin liên quan đến sinh viên này cũng sẽ bị xóa theo!\n\n" +
                 "Bạn có chắc chắn xóa?");
         }
 

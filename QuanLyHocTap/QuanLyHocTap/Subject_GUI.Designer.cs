@@ -55,7 +55,7 @@ namespace QuanLyHocTap
             this.btnSaveSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveSubject.Name = "btnSaveSubject";
             this.btnSaveSubject.Size = new System.Drawing.Size(83, 60);
-            this.btnSaveSubject.TabIndex = 5;
+            this.btnSaveSubject.TabIndex = 4;
             this.btnSaveSubject.Text = "Lưu";
             this.btnSaveSubject.UseVisualStyleBackColor = true;
             this.btnSaveSubject.Click += new System.EventHandler(this.btnSaveSubject_Click);
@@ -66,7 +66,7 @@ namespace QuanLyHocTap
             this.btAddSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btAddSubject.Name = "btAddSubject";
             this.btAddSubject.Size = new System.Drawing.Size(83, 60);
-            this.btAddSubject.TabIndex = 7;
+            this.btAddSubject.TabIndex = 3;
             this.btAddSubject.Text = "Thêm";
             this.btAddSubject.UseVisualStyleBackColor = true;
             this.btAddSubject.Click += new System.EventHandler(this.btAddSubject_Click);
@@ -77,7 +77,7 @@ namespace QuanLyHocTap
             this.btnDeleteSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteSubject.Name = "btnDeleteSubject";
             this.btnDeleteSubject.Size = new System.Drawing.Size(83, 60);
-            this.btnDeleteSubject.TabIndex = 8;
+            this.btnDeleteSubject.TabIndex = 5;
             this.btnDeleteSubject.Text = "Xóa";
             this.btnDeleteSubject.UseVisualStyleBackColor = true;
             this.btnDeleteSubject.Click += new System.EventHandler(this.btnDeleteSubject_Click);
@@ -89,7 +89,7 @@ namespace QuanLyHocTap
             this.txtSubjectName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubjectName.Name = "txtSubjectName";
             this.txtSubjectName.Size = new System.Drawing.Size(283, 27);
-            this.txtSubjectName.TabIndex = 1;
+            this.txtSubjectName.TabIndex = 2;
             this.txtSubjectName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubjectID_KeyPress);
             // 
             // dgvSubject
@@ -156,7 +156,7 @@ namespace QuanLyHocTap
             this.btnSearchSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchSubject.Name = "btnSearchSubject";
             this.btnSearchSubject.Size = new System.Drawing.Size(86, 42);
-            this.btnSearchSubject.TabIndex = 2;
+            this.btnSearchSubject.TabIndex = 8;
             this.btnSearchSubject.Text = "Tìm";
             this.btnSearchSubject.UseVisualStyleBackColor = true;
             this.btnSearchSubject.Click += new System.EventHandler(this.btnSearchSubject_Click);
@@ -169,7 +169,7 @@ namespace QuanLyHocTap
             this.txtSearchSubject.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchSubject.Name = "txtSearchSubject";
             this.txtSearchSubject.Size = new System.Drawing.Size(368, 28);
-            this.txtSearchSubject.TabIndex = 1;
+            this.txtSearchSubject.TabIndex = 7;
             // 
             // gbItem
             // 
@@ -227,7 +227,7 @@ namespace QuanLyHocTap
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(83, 60);
-            this.btnExit.TabIndex = 5;
+            this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);

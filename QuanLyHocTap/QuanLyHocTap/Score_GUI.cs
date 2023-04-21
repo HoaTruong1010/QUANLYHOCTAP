@@ -11,7 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap
 {
@@ -119,7 +119,18 @@ namespace QuanLyHocTap
             int id = teaching_Controller.GetTeaching(subjectID, teacherID);
             if (id > 0)
             {
-                result = score_Controller.AddScore(id, selectedStudentId, DateTime.Now, midtermScore, DateTime.Now, endPointScore, DateTime.Now);
+                Score score = new Score
+                {
+                    TeachingID = id,
+                    StudentID = selectedStudentId,
+                    Registration_Date = DateTime.Now,
+                    MidtermScore = midtermScore,    
+                    ModifiedDateOfMidtermScore = DateTime.Now,
+                    EndPointScore = endPointScore,
+                    ModifiedDateOfEndPointScore = DateTime.Now
+                    
+                };
+                result = score_Controller.AddScore(score);
                 if(result == 0)
                 {
                     MessageBox.Show("Thêm thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -135,16 +146,20 @@ namespace QuanLyHocTap
 
         private void btnDeleteScore_Click(object sender, EventArgs e)
         {
-            DateTime registerDate = dtpRegisterDate.Value;
-
-            if (teachingID > 0 && score_Controller.DeleteScore(teachingID, selectedStudentId, registerDate))
+            if (MessageBox.Show(message_Error.GetMessage(38), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                == DialogResult.Yes)
             {
-                MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ShowScores();
-                Reset();
+                DateTime registerDate = dtpRegisterDate.Value;
+
+                if (teachingID > 0 && score_Controller.DeleteScore(teachingID, selectedStudentId, registerDate))
+                {
+                    MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowScores();
+                    Reset();
+                }
+                else
+                    MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void cbbSubject_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,7 +185,7 @@ namespace QuanLyHocTap
             {
                 Console.WriteLine(row.ToString());
             }
-            double midTerm = 0, endPoint = 0;
+            double midTerm, endPoint;
             double rerult = 0;
 
             if(selectedCount <= 1)

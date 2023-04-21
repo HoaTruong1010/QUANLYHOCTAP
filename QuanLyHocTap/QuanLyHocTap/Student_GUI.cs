@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap
 {
@@ -108,7 +109,20 @@ namespace QuanLyHocTap
             string phone = convertString.DeleteSpacing(txtStudentPN.Text);
             string address = convertString.DeleteSpacing(txtStudentAddress.Text);
             string classId = cbbClass.SelectedValue.ToString();
-            int result = student_Controller.AddStudent(studentId, studentName, dateOfBirth, id, email, phone, address, classId);
+
+            Student student = new Student
+            {
+                StudentID = studentId,
+                StudentName = studentName,
+                DayOfBirth = dateOfBirth,
+                ID = id,
+                Email = email,
+                Phone = phone,
+                StudentAddress = address,
+                ClassID = classId
+            };
+
+            int result = student_Controller.AddStudent(student);
 
             if (result == 0)
             {
@@ -132,7 +146,20 @@ namespace QuanLyHocTap
             string phone = convertString.DeleteSpacing(txtStudentPN.Text);
             string address = convertString.DeleteSpacing(txtStudentAddress.Text);
             string classId = cbbClass.SelectedValue.ToString();
-            int result = student_Controller.EditStudent(studentId, studentName, dateOfBirth, id, email, phone, address, classId, classIDOld);
+
+            Student student = new Student
+            {
+                StudentID = studentId,
+                StudentName = studentName,
+                DayOfBirth = dateOfBirth,
+                ID = id,
+                Email = email,
+                Phone = phone,
+                StudentAddress = address,
+                ClassID = classId
+            };
+
+            int result = student_Controller.EditStudent(student, classIDOld);
 
             if (result == 0)
             {
@@ -148,17 +175,21 @@ namespace QuanLyHocTap
 
         private void btnDeleteStudent_Click(object sender, EventArgs e)
         {
-            string studentId = txtStudentID.Text;
+            if (MessageBox.Show(message_Error.GetMessage(40), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                == DialogResult.Yes)
+            {
+                string studentId = txtStudentID.Text;
 
-            if (student_Controller.DeleteStudent(studentId, classIDOld))
-            {
-                MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ShowStudents();
-                Reset();
-            }
-            else
-            {
-                MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (student_Controller.DeleteStudent(studentId, classIDOld))
+                {
+                    MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowStudents();
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -182,87 +213,10 @@ namespace QuanLyHocTap
                 e.Handled = true;
         }
 
-        private void txtStudentName_Click(object sender, EventArgs e)
+        private void txtStudentName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtStudentID.Text == string.Empty || txtStudentID.Text.Length < 10)
-            {
-                MessageBox.Show(message_Error.GetMessage(25), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentID.Focus();
-            }
-            if (txtStudentID.Text.Length > 10)
-            {
-                MessageBox.Show(message_Error.GetMessage(26), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentID.Focus();
-            }
-        }
-
-        private void dtpStudentDOB_DropDown(object sender, EventArgs e)
-        {
-            if (txtStudentName.Text == string.Empty)
-            {
-                MessageBox.Show(message_Error.GetMessage(30), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentName.Focus();
-            }
-            if (txtStudentName.Text.Length > 27)
-            {
-                MessageBox.Show(message_Error.GetMessage(31), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentName.Focus();
-            }
-        }
-
-        private void txtStudentCCCD_Click(object sender, EventArgs e)
-        {
-            TimeSpan timeDifference = DateTime.Now - dtpStudentDOB.Value;
-            double age = timeDifference.TotalDays / 365.2425;
-
-            if(age < 17)
-            {
-                MessageBox.Show(message_Error.GetMessage(28), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dtpStudentDOB.Focus();
-            }
-        }
-
-        private void txtStudentEmail_Click(object sender, EventArgs e)
-        {
-            if (txtStudentCCCD.Text.Length != 9 && txtStudentCCCD.Text.Length != 12)
-            {
-                MessageBox.Show(message_Error.GetMessage(6), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentCCCD.Focus();
-            }
-        }
-
-        private void txtStudentPN_Click(object sender, EventArgs e)
-        {
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
-
-            if (!regex.IsMatch(txtStudentEmail.Text))
-            {
-                MessageBox.Show(message_Error.GetMessage(7), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentEmail.Focus();
-            }
-        }
-
-        private void txtStudentAddress_Click(object sender, EventArgs e)
-        {
-            if (txtStudentPN.Text.Length != 9 && txtStudentPN.Text.Length != 10)
-            {
-                MessageBox.Show(message_Error.GetMessage(11), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentName.Focus();
-            }
-        }
-
-        private void cbbClass_Click(object sender, EventArgs e)
-        {
-            if (txtStudentAddress.Text == string.Empty)
-            {
-                MessageBox.Show(message_Error.GetMessage(8), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentName.Focus();
-            }
-            if (txtStudentAddress.Text.Length > 100)
-            {
-                MessageBox.Show(message_Error.GetMessage(9), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStudentName.Focus();
-            }
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+                e.Handled = true;
         }
 
         private void btnSearchStudent_Click(object sender, EventArgs e)

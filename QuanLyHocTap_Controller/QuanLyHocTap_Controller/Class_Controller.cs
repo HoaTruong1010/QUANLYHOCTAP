@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyHocTap_Data;
-
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap_Controller
 {
@@ -32,57 +32,51 @@ namespace QuanLyHocTap_Controller
             comboBox.ValueMember = "ClassID";
         }
 
-        public int AddClass(string classId, string className,
-            int total, string teacherId)
+        public int AddClass(Class _class)
         {
-            if (classId == String.Empty || classId.Length < 8)
-                return 19;
-            if (classId.Length > 8)
-                return 20;
-            if (class_DAO.FindCLass(classId))
+            if (class_DAO.FindCLass(_class.ClassID))
                 return 21;
-            if (className == String.Empty)
-                return 22;
-            if (className.Length > 20)
-                return 23;
-            if (class_DAO.FindCLassName(className))
+            if (class_DAO.FindCLassName(_class.ClassName))
                 return 24;
 
-            try
-            {
-                class_DAO.AddClass(classId, className, total, teacherId);
-                return 0;
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
-        }
-
-        public int EditCLass(string classId, string className,
-            int total, string teacherId)
-        {
-            if (className == String.Empty)
-                return 22;
-            if (className.Length > 20)
-                return 23;
-            if (class_DAO.FindCLassName(classId, className))
-                return 24;
-
-            if (class_DAO.FindCLass(classId))
+            int isValidClass = CheckData.IsValidClass(_class);
+            if (isValidClass == 0)
             {
                 try
                 {
-                    class_DAO.EditClass(classId, className, total, teacherId);
-                    return 0;
+                    class_DAO.AddClass(_class);
                 }
-                catch (DbUpdateException)
+                catch (Exception)
                 {
-                    return -2;
+                    return -1;
                 }
             }
-            else
-                return -2;
+            return isValidClass;
+        }
+
+        public int EditCLass(Class _class)
+        {
+            if (class_DAO.FindCLassName(_class.ClassID, _class.ClassName))
+                return 24;
+
+            int isValidClass = CheckData.IsValidClass(_class);
+            if (isValidClass == 0)
+            {
+                if (class_DAO.FindCLass(_class.ClassID))
+                {
+                    try
+                    {
+                        class_DAO.EditClass(_class);
+                    }
+                    catch (DbUpdateException)
+                    {
+                        return -2;
+                    }
+                }
+                else
+                    return -2;
+            }
+            return isValidClass;
         }
 
         public bool DeleteCLass(string classId)

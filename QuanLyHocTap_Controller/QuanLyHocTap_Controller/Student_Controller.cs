@@ -1,12 +1,15 @@
 ﻿using QuanLyHocTap_Data;
+using QuanLyHocTap_DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLyHocTap_Controller
 {
@@ -51,86 +54,46 @@ namespace QuanLyHocTap_Controller
             comboBox.ValueMember = "StudentID";
         }
 
-        public int AddStudent(string studentId, string studentName,
-            DateTime dateOfBirth, string cccd, string email, string phone,
-            string address, string classId)
-        {
-            TimeSpan timeDifference = DateTime.Now - dateOfBirth;
-            double age = timeDifference.TotalDays / 365.2425;
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
-
-            if (studentId == null || studentId.Length < 10)
-                return 25;
-            if (studentId.Length > 10)
-                return 26;
-            if (student_DAO.FindStudent(studentId))
+        public int AddStudent(Student student)
+        {            
+            if (student_DAO.FindStudent(student.StudentID))
                 return 27;
-            if (studentName == null)
-                return 30;
-            if (studentName.Length > 27)
-                return 31;
-            if (age < 17)
-                return 28;
-            if (cccd.Length != 9 && cccd.Length != 12)
-                return 6;
-            if (!regex.IsMatch(email))
-                return 7;
-            if (phone.Length != 9 && phone.Length != 10)
-                return 11;
-            if (address == null)
-                return 8;
-            if (address.Length > 100)
-                return 9;
-            try
-            {
-                student_DAO.AddStudent(studentId, studentName, dateOfBirth, cccd, email, phone, address, classId);
-                return 0;
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
-        }
-
-        public int EditStudent(string studentId, string studentName,
-            DateTime dateOfBirth, string cccd, string email, string phone,
-            string address, string classIdNew, string classIdOld)
-        {
-            TimeSpan timeDifference = DateTime.Now - dateOfBirth;
-            double age = timeDifference.TotalDays / 365.2425;
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
-
-            if (studentName == null)
-                return 30;
-            if (studentName.Length > 27)
-                return 31;
-            if (age < 17)
-                return 28;
-            if (cccd.Length != 9 && cccd.Length != 12)
-                return 6;
-            if (!regex.IsMatch(email))
-                return 7;
-            if (address == null)
-                return 8;
-            if (address.Length > 100)
-                return 9;
-            if (phone.Length != 9 && phone.Length != 10)
-                return 11;
-
-            if (student_DAO.FindStudent(studentId))
+            int isValidStudent = CheckData.IsValidStudent(student);
+            if(isValidStudent == 0)
             {
                 try
                 {
-                    student_DAO.EditStudent(studentId, studentName, dateOfBirth, cccd, email, phone, address, classIdNew, classIdOld);
-                    return 0;
+                    student_DAO.AddStudent(student);
                 }
-                catch (DbUpdateException)
+                catch (Exception)
                 {
-                    return -2;
+                    return -1;
                 }
             }
-            else
-                return -2;
+            return isValidStudent;            
+        }
+
+        public int EditStudent(Student student, string classIdOld)
+        {
+            int isValidStudent = CheckData.IsValidStudent(student);
+            if (isValidStudent == 0)
+            {
+                if (student_DAO.FindStudent(student.StudentID))
+                {
+                    try
+                    {
+                        student_DAO.EditStudent(student, classIdOld);
+                        return 0;
+                    }
+                    catch (DbUpdateException)
+                    {
+                        return -2;
+                    }
+                }
+                else
+                    return -2;
+            }
+            return isValidStudent;            
         }
 
         public bool DeleteStudent(string studentId, string classID)
