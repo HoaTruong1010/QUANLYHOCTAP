@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocTap", "..\QuanLyHo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocTap_Data", "..\QuanLyHocTapData\QuanLyHocTap_Data.csproj", "{1F483533-87F8-40B1-9836-E4128AC67AB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocTap_DTO", "QuanLyHocTap_DTO\QuanLyHocTap_DTO.csproj", "{DD2231DD-B328-4D93-BB46-1C3BBDAB3AB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1F483533-87F8-40B1-9836-E4128AC67AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F483533-87F8-40B1-9836-E4128AC67AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F483533-87F8-40B1-9836-E4128AC67AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD2231DD-B328-4D93-BB46-1C3BBDAB3AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2231DD-B328-4D93-BB46-1C3BBDAB3AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2231DD-B328-4D93-BB46-1C3BBDAB3AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2231DD-B328-4D93-BB46-1C3BBDAB3AB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

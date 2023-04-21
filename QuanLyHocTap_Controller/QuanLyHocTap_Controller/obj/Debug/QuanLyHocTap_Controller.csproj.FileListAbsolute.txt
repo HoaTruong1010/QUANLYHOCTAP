@@ -14,3 +14,6 @@ D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_Controller\bin\
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_Controller\bin\Debug\QuanLyHocTapData.pdb
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_Controller\bin\Debug\QuanLyHocTapData.exe.config
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_Controller\obj\Debug\QuanLyHocTap_Controller.csproj.SuggestedBindingRedirects.cache
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_Controller\bin\Debug\QuanLyHocTap_DTO.exe
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_Controller\bin\Debug\QuanLyHocTap_DTO.pdb
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_Controller\bin\Debug\QuanLyHocTap_DTO.exe.config

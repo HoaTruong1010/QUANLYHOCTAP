@@ -28,3 +28,8 @@ D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Sub
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Student.resources
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Login.resources
 D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.FillInScore.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.Statictis.resources
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap_DTO.exe
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap_DTO.pdb
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\bin\Debug\QuanLyHocTap_DTO.exe.config
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap\QuanLyHocTap\obj\Debug\QuanLyHocTap.RequireInputDate.resources

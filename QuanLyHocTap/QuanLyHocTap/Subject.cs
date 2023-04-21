@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyHocTap_Controller.BUS;
+using QuanLyHocTap_Controller;
 using QuanLyHocTap.ultils;
 
 namespace QuanLyHocTap
@@ -15,7 +15,7 @@ namespace QuanLyHocTap
     public partial class Subject : Form
     {
         private Subject_Controller subject_Controller;
-        private Message_Error message_Error;
+        Message_Error message_Error;
         private ConvertString convertString;
 
         public Subject()

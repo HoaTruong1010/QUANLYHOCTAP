@@ -185,5 +185,13 @@
       <End Role="Teachers" EntitySet="Teachers" />
       <End Role="Teaching" EntitySet="Teachings" />
     </AssociationSet>
+    <FunctionImport Name="FN_SCORE_STATISTICS_OVERTIME" IsComposable="true" ReturnType="Collection(QuanLyHocTapModel.FN_SCORE_STATISTICS_OVERTIME_Result)">
+      <Parameter Name="START" Mode="In" Type="DateTime" />
+      <Parameter Name="FINISH" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="FN_SCORE_STATISTICS_OVERTIME_Result">
+    <Property Type="Int32" Name="SOLUONG" Nullable="true" />
+    <Property Type="Decimal" Name="DIEM" Nullable="true" Precision="7" Scale="3" />
+  </ComplexType>
 </Schema>

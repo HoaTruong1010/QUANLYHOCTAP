@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyHocTap.ultils;
-using QuanLyHocTap_Controller.BUS;
+using QuanLyHocTap_Controller;
 
 namespace QuanLyHocTap
 {
@@ -80,7 +80,7 @@ namespace QuanLyHocTap
                 nbuMidScore.Value = Decimal.Parse(dgvScore.Rows[e.RowIndex].Cells["MidtermScore"].Value.ToString());
                 nbuEndPoint.Value = Decimal.Parse(dgvScore.Rows[e.RowIndex].Cells["EndPointScore"].Value.ToString());
 
-                if ((DateTime.Now - registerDate).Days > 100)
+                if ((DateTime.Now - registerDate).Days > 175)
                 {
                     btnSaveScore.Enabled = false;
                     nbuEndPoint.Enabled = nbuMidScore.Enabled = false;

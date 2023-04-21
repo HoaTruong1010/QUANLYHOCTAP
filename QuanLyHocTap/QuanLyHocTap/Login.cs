@@ -26,7 +26,7 @@ namespace QuanLyHocTap
 
         private bool CheckLogin(string username, string password)
         {
-            string un = convertString.DeleteSpacing(username);
+            string un = convertString.DeleteSpacingID(username);
             string pw = password;
 
             if(_username == un && _password == pw)
@@ -43,8 +43,8 @@ namespace QuanLyHocTap
                 {
                     Main main = new Main();
                     main.Authenticated = true;
-                    main.Show();
                     this.Hide();
+                    main.Show();
                 }
                 else
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -58,8 +58,8 @@ namespace QuanLyHocTap
             {
                 Main main = new Main();
                 main.Authenticated = true;
-                main.Show();
                 this.Hide();
+                main.Show();
             }
             else
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

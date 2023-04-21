@@ -1,0 +1,13 @@
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\bin\Debug\QuanLyHocTap_DTO.exe.config
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\bin\Debug\QuanLyHocTap_DTO.exe
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\bin\Debug\QuanLyHocTap_DTO.pdb
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\obj\Debug\QuanLyHocTap_DTO.csproj.AssemblyReference.cache
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\obj\Debug\QuanLyHocTap_DTO.csproj.SuggestedBindingRedirects.cache
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\obj\Debug\QuanLyHocTap_DTO.csproj.CoreCompileInputs.cache
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\obj\Debug\QuanLyHocTap_DTO.exe
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\obj\Debug\QuanLyHocTap_DTO.pdb
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\bin\Debug\EntityFramework.dll
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\bin\Debug\EntityFramework.SqlServer.dll
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\bin\Debug\EntityFramework.xml
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\bin\Debug\EntityFramework.SqlServer.xml
+D:\LTCSDL\QLHT\QUANLYHOCTAP\QuanLyHocTap_Controller\QuanLyHocTap_DTO\obj\Debug\QuanLyHocTap_DTO.csproj.CopyComplete

@@ -54,12 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUS\Class_Controller.cs" />
-    <Compile Include="BUS\Score_Controller.cs" />
-    <Compile Include="BUS\Student_Controller.cs" />
-    <Compile Include="BUS\Subject_Controller.cs" />
-    <Compile Include="BUS\Teacher_Controller.cs" />
-    <Compile Include="BUS\Teaching_Controller.cs" />
+    <Compile Include="Class_Controller.cs" />
+    <Compile Include="Score_Controller.cs" />
+    <Compile Include="Student_Controller.cs" />
+    <Compile Include="Subject_Controller.cs" />
+    <Compile Include="Teacher_Controller.cs" />
+    <Compile Include="Teaching_Controller.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +71,10 @@
     <ProjectReference Include="..\..\QuanLyHocTapData\QuanLyHocTap_Data.csproj">
       <Project>{1f483533-87f8-40b1-9836-e4128ac67ab9}</Project>
       <Name>QuanLyHocTap_Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuanLyHocTap_DTO\QuanLyHocTap_DTO.csproj">
+      <Project>{dd2231dd-b328-4d93-bb46-1c3bbdab3ab6}</Project>
+      <Name>QuanLyHocTap_DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

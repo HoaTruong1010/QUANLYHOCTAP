@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyHocTap_Controller.BUS;
+using QuanLyHocTap_Controller;
 using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Net;
@@ -19,14 +19,14 @@ namespace QuanLyHocTap
     public partial class Teacher : Form
     {
         Teacher_Controller teacher_controller;
-        Message_Error message;
+        Message_Error message_Error;
         ConvertString convertString;
 
         public Teacher()
         {
             InitializeComponent();
             teacher_controller = new Teacher_Controller();
-            message = new Message_Error();
+            message_Error = new Message_Error();
             convertString = new ConvertString();
         }
 
@@ -121,7 +121,7 @@ namespace QuanLyHocTap
             }
             else
             {
-                MessageBox.Show(message.GetMessage(msgKey), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(msgKey), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
         }
 
@@ -145,7 +145,7 @@ namespace QuanLyHocTap
             }
             else
             {
-                MessageBox.Show(message.GetMessage(msgKey), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(msgKey), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -174,12 +174,12 @@ namespace QuanLyHocTap
         {
             if(txtTeacherID.Text.Length == 0 || txtTeacherID.Text.Length < 8)
             {
-                MessageBox.Show(message.GetMessage(1), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(1), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherID.Focus();
             }
             if(txtTeacherID.Text.Length > 8)
             {
-                MessageBox.Show(message.GetMessage(2), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(2), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherID.Focus();
             }
         }
@@ -188,12 +188,12 @@ namespace QuanLyHocTap
         {
             if (txtTeacherName.Text.Length == 0)
             {
-                MessageBox.Show(message.GetMessage(3), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(3), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherName.Focus();
             }
             if (txtTeacherName.Text.Length > 27)
             {
-                MessageBox.Show(message.GetMessage(4), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(4), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherName.Focus();
             }
         }
@@ -205,7 +205,7 @@ namespace QuanLyHocTap
 
             if (age < 18)
             {
-                MessageBox.Show(message.GetMessage(5), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(5), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dtpTeacherDOB.Focus();
             }
         }
@@ -214,7 +214,7 @@ namespace QuanLyHocTap
         {
             if (txtTeacherCCCD.Text.Length != 9 && txtTeacherCCCD.Text.Length != 12)
             {
-                MessageBox.Show(message.GetMessage(6), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(6), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherCCCD.Focus();
             }
         }
@@ -225,7 +225,7 @@ namespace QuanLyHocTap
 
             if (!regex.IsMatch(txtTeacherEmail.Text))
             {
-                MessageBox.Show(message.GetMessage(7), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(7), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherEmail.Focus();
             }
         }
@@ -234,7 +234,7 @@ namespace QuanLyHocTap
         {
             if(txtTeacherPN.Text.Length != 9 && txtTeacherPN.Text.Length != 10)
             {
-                MessageBox.Show(message.GetMessage(11), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(11), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherPN.Focus();
             }
         }
@@ -243,12 +243,12 @@ namespace QuanLyHocTap
         {
             if(txtTeacherAddress.Text.Length == 0)
             {
-                MessageBox.Show(message.GetMessage(8), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(8), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherAddress.Focus();
             }
             if (txtTeacherAddress.Text.Length > 100)
             {
-                MessageBox.Show(message.GetMessage(9), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(9), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTeacherAddress.Focus();
             }
         }
@@ -266,7 +266,7 @@ namespace QuanLyHocTap
 
             if (result != 0)
             {
-                MessageBox.Show(message.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ShowTeachers();
                 Reset();
             }

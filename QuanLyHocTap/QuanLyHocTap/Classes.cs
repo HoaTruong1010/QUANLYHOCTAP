@@ -1,4 +1,4 @@
-﻿using QuanLyHocTap_Controller.BUS;
+﻿using QuanLyHocTap_Controller;
 using QuanLyHocTap.ultils;
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,8 @@ namespace QuanLyHocTap
     public partial class Classes : Form
     {
         Class_Controller class_Controller; 
-        Teacher_Controller teacher_Controller;
         Message_Error message_Error;
+        Teacher_Controller teacher_Controller;
         ConvertString convertString;
 
         public Classes()
@@ -26,8 +26,8 @@ namespace QuanLyHocTap
             InitializeComponent();
             class_Controller = new Class_Controller();
             teacher_Controller = new Teacher_Controller();
-            message_Error = new Message_Error();
             convertString = new ConvertString();
+            message_Error = new Message_Error();
         }
 
         private void Reset()

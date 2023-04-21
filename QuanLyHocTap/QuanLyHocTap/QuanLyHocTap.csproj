@@ -46,6 +46,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +69,18 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequireInputDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequireInputDate.Designer.cs">
+      <DependentUpon>RequireInputDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statictis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statictis.Designer.cs">
+      <DependentUpon>Statictis.cs</DependentUpon>
     </Compile>
     <Compile Include="Teaching.cs">
       <SubType>Form</SubType>
@@ -121,6 +134,12 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RequireInputDate.resx">
+      <DependentUpon>RequireInputDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statictis.resx">
+      <DependentUpon>Statictis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Teaching.resx">
       <DependentUpon>Teaching.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +188,10 @@
     <ProjectReference Include="..\..\QuanLyHocTap_Controller\QuanLyHocTap_Controller\QuanLyHocTap_Controller.csproj">
       <Project>{a0407f3f-5fc0-4333-9cb0-847dccc74f54}</Project>
       <Name>QuanLyHocTap_Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuanLyHocTap_Controller\QuanLyHocTap_DTO\QuanLyHocTap_DTO.csproj">
+      <Project>{dd2231dd-b328-4d93-bb46-1c3bbdab3ab6}</Project>
+      <Name>QuanLyHocTap_DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

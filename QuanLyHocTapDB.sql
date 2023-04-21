@@ -309,3 +309,16 @@ INSERT [dbo].[Scores] ([TeachingID], [StudentID], [Registration_Date], [MidtermS
 INSERT [dbo].[Scores] ([TeachingID], [StudentID], [Registration_Date], [MidtermScore], [ModifiedDateOfMidtermScore], [EndPointScore], [ModifiedDateOfEndPointScore]) VALUES (20, N'0000000007', CAST(N'2022-12-25T00:00:00.000' AS date), CAST(6.00 AS Decimal(3, 2)), CAST(N'2023-03-08T00:00:00.000' AS date), CAST(7.00 AS Decimal(3, 2)), CAST(N'2023-03-08T00:00:00.000' AS date))
 INSERT [dbo].[Scores] ([TeachingID], [StudentID], [Registration_Date], [MidtermScore], [ModifiedDateOfMidtermScore], [EndPointScore], [ModifiedDateOfEndPointScore]) VALUES (17, N'0000000004', CAST(N'2022-12-25T00:00:00.000' AS date), CAST(6.50 AS Decimal(3, 2)), CAST(N'2023-03-08T00:00:00.000' AS date), CAST(9.00 AS Decimal(3, 2)), CAST(N'2023-03-08T00:00:00.000' AS date))
 GO
+
+use QuanLyHoctap
+go
+
+CREATE FUNCTION [dbo].[FN_SCORE_STATISTICS_OVERTIME] (
+@START DATETIME,
+@FINISH DATETIME
+)
+RETURNS TABLE AS RETURN
+SELECT COUNT(MidtermScore*0.4 + EndPointScore*0.6) AS SOLUONG, (MidtermScore*0.4 + EndPointScore*0.6) AS DIEM
+FROM Scores
+WHERE Registration_Date >= @START and Registration_Date <= @FINISH and Registration_Date != ModifiedDateOfMidtermScore
+GROUP BY MidtermScore*0.4 + EndPointScore*0.6

@@ -54,6 +54,8 @@ namespace QuanLyHocTap.ultils
 
             data.Add(33, "Điểm không được lớn hơn 10.0!");
             data.Add(34, "Điểm không được bé hơn 0.0!");
+
+            data.Add(35, "Không có phổ điểm cho thời gian này!\nVui lòng chọn lại thời gian!");
         }
 
         public string GetMessage(int key)

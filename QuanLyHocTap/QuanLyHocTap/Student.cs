@@ -1,4 +1,4 @@
-﻿using QuanLyHocTap_Controller.BUS;
+﻿using QuanLyHocTap_Controller;
 using QuanLyHocTap.ultils;
 using System;
 using System.Collections.Generic;
@@ -19,8 +19,8 @@ namespace QuanLyHocTap
     {
         Student_Controller student_Controller;
         Class_Controller class_Controller;
-        Message_Error message_Error;
         ConvertString convertString;
+        Message_Error message_Error;
 
         private string classIDOld;
 
@@ -29,8 +29,8 @@ namespace QuanLyHocTap
             InitializeComponent();
             student_Controller = new Student_Controller();
             class_Controller = new Class_Controller();
-            message_Error = new Message_Error();
             convertString = new ConvertString();
+            message_Error = new Message_Error();
         }
 
         private void ShowStudents()

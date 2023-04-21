@@ -88,5 +88,11 @@ namespace QuanLyHocTap
         {
             Application.Exit();
         }
+
+        private void viewStatictis_Click(object sender, EventArgs e)
+        {
+            Statictis frmStatictis = new Statictis();  
+            frmStatictis.Show();
+        }
     }
 }

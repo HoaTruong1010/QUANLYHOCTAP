@@ -1,4 +1,4 @@
-﻿using QuanLyHocTap_Controller.BUS;
+﻿using QuanLyHocTap_Controller;
 using QuanLyHocTap.ultils;
 using System;
 using System.Collections.Generic;

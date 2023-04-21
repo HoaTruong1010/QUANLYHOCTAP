@@ -36,6 +36,7 @@
             this.qlsvTSMItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitTMSItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbTitle = new System.Windows.Forms.Label();
+            this.viewStatictis = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,8 @@
             this.qlgvTSMItem,
             this.qlmhTSMItem,
             this.qllTSMItem,
-            this.qlsvTSMItem});
+            this.qlsvTSMItem,
+            this.viewStatictis});
             this.menuTool.Name = "menuTool";
             this.menuTool.Size = new System.Drawing.Size(60, 24);
             this.menuTool.Text = "Menu";
@@ -65,28 +67,28 @@
             // qlgvTSMItem
             // 
             this.qlgvTSMItem.Name = "qlgvTSMItem";
-            this.qlgvTSMItem.Size = new System.Drawing.Size(215, 26);
+            this.qlgvTSMItem.Size = new System.Drawing.Size(224, 26);
             this.qlgvTSMItem.Text = "Quản lý giảng viên";
             this.qlgvTSMItem.Click += new System.EventHandler(this.qlgvTSMItem_Click);
             // 
             // qlmhTSMItem
             // 
             this.qlmhTSMItem.Name = "qlmhTSMItem";
-            this.qlmhTSMItem.Size = new System.Drawing.Size(215, 26);
+            this.qlmhTSMItem.Size = new System.Drawing.Size(224, 26);
             this.qlmhTSMItem.Text = "Quản lý môn học";
             this.qlmhTSMItem.Click += new System.EventHandler(this.qlmhTSMItem_Click);
             // 
             // qllTSMItem
             // 
             this.qllTSMItem.Name = "qllTSMItem";
-            this.qllTSMItem.Size = new System.Drawing.Size(215, 26);
+            this.qllTSMItem.Size = new System.Drawing.Size(224, 26);
             this.qllTSMItem.Text = "Quản lý lớp";
             this.qllTSMItem.Click += new System.EventHandler(this.qllTSMItem_Click);
             // 
             // qlsvTSMItem
             // 
             this.qlsvTSMItem.Name = "qlsvTSMItem";
-            this.qlsvTSMItem.Size = new System.Drawing.Size(215, 26);
+            this.qlsvTSMItem.Size = new System.Drawing.Size(224, 26);
             this.qlsvTSMItem.Text = "Quản lý sinh viên";
             this.qlsvTSMItem.Click += new System.EventHandler(this.qlsvTSMItem_Click);
             // 
@@ -107,6 +109,13 @@
             this.lbTitle.TabIndex = 3;
             this.lbTitle.Text = "WELCOME";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // viewStatictis
+            // 
+            this.viewStatictis.Name = "viewStatictis";
+            this.viewStatictis.Size = new System.Drawing.Size(224, 26);
+            this.viewStatictis.Text = "Xem phổ điểm";
+            this.viewStatictis.Click += new System.EventHandler(this.viewStatictis_Click);
             // 
             // Main
             // 
@@ -140,5 +149,6 @@
         private System.Windows.Forms.ToolStripMenuItem qlsvTSMItem;
         private System.Windows.Forms.ToolStripMenuItem exitTMSItem;
         private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.ToolStripMenuItem viewStatictis;
     }
 }

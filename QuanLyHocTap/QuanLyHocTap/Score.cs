@@ -1,4 +1,4 @@
-﻿using QuanLyHocTap_Controller.BUS;
+﻿using QuanLyHocTap_Controller;
 using QuanLyHocTap.ultils;
 using System;
 using System.Collections.Generic;
@@ -22,8 +22,8 @@ namespace QuanLyHocTap
         Subject_Controller subject_Controller;
         Teaching_Controller teaching_Controller;
         Student_Controller student_Controller;
-        Message_Error message_Error;
         ConvertString convertString;
+        Message_Error message_Error;
 
         private string selectedStudentId;
         private int teachingID = 0;
@@ -145,29 +145,6 @@ namespace QuanLyHocTap
             }
             else
                 MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void btnSaveScore_Click(object sender, EventArgs e)
-        {
-            DateTime registerDate = dtpRegisterDate.Value;
-            Decimal midtermScore = nbuMidScore.Value;
-            Decimal endPointScore = nbuEndPoint.Value;
-
-
-            if (teachingID > 0)
-            {
-                int result = score_Controller.EditScore(teachingID, selectedStudentId, registerDate, midtermScore, DateTime.Now, endPointScore, DateTime.Now);
-                if (result == 0)
-                {
-                    MessageBox.Show("Cập nhật thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ShowScores();
-                    Reset();
-                }
-                else
-                    MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-                MessageBox.Show("Sửa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void cbbSubject_SelectedIndexChanged(object sender, EventArgs e)
