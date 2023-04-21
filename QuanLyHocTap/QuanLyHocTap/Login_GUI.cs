@@ -14,7 +14,7 @@ namespace QuanLyHocTap
     public partial class Login_GUI : Form
     {
         string _username = "admin";
-        string _password = "Admin@123";
+        string _password = "1";
         bool _authenticated = false;
         ConvertString convertString;
 

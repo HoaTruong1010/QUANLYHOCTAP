@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyHocTap_Controller;
 using QuanLyHocTap.ultils;
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap
 {
@@ -74,8 +75,17 @@ namespace QuanLyHocTap
             string subjectId = convertString.DeleteSpacingID(txtSubjectID.Text);
             string subjectName = convertString.DeleteSpacing(txtSubjectName.Text);
             double credits = Double.Parse(cbbCredits.SelectedItem.ToString());
-            int result = subject_Controller.AddSubject(subjectId, subjectName, credits);
 
+            Subject subject = new Subject
+            {
+                SubjectID = subjectId,
+                SubjectName = subjectName,
+                Credits = credits
+            };
+
+            int result = subject_Controller.AddSubject(subject);
+
+            
             if (result == 0)
             {
                 MessageBox.Show("Thêm thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -88,28 +98,18 @@ namespace QuanLyHocTap
             }
         }
 
-        private void btnDeleteSubject_Click(object sender, EventArgs e)
-        {
-            string subjectId = txtSubjectID.Text;
-
-            if (subject_Controller.DeleteSubject(subjectId))
-            {
-                MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ShowSubjects();
-                Reset();
-            }
-            else
-            {
-                MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnSaveSubject_Click(object sender, EventArgs e)
         {
             string subjectId = convertString.DeleteSpacingID(txtSubjectID.Text);
             string subjectName = convertString.DeleteSpacing(txtSubjectName.Text);
             double credits = Double.Parse(cbbCredits.SelectedItem.ToString());
-            int result = subject_Controller.EditSubject(subjectId, subjectName, credits);
+
+            Subject subject = new Subject();
+            subject.SubjectID = subjectId;
+            subject.SubjectName = subjectName;
+            subject.Credits = credits;
+
+            int result = subject_Controller.EditSubject(subject);
 
             if (result == 0)
             {
@@ -120,6 +120,26 @@ namespace QuanLyHocTap
             else
             {
                 MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeleteSubject_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show(message_Error.GetMessage(37), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                == DialogResult.Yes)
+            {
+                string subjectId = txtSubjectID.Text;
+
+                if (subject_Controller.DeleteSubject(subjectId))
+                {
+                    MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowSubjects();
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -138,6 +158,14 @@ namespace QuanLyHocTap
                 MessageBox.Show(message_Error.GetMessage(result), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ShowSubjects();
                 Reset();
+            }
+        }
+
+        private void txtSubjectID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

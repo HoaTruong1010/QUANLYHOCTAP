@@ -13,6 +13,7 @@ namespace QuanLyHocTap.ultils
         public Message_Error()
         {
             data = new Dictionary<int, string>();
+            data.Add(-4, "Thông tin môn học không hợp lệ!");
             data.Add(-3, "Thông tin giảng viên không hợp lệ!");
             data.Add(-2, "Cập nhật thất bại!");
             data.Add(-1, "Thêm thất bại!");
@@ -58,6 +59,8 @@ namespace QuanLyHocTap.ultils
 
             data.Add(35, "Không có phổ điểm cho thời gian này!\nVui lòng chọn lại thời gian!");
             data.Add(36, "Lưu ý: Khi xóa giảng viên này thì các thông tin liên quan đến giảng viên cũng sẽ bị xóa theo!\n\n" +
+                "Bạn có chắc chắn xóa?");
+            data.Add(37, "Lưu ý: Khi xóa môn học này thì các thông tin liên quan đến môn học cũng sẽ bị xóa theo!\n\n" +
                 "Bạn có chắc chắn xóa?");
         }
 

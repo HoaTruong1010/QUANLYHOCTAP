@@ -90,6 +90,7 @@ namespace QuanLyHocTap
             this.txtSubjectName.Name = "txtSubjectName";
             this.txtSubjectName.Size = new System.Drawing.Size(283, 27);
             this.txtSubjectName.TabIndex = 1;
+            this.txtSubjectName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubjectID_KeyPress);
             // 
             // dgvSubject
             // 
@@ -114,6 +115,7 @@ namespace QuanLyHocTap
             this.txtSubjectID.Name = "txtSubjectID";
             this.txtSubjectID.Size = new System.Drawing.Size(283, 27);
             this.txtSubjectID.TabIndex = 1;
+            this.txtSubjectID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubjectID_KeyPress);
             // 
             // lbCre
             // 
@@ -230,7 +232,7 @@ namespace QuanLyHocTap
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // Subject
+            // Subject_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,7 +246,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.gbList);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Subject";
+            this.Name = "Subject_GUI";
             this.Text = "Môn học";
             this.Load += new System.EventHandler(this.MonHoc_Load);
             this.Click += new System.EventHandler(this.Subject_Click);

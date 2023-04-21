@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using QuanLyHocTap_Data;
+using QuanLyHocTap_DTO;
 
 namespace QuanLyHocTap_Controller
 {
@@ -39,59 +41,51 @@ namespace QuanLyHocTap_Controller
             comboBox.ValueMember = "SubjectID";
         }
 
-        public int AddSubject(string subjectId, string subjectName, double credits)
+        public int AddSubject(Subject subject)
         {
-            if (subjectId == null || subjectId.Length < 6)
-                return 13;
-            if (subjectId.Length > 6)
-                return 14;
-            if (subject_Dao.FindSubject(subjectId))
+            if (subject_Dao.FindSubject(subject.SubjectID))
                 return 15;
-            if (subjectName == string.Empty)
-                return 16;
-            if (subjectName.Length > 25)
-                return 17;
-            if(subject_Dao.FindSubjectName(subjectName))
+            if(subject_Dao.FindSubjectName(subject.SubjectName))
                 return 18;
 
-            try
-            {
-                subject_Dao.AddSubject(subjectId, subjectName, credits);
-                return 0;
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
-        }
-
-        public int EditSubject(string subjectId, string subjectName, double credits)
-        {
-            if (subjectId == null || subjectId.Length < 6)
-                return 13;
-            if (subjectId.Length > 6)
-                return 14;
-            if (subjectName == string.Empty)
-                return 16;
-            if (subjectName.Length > 25)
-                return 17;
-            if (subject_Dao.FindSubjectName(subjectId, subjectName))
-                return 18;
-
-            if (subject_Dao.FindSubject(subjectId))
+            int isValidSubject = CheckData.IsValidSubject(subject);
+            if(isValidSubject == 0)
             {
                 try
                 {
-                    subject_Dao.EditSubject(subjectId, subjectName, credits);
-                    return 0;
+                    subject_Dao.AddSubject(subject);
                 }
-                catch (DbUpdateException)
+                catch (Exception)
                 {
-                    return -2;
+                    return -1;
                 }
             }
-            else
-                return -2;
+            return isValidSubject;
+        }
+
+        public int EditSubject(Subject subject)
+        {            
+            if (subject_Dao.FindSubjectName(subject.SubjectID, subject.SubjectName))
+                return 18;
+
+            int isValidSubject = CheckData.IsValidSubject(subject);
+            if (isValidSubject == 0)
+            {
+                if (subject_Dao.FindSubject(subject.SubjectID))
+                {
+                    try
+                    {
+                        subject_Dao.EditSubject(subject);
+                    }
+                    catch (DbUpdateException)
+                    {
+                        return -2;
+                    }
+                }
+                else
+                    return -2;
+            }
+            return isValidSubject;
         }
 
         public bool DeleteSubject(string subjectId)

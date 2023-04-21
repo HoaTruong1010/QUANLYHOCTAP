@@ -48,13 +48,8 @@ namespace QuanLyHocTap_Data
             }).ToList();
             return listSubject;
         }
-        public void AddSubject(string subjectId, string subjectName, double credits)
+        public void AddSubject(Subject subject)
         {
-            Subject subject = new Subject();
-            subject.SubjectID = subjectId;
-            subject.SubjectName = subjectName;
-            subject.Credits = credits;
-
             db.Subjects.Add(subject);
             db.SaveChanges();
         }
@@ -91,12 +86,12 @@ namespace QuanLyHocTap_Data
                 return false;
         }
 
-        public void EditSubject(string subjectId, string subjectName, double credits)
+        public void EditSubject(Subject subject)
         {
-            Subject subject = db.Subjects.Find(subjectId);
-            subject.SubjectID = subjectId;
-            subject.SubjectName = subjectName;
-            subject.Credits = credits;
+            Subject selectedSubject = db.Subjects.Find(subject.SubjectID);
+            selectedSubject.SubjectID = subject.SubjectID;
+            selectedSubject.SubjectName = subject.SubjectName;
+            selectedSubject.Credits = subject.Credits;
 
             db.SaveChanges();
         }

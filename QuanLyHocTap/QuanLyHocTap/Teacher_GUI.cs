@@ -126,16 +126,18 @@ namespace QuanLyHocTap
             string address = convertString.DeleteSpacing(txtTeacherAddress.Text);
             string certificate = cbbCertificate.SelectedItem.ToString();
 
-            Teacher teacher = new Teacher();
-            teacher.TeacherID = teacherId;
-            teacher.TeacherName = teacherName;
-            teacher.DayOfBirth = dateOfBirth;
-            teacher.ID = id;
-            teacher.Email = email;
-            teacher.Phone = phone;
-            teacher.TeacherAddress = address;
-            teacher.TeacherCertificate = certificate;
-            
+            Teacher teacher = new Teacher
+            {
+                TeacherID = teacherId,
+                TeacherName = teacherName,
+                DayOfBirth = dateOfBirth,
+                ID = id,
+                Email = email,
+                Phone = phone,
+                TeacherAddress = address,
+                TeacherCertificate = certificate
+            };
+
             int msgKey = teacher_controller.AddTeacher(teacher);
 
             if (msgKey == 0) 

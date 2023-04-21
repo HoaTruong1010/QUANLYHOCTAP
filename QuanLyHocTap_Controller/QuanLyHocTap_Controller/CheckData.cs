@@ -1,4 +1,5 @@
-﻿using QuanLyHocTap_DTO;
+﻿using QuanLyHocTap_Data;
+using QuanLyHocTap_DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,23 @@ namespace QuanLyHocTap_Controller
                 return 0;
             }
             return -3;
+        }
+
+        public static int IsValidSubject(Subject subject)
+        {
+            if (subject != null)
+            {
+                if (subject.SubjectID == null || subject.SubjectID.Length < 6)
+                    return 13;
+                if (subject.SubjectID.Length > 6)
+                    return 14;
+                if (subject.SubjectName == string.Empty)
+                    return 16;
+                if (subject.SubjectName.Length > 25)
+                    return 17;
+                return 0;
+            }
+            return -4;
         }
     }
 }
