@@ -128,7 +128,7 @@ namespace QuanLyHocTap
             // btnSearchScore
             // 
             this.btnSearchScore.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchScore.Location = new System.Drawing.Point(666, 24);
+            this.btnSearchScore.Location = new System.Drawing.Point(667, 21);
             this.btnSearchScore.Name = "btnSearchScore";
             this.btnSearchScore.Size = new System.Drawing.Size(73, 48);
             this.btnSearchScore.TabIndex = 2;
@@ -139,7 +139,7 @@ namespace QuanLyHocTap
             // txtSeachScore
             // 
             this.txtSeachScore.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeachScore.Location = new System.Drawing.Point(309, 35);
+            this.txtSeachScore.Location = new System.Drawing.Point(310, 32);
             this.txtSeachScore.Name = "txtSeachScore";
             this.txtSeachScore.Size = new System.Drawing.Size(316, 28);
             this.txtSeachScore.TabIndex = 1;
@@ -427,7 +427,7 @@ namespace QuanLyHocTap
             this.gbList.TabStop = false;
             this.gbList.Text = "Danh sách";
             // 
-            // Score
+            // Score_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -438,7 +438,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.btnDeleteScore);
             this.Controls.Add(this.btnCalcScholarship);
             this.Controls.Add(this.btAddScore);
-            this.Name = "Score";
+            this.Name = "Score_GUI";
             this.Text = "Kết quả học tập";
             this.Load += new System.EventHandler(this.KetQuaHocTap_Load);
             this.Click += new System.EventHandler(this.Score_Click);

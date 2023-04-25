@@ -135,6 +135,7 @@ namespace QuanLyHocTap
             this.dgvTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeacher.GridColor = System.Drawing.Color.White;
             this.dgvTeacher.Location = new System.Drawing.Point(13, 78);
+            this.dgvTeacher.MultiSelect = false;
             this.dgvTeacher.Name = "dgvTeacher";
             this.dgvTeacher.RowHeadersWidth = 51;
             this.dgvTeacher.RowTemplate.Height = 24;
@@ -343,6 +344,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.btnDeleteTeacher);
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Teacher_GUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Giảng viên";

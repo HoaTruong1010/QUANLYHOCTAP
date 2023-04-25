@@ -34,8 +34,21 @@ namespace QuanLyHocTap_Controller
         public int AddScore(Score score)
         {
             int isValidScore = CheckData.IsValidScore(score);
-            if(isValidScore == 0)
+            List<Score> selectedScore = score_DAO.FindScore(score.TeachingID, score.StudentID, score.Registration_Date);
+            if( selectedScore.Count > 0)
             {
+                DateTime oldRegisterDate = DateTime.Now;
+
+                foreach (Score item in selectedScore)
+                    oldRegisterDate = item.Registration_Date;
+
+                TimeSpan timeDifference = DateTime.Now - oldRegisterDate;
+                double weeks = timeDifference.TotalDays / 7;
+                if (weeks < 12)
+                    return 32;
+            }
+            if (isValidScore == 0)
+            {             
                 try
                 {
                     score_DAO.AddScore(score);

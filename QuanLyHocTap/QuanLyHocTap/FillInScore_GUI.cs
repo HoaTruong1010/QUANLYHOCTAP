@@ -39,7 +39,6 @@ namespace QuanLyHocTap
             dtpInputDate1.Value = dtpInputDate2.Value = DateTime.Now;
             btnSaveScore.Enabled = false;
             gbStudent.Visible = false;
-            txtSeachScore.Text = string.Empty;
         }
 
         private void ShowScores()

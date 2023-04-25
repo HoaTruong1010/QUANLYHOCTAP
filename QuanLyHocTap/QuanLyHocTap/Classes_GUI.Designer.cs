@@ -100,6 +100,7 @@ namespace QuanLyHocTap
             this.dgvClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClass.GridColor = System.Drawing.Color.Teal;
             this.dgvClass.Location = new System.Drawing.Point(13, 78);
+            this.dgvClass.MultiSelect = false;
             this.dgvClass.Name = "dgvClass";
             this.dgvClass.RowHeadersWidth = 51;
             this.dgvClass.RowTemplate.Height = 24;
@@ -253,6 +254,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Classes_GUI";
             this.Text = "Lớp";
             this.Load += new System.EventHandler(this.Lop_Load);

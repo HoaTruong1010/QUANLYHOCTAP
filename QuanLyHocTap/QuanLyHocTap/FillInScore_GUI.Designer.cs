@@ -39,24 +39,22 @@
             this.lbSubjectId = new System.Windows.Forms.Label();
             this.lbTeacherName = new System.Windows.Forms.Label();
             this.gbList = new System.Windows.Forms.GroupBox();
-            this.btnSearchScore = new System.Windows.Forms.Button();
-            this.txtSeachScore = new System.Windows.Forms.TextBox();
             this.dgvScore = new System.Windows.Forms.DataGridView();
             this.lbInputDate1 = new System.Windows.Forms.Label();
             this.lbMidScore = new System.Windows.Forms.Label();
             this.lbStudentName = new System.Windows.Forms.Label();
             this.gbItem = new System.Windows.Forms.GroupBox();
-            this.gbSubject = new System.Windows.Forms.GroupBox();
-            this.gbStudent = new System.Windows.Forms.GroupBox();
-            this.lbStudentId = new System.Windows.Forms.Label();
-            this.btnSaveScore = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lbSubjectIdText = new System.Windows.Forms.Label();
-            this.lbTeacherIdText = new System.Windows.Forms.Label();
-            this.lbSubjectNameText = new System.Windows.Forms.Label();
+            this.btnSaveScore = new System.Windows.Forms.Button();
+            this.gbSubject = new System.Windows.Forms.GroupBox();
             this.lbTeacherNameText = new System.Windows.Forms.Label();
+            this.lbSubjectNameText = new System.Windows.Forms.Label();
+            this.lbTeacherIdText = new System.Windows.Forms.Label();
+            this.lbSubjectIdText = new System.Windows.Forms.Label();
+            this.gbStudent = new System.Windows.Forms.GroupBox();
             this.lbStudentNameText = new System.Windows.Forms.Label();
             this.lbStudentIDText = new System.Windows.Forms.Label();
+            this.lbStudentId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nbuEndPoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbuMidScore)).BeginInit();
             this.gbList.SuspendLayout();
@@ -166,8 +164,6 @@
             // 
             // gbList
             // 
-            this.gbList.Controls.Add(this.btnSearchScore);
-            this.gbList.Controls.Add(this.txtSeachScore);
             this.gbList.Controls.Add(this.dgvScore);
             this.gbList.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbList.ForeColor = System.Drawing.Color.Maroon;
@@ -178,33 +174,16 @@
             this.gbList.TabStop = false;
             this.gbList.Text = "Danh sách";
             // 
-            // btnSearchScore
-            // 
-            this.btnSearchScore.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchScore.Location = new System.Drawing.Point(666, 24);
-            this.btnSearchScore.Name = "btnSearchScore";
-            this.btnSearchScore.Size = new System.Drawing.Size(73, 48);
-            this.btnSearchScore.TabIndex = 2;
-            this.btnSearchScore.Text = "Tìm";
-            this.btnSearchScore.UseVisualStyleBackColor = true;
-            // 
-            // txtSeachScore
-            // 
-            this.txtSeachScore.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeachScore.Location = new System.Drawing.Point(309, 35);
-            this.txtSeachScore.Name = "txtSeachScore";
-            this.txtSeachScore.Size = new System.Drawing.Size(316, 28);
-            this.txtSeachScore.TabIndex = 1;
-            // 
             // dgvScore
             // 
             this.dgvScore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvScore.Location = new System.Drawing.Point(13, 78);
+            this.dgvScore.Location = new System.Drawing.Point(13, 26);
+            this.dgvScore.MultiSelect = false;
             this.dgvScore.Name = "dgvScore";
             this.dgvScore.RowHeadersWidth = 51;
             this.dgvScore.RowTemplate.Height = 24;
             this.dgvScore.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvScore.Size = new System.Drawing.Size(1255, 679);
+            this.dgvScore.Size = new System.Drawing.Size(1255, 731);
             this.dgvScore.TabIndex = 0;
             this.dgvScore.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvScore_CellClick);
             // 
@@ -261,6 +240,28 @@
             this.gbItem.TabStop = false;
             this.gbItem.Text = "Thông tin chi tiết";
             // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(164, 257);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(88, 54);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnSaveScore
+            // 
+            this.btnSaveScore.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveScore.Location = new System.Drawing.Point(323, 257);
+            this.btnSaveScore.Name = "btnSaveScore";
+            this.btnSaveScore.Size = new System.Drawing.Size(88, 54);
+            this.btnSaveScore.TabIndex = 13;
+            this.btnSaveScore.Text = "Lưu";
+            this.btnSaveScore.UseVisualStyleBackColor = true;
+            this.btnSaveScore.Click += new System.EventHandler(this.btnSaveScore_Click);
+            // 
             // gbSubject
             // 
             this.gbSubject.Controls.Add(this.lbTeacherNameText);
@@ -279,6 +280,46 @@
             this.gbSubject.TabStop = false;
             this.gbSubject.Text = "Thông tin môn học";
             // 
+            // lbTeacherNameText
+            // 
+            this.lbTeacherNameText.AutoSize = true;
+            this.lbTeacherNameText.Font = new System.Drawing.Font("Courier New", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTeacherNameText.ForeColor = System.Drawing.Color.Blue;
+            this.lbTeacherNameText.Location = new System.Drawing.Point(226, 190);
+            this.lbTeacherNameText.Name = "lbTeacherNameText";
+            this.lbTeacherNameText.Size = new System.Drawing.Size(0, 20);
+            this.lbTeacherNameText.TabIndex = 7;
+            // 
+            // lbSubjectNameText
+            // 
+            this.lbSubjectNameText.AutoSize = true;
+            this.lbSubjectNameText.Font = new System.Drawing.Font("Courier New", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubjectNameText.ForeColor = System.Drawing.Color.Blue;
+            this.lbSubjectNameText.Location = new System.Drawing.Point(229, 91);
+            this.lbSubjectNameText.Name = "lbSubjectNameText";
+            this.lbSubjectNameText.Size = new System.Drawing.Size(0, 20);
+            this.lbSubjectNameText.TabIndex = 7;
+            // 
+            // lbTeacherIdText
+            // 
+            this.lbTeacherIdText.AutoSize = true;
+            this.lbTeacherIdText.Font = new System.Drawing.Font("Courier New", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTeacherIdText.ForeColor = System.Drawing.Color.Blue;
+            this.lbTeacherIdText.Location = new System.Drawing.Point(226, 142);
+            this.lbTeacherIdText.Name = "lbTeacherIdText";
+            this.lbTeacherIdText.Size = new System.Drawing.Size(0, 20);
+            this.lbTeacherIdText.TabIndex = 7;
+            // 
+            // lbSubjectIdText
+            // 
+            this.lbSubjectIdText.AutoSize = true;
+            this.lbSubjectIdText.Font = new System.Drawing.Font("Courier New", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubjectIdText.ForeColor = System.Drawing.Color.Blue;
+            this.lbSubjectIdText.Location = new System.Drawing.Point(229, 43);
+            this.lbSubjectIdText.Name = "lbSubjectIdText";
+            this.lbSubjectIdText.Size = new System.Drawing.Size(0, 20);
+            this.lbSubjectIdText.TabIndex = 7;
+            // 
             // gbStudent
             // 
             this.gbStudent.Controls.Add(this.lbStudentNameText);
@@ -292,78 +333,6 @@
             this.gbStudent.TabIndex = 8;
             this.gbStudent.TabStop = false;
             this.gbStudent.Text = "Thông tin sinh viên";
-            // 
-            // lbStudentId
-            // 
-            this.lbStudentId.AutoSize = true;
-            this.lbStudentId.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStudentId.Location = new System.Drawing.Point(32, 35);
-            this.lbStudentId.Name = "lbStudentId";
-            this.lbStudentId.Size = new System.Drawing.Size(69, 20);
-            this.lbStudentId.TabIndex = 0;
-            this.lbStudentId.Text = "Mã số:";
-            // 
-            // btnSaveScore
-            // 
-            this.btnSaveScore.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveScore.Location = new System.Drawing.Point(323, 257);
-            this.btnSaveScore.Name = "btnSaveScore";
-            this.btnSaveScore.Size = new System.Drawing.Size(88, 54);
-            this.btnSaveScore.TabIndex = 13;
-            this.btnSaveScore.Text = "Lưu";
-            this.btnSaveScore.UseVisualStyleBackColor = true;
-            this.btnSaveScore.Click += new System.EventHandler(this.btnSaveScore_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(164, 257);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(88, 54);
-            this.btnExit.TabIndex = 12;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lbSubjectIdText
-            // 
-            this.lbSubjectIdText.AutoSize = true;
-            this.lbSubjectIdText.Font = new System.Drawing.Font("Courier New", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSubjectIdText.ForeColor = System.Drawing.Color.Blue;
-            this.lbSubjectIdText.Location = new System.Drawing.Point(229, 43);
-            this.lbSubjectIdText.Name = "lbSubjectIdText";
-            this.lbSubjectIdText.Size = new System.Drawing.Size(0, 20);
-            this.lbSubjectIdText.TabIndex = 7;
-            // 
-            // lbTeacherIdText
-            // 
-            this.lbTeacherIdText.AutoSize = true;
-            this.lbTeacherIdText.Font = new System.Drawing.Font("Courier New", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTeacherIdText.ForeColor = System.Drawing.Color.Blue;
-            this.lbTeacherIdText.Location = new System.Drawing.Point(226, 142);
-            this.lbTeacherIdText.Name = "lbTeacherIdText";
-            this.lbTeacherIdText.Size = new System.Drawing.Size(0, 20);
-            this.lbTeacherIdText.TabIndex = 7;
-            // 
-            // lbSubjectNameText
-            // 
-            this.lbSubjectNameText.AutoSize = true;
-            this.lbSubjectNameText.Font = new System.Drawing.Font("Courier New", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSubjectNameText.ForeColor = System.Drawing.Color.Blue;
-            this.lbSubjectNameText.Location = new System.Drawing.Point(229, 91);
-            this.lbSubjectNameText.Name = "lbSubjectNameText";
-            this.lbSubjectNameText.Size = new System.Drawing.Size(0, 20);
-            this.lbSubjectNameText.TabIndex = 7;
-            // 
-            // lbTeacherNameText
-            // 
-            this.lbTeacherNameText.AutoSize = true;
-            this.lbTeacherNameText.Font = new System.Drawing.Font("Courier New", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTeacherNameText.ForeColor = System.Drawing.Color.Blue;
-            this.lbTeacherNameText.Location = new System.Drawing.Point(226, 190);
-            this.lbTeacherNameText.Name = "lbTeacherNameText";
-            this.lbTeacherNameText.Size = new System.Drawing.Size(0, 20);
-            this.lbTeacherNameText.TabIndex = 7;
             // 
             // lbStudentNameText
             // 
@@ -385,21 +354,31 @@
             this.lbStudentIDText.Size = new System.Drawing.Size(0, 20);
             this.lbStudentIDText.TabIndex = 9;
             // 
-            // FillInScore
+            // lbStudentId
+            // 
+            this.lbStudentId.AutoSize = true;
+            this.lbStudentId.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStudentId.Location = new System.Drawing.Point(32, 35);
+            this.lbStudentId.Name = "lbStudentId";
+            this.lbStudentId.Size = new System.Drawing.Size(69, 20);
+            this.lbStudentId.TabIndex = 0;
+            this.lbStudentId.Text = "Mã số:";
+            // 
+            // FillInScore_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 789);
+            this.ClientSize = new System.Drawing.Size(1920, 789);
             this.Controls.Add(this.gbList);
             this.Controls.Add(this.gbItem);
-            this.Name = "FillInScore";
-            this.Text = "FillInScore";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Name = "FillInScore_GUI";
+            this.Text = "Nhập điểm";
             this.Load += new System.EventHandler(this.FillInScore_Load);
             this.Click += new System.EventHandler(this.FillInScore_Click);
             ((System.ComponentModel.ISupportInitialize)(this.nbuEndPoint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbuMidScore)).EndInit();
             this.gbList.ResumeLayout(false);
-            this.gbList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvScore)).EndInit();
             this.gbItem.ResumeLayout(false);
             this.gbItem.PerformLayout();
@@ -423,8 +402,6 @@
         private System.Windows.Forms.Label lbSubjectId;
         private System.Windows.Forms.Label lbTeacherName;
         private System.Windows.Forms.GroupBox gbList;
-        private System.Windows.Forms.Button btnSearchScore;
-        private System.Windows.Forms.TextBox txtSeachScore;
         private System.Windows.Forms.DataGridView dgvScore;
         private System.Windows.Forms.Label lbInputDate1;
         private System.Windows.Forms.Label lbMidScore;

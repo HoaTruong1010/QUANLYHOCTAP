@@ -46,9 +46,9 @@ namespace QuanLyHocTap
             this.txtSearchTeaching = new System.Windows.Forms.TextBox();
             this.gbList = new System.Windows.Forms.GroupBox();
             this.dgvTeaching = new System.Windows.Forms.DataGridView();
+            this.btnScore = new System.Windows.Forms.Button();
             this.btAddTeaching = new System.Windows.Forms.Button();
             this.btnDeleteTeaching = new System.Windows.Forms.Button();
-            this.btnScore = new System.Windows.Forms.Button();
             this.gbItem.SuspendLayout();
             this.gbTeacherInfo.SuspendLayout();
             this.gbList.SuspendLayout();
@@ -233,6 +233,7 @@ namespace QuanLyHocTap
             this.dgvTeaching.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeaching.GridColor = System.Drawing.Color.Teal;
             this.dgvTeaching.Location = new System.Drawing.Point(13, 39);
+            this.dgvTeaching.MultiSelect = false;
             this.dgvTeaching.Name = "dgvTeaching";
             this.dgvTeaching.RowHeadersWidth = 51;
             this.dgvTeaching.RowTemplate.Height = 24;
@@ -240,6 +241,19 @@ namespace QuanLyHocTap
             this.dgvTeaching.Size = new System.Drawing.Size(703, 502);
             this.dgvTeaching.TabIndex = 0;
             this.dgvTeaching.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeaching_CellClick);
+            // 
+            // btnScore
+            // 
+            this.btnScore.Enabled = false;
+            this.btnScore.Font = new System.Drawing.Font("Courier New", 10.2F);
+            this.btnScore.ForeColor = System.Drawing.Color.Maroon;
+            this.btnScore.Location = new System.Drawing.Point(542, 568);
+            this.btnScore.Name = "btnScore";
+            this.btnScore.Size = new System.Drawing.Size(136, 48);
+            this.btnScore.TabIndex = 20;
+            this.btnScore.Text = "Nhập điểm";
+            this.btnScore.UseVisualStyleBackColor = true;
+            this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
             // 
             // btAddTeaching
             // 
@@ -265,20 +279,7 @@ namespace QuanLyHocTap
             this.btnDeleteTeaching.UseVisualStyleBackColor = true;
             this.btnDeleteTeaching.Click += new System.EventHandler(this.btnDeleteTeaching_Click);
             // 
-            // btnScore
-            // 
-            this.btnScore.Enabled = false;
-            this.btnScore.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnScore.ForeColor = System.Drawing.Color.Maroon;
-            this.btnScore.Location = new System.Drawing.Point(542, 568);
-            this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(136, 48);
-            this.btnScore.TabIndex = 20;
-            this.btnScore.Text = "Nhập điểm";
-            this.btnScore.UseVisualStyleBackColor = true;
-            this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
-            // 
-            // Teaching
+            // Teaching_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -292,7 +293,8 @@ namespace QuanLyHocTap
             this.Controls.Add(this.btAddTeaching);
             this.Controls.Add(this.btnDeleteTeaching);
             this.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Teaching";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Name = "Teaching_GUI";
             this.Text = "Giảng dạy";
             this.Load += new System.EventHandler(this.GiangDay_Load);
             this.Click += new System.EventHandler(this.Teaching_Click);

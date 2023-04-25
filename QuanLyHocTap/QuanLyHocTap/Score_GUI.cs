@@ -186,7 +186,7 @@ namespace QuanLyHocTap
                 Console.WriteLine(row.ToString());
             }
             double midTerm, endPoint;
-            double rerult = 0;
+            double result = 0;
 
             if(selectedCount <= 1)
             {
@@ -198,26 +198,26 @@ namespace QuanLyHocTap
                 {
                     midTerm = double.Parse(dgvScore.SelectedRows[i].Cells["MidtermScore"].Value.ToString());
                     endPoint = double.Parse(dgvScore.SelectedRows[i].Cells["EndPointScore"].Value.ToString());
-                    rerult += midTerm * 0.4 + endPoint * 0.6;
+                    result += midTerm * 0.4 + endPoint * 0.6;
                 }
-                rerult /= selectedCount;
+                result /= selectedCount;
 
-                if (rerult < 4)
-                    MessageBox.Show("Xếp loại học bổng: Kém!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (rerult < 5)
-                    MessageBox.Show("Xếp loại học bổng: Yếu!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (rerult < 5.5)
-                    MessageBox.Show("Xếp loại học bổng: Trung bình yếu!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (rerult < 6.5)
-                    MessageBox.Show("Xếp loại học bổng: Trung bình!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (rerult < 7)
-                    MessageBox.Show("Xếp loại học bổng: Trung bình khá!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (rerult < 8)
-                    MessageBox.Show("Xếp loại học bổng: Khá!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (rerult < 8.5)
-                    MessageBox.Show("Xếp loại học bổng: Khá giỏi!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result < 4)
+                    MessageBox.Show("Điểm trung bình: " + Math.Round(result, 2) +"\nXếp loại học bổng: Kém!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (result < 5)
+                    MessageBox.Show("Điểm trung bình: " + Math.Round(result, 2) + "\nXếp loại học bổng: Yếu!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (result < 5.5)
+                    MessageBox.Show("Điểm trung bình: " + Math.Round(result, 2) + "\nXếp loại học bổng: Trung bình yếu!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (result < 6.5)
+                    MessageBox.Show("Điểm trung bình: " + Math.Round(result, 2) + "\nXếp loại học bổng: Trung bình!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (result < 7)
+                    MessageBox.Show("Điểm trung bình: " + Math.Round(result, 2) + "\nXếp loại học bổng: Trung bình khá!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (result < 8)
+                    MessageBox.Show("Điểm trung bình: " + Math.Round(result, 2) + "\nXếp loại học bổng: Khá!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (result < 8.5)
+                    MessageBox.Show("Điểm trung bình: " + Math.Round(result, 2) + "\nXếp loại học bổng: Khá giỏi!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Xếp loại học bổng: Giỏi!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Điểm trung bình: " + Math.Round(result, 2) + "\nXếp loại học bổng: Giỏi!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
 
         }

@@ -99,6 +99,7 @@ namespace QuanLyHocTap
             this.dgvSubject.GridColor = System.Drawing.Color.Teal;
             this.dgvSubject.Location = new System.Drawing.Point(16, 98);
             this.dgvSubject.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvSubject.MultiSelect = false;
             this.dgvSubject.Name = "dgvSubject";
             this.dgvSubject.RowHeadersWidth = 51;
             this.dgvSubject.RowTemplate.Height = 24;
@@ -245,6 +246,7 @@ namespace QuanLyHocTap
             this.Controls.Add(this.gbItem);
             this.Controls.Add(this.gbList);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Subject_GUI";
             this.Text = "Môn học";
