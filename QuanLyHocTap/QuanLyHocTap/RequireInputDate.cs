@@ -32,7 +32,7 @@ namespace QuanLyHocTap
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            List<ScoreStatictis> list = score_Controller.setChartData(dtpFrom.Value, dtpTo.Value);
+            List<ScoreStatictis> list = score_Controller.SetChartData(dtpFrom.Value, dtpTo.Value);
             if(list.Count > 0 )
             {
                 Statictis frmStatictis = new Statictis();

@@ -54,6 +54,7 @@ namespace QuanLyHocTap
             txtStudentID.Text = txtStudentName.Text = txtStudentCCCD.Text = txtStudentEmail.Text = string.Empty;
             txtSeachStudent.Text = txtStudentPN.Text = txtStudentAddress.Text = string.Empty;
             txtStudentID.Enabled = btAddStudent.Enabled = true;
+            dtpStudentDOB.Value = DateTime.Now;
             btnViewScore.Enabled = btnDeleteStudent.Enabled = btnSaveStudent.Enabled = false;
             cbbClass.SelectedIndex = 0;
         }

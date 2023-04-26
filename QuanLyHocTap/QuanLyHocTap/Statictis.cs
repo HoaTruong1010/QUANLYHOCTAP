@@ -37,7 +37,7 @@ namespace QuanLyHocTap
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            List<ScoreStatictis> list = score_Controller.setChartData(dtpStart.Value, dtpFinish.Value);
+            List<ScoreStatictis> list = score_Controller.SetChartData(dtpStart.Value, dtpFinish.Value);
             if(list.Count > 0)
             {
                 //int sum = 0;

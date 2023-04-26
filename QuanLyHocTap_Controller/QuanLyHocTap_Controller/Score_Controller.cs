@@ -108,7 +108,7 @@ namespace QuanLyHocTap_Controller
             return 10;
         }
 
-        public List<ScoreStatictis> setChartData(DateTime start, DateTime finish)
+        public List<ScoreStatictis> SetChartData(DateTime start, DateTime finish)
         {
             return score_DAO.Statictis(start, finish);
         }
